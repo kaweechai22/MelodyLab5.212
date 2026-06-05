@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhySound</title>
+  <meta name="description" content="PhySound แอปนวัตกรรมการสอนฟิสิกส์เรื่องเสียงด้วยกิจกรรม 5E" />
+  <meta name="theme-color" content="#0f172a" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <style>
+    :root{
+      --bg:#07111f;
+      --panel:#0f172a;
+      --panel2:#111c34;
+      --card:#111827;
+      --text:#e5f0ff;
+      --muted:#9fb3c8;
+      --line:rgba(148,163,184,.22);
+      --cyan:#22d3ee;
+      --blue:#3b82f6;
+      --purple:#a855f7;
+      --green:#34d399;
+      --yellow:#fbbf24;
+      --red:#fb7185;
+      --white:#ffffff;
+      --shadow:0 24px 80px rgba(0,0,0,.35);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: "Sarabun", "Noto Sans Thai", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(34,211,238,.28), transparent 30%),
+        radial-gradient(circle at 85% 5%, rgba(168,85,247,.25), transparent 32%),
+        linear-gradient(135deg,#06111f 0%,#0b1530 45%,#12082f 100%);
+      min-height:100vh;
+    }
+    a{color:inherit}
+    .wrap{width:min(1180px, calc(100% - 32px)); margin:0 auto}
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter: blur(18px);
+      background:rgba(7,17,31,.74);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.2px}
+    .brand img{width:44px;height:44px;border-radius:14px;box-shadow:0 8px 28px rgba(34,211,238,.22)}
+    .brand span{font-size:1.35rem}
+    .navlinks{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+    .navlinks a{
+      text-decoration:none;
+      padding:9px 12px;border:1px solid transparent;border-radius:999px;
+      color:#c7d6e8;font-size:.95rem;
+    }
+    .navlinks a:hover{border-color:var(--line);background:rgba(255,255,255,.05)}
+    .hero{padding:48px 0 28px}
+    .heroGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
+    .badge{
+      display:inline-flex;align-items:center;gap:8px;
+      border:1px solid rgba(34,211,238,.34);
+      background:rgba(34,211,238,.08);
+      color:#bdf6ff;border-radius:999px;padding:9px 13px;font-weight:700
+    }
+    h1{font-size:clamp(2.25rem, 5vw, 5rem);line-height:1.02;margin:18px 0 14px}
+    .grad{background:linear-gradient(90deg,var(--cyan),#93c5fd,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{font-size:1.15rem;color:#c9d7e8;line-height:1.75;margin:0 0 22px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+    button,.btn{
+      border:none;cursor:pointer;font:inherit;font-weight:800;
+      border-radius:16px;padding:13px 18px;color:white;
+      background:linear-gradient(135deg,var(--blue),var(--purple));
+      box-shadow:0 14px 34px rgba(59,130,246,.25);
+      text-decoration:none;display:inline-flex;align-items:center;gap:9px;
+    }
+    button.secondary,.btn.secondary{background:rgba(255,255,255,.07);border:1px solid var(--line);box-shadow:none;color:#dbeafe}
+    button.warn{background:linear-gradient(135deg,#f97316,#ef4444)}
+    button.good{background:linear-gradient(135deg,#10b981,#22c55e)}
+    button:disabled{opacity:.55;cursor:not-allowed}
+    .heroCard{
+      border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));
+      border-radius:32px;padding:24px;box-shadow:var(--shadow);position:relative;overflow:hidden
+    }
+    .heroCard:before{
+      content:"";position:absolute;inset:-80px -40px auto auto;width:240px;height:240px;border-radius:50%;
+      background:rgba(34,211,238,.18);filter:blur(10px)
+    }
+    .iconBig{width:160px;height:160px;border-radius:38px;display:block;margin:8px auto 18px;box-shadow:0 24px 60px rgba(0,0,0,.42)}
+    .metricGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .miniMetric{border:1px solid var(--line);border-radius:18px;padding:14px;background:rgba(15,23,42,.65)}
+    .miniMetric b{font-size:1.5rem;display:block}
+    .miniMetric span{color:var(--muted);font-size:.9rem}
+    section{padding:26px 0}
+    .sectionHead{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:16px}
+    h2{font-size:clamp(1.45rem,2.8vw,2.3rem);margin:0}
+    .sub{color:var(--muted);margin:6px 0 0;line-height:1.7}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{
+      grid-column:span 6;
+      border:1px solid var(--line);background:rgba(15,23,42,.76);
+      border-radius:var(--radius);padding:20px;box-shadow:0 18px 52px rgba(0,0,0,.22)
+    }
+    .card.full{grid-column:1 / -1}
+    .card.third{grid-column:span 4}
+    .card h3{margin:0 0 10px;font-size:1.25rem}
+    .card p{color:#c7d6e8;line-height:1.7}
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+    .tab{background:rgba(255,255,255,.06);border:1px solid var(--line);box-shadow:none;padding:10px 14px;border-radius:999px;color:#dbeafe}
+    .tab.active{background:linear-gradient(135deg,var(--blue),var(--purple));border-color:transparent}
+    .tabPanel{display:none}
+    .tabPanel.active{display:block}
+    canvas{
+      width:100%;height:210px;background:#020617;border:1px solid rgba(148,163,184,.18);
+      border-radius:18px;display:block
+    }
+    .readouts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+    .readout{padding:14px;border-radius:18px;background:rgba(2,6,23,.55);border:1px solid var(--line)}
+    .readout label{font-size:.86rem;color:var(--muted);display:block}
+    .readout strong{font-size:1.35rem}
+    input,textarea,select{
+      width:100%;border:1px solid var(--line);border-radius:14px;padding:12px 13px;
+      background:rgba(2,6,23,.5);color:#e5f0ff;font:inherit;outline:none
+    }
+    textarea{min-height:100px;resize:vertical}
+    .formGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .field label{display:block;margin:0 0 6px;color:#b8c7dc;font-weight:700}
+    table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:18px}
+    th,td{padding:12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    th{color:#cffafe;background:rgba(34,211,238,.08)}
+    td{color:#d6e4f7}
+    .tableWrap{overflow:auto;border:1px solid var(--line);border-radius:18px}
+    .pill{display:inline-flex;border-radius:999px;padding:6px 10px;background:rgba(34,211,238,.1);color:#cffafe;font-weight:800}
+    .note{border-left:4px solid var(--cyan);padding:12px 14px;border-radius:14px;background:rgba(34,211,238,.08);color:#d8f7ff;line-height:1.7}
+    .step5e{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .step{border:1px solid var(--line);border-radius:20px;padding:16px;background:rgba(255,255,255,.045)}
+    .step b{display:block;color:#a7f3d0;font-size:1.08rem;margin-bottom:6px}
+    .footer{padding:36px 0 48px;color:#9fb3c8;text-align:center}
+    .small{font-size:.9rem;color:var(--muted)}
+    @media (max-width:880px){
+      .heroGrid{grid-template-columns:1fr}
+      .card,.card.third{grid-column:1/-1}
+      .readouts,.formGrid,.metricGrid,.step5e{grid-template-columns:1fr}
+      .nav{align-items:flex-start;flex-direction:column}
+      .navlinks{justify-content:flex-start}
+      canvas{height:180px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <img src="icon-192.png" alt="PhySound icon">
+        <span>PhySound</span>
+      </div>
+      <nav class="navlinks">
+        <a href="#lab">ห้องทดลอง</a>
+        <a href="#beats">บีตส์</a>
+        <a href="#calc">คำนวณ</a>
+        <a href="#activity">ใบกิจกรรม</a>
+        <a href="#teacher">คู่มือครู</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="heroGrid">
+        <div>
+          <div class="badge">🔊 Physics Sound Learning App • 5E</div>
+          <h1><span class="grad">PhySound</span><br>ห้องทดลองเสียงในมือถือ</h1>
+          <p class="lead">
+            แอปเว็บ/PWA สำหรับนวัตกรรมการสอนฟิสิกส์เรื่องเสียง ให้นักเรียนวัดเสียงจริง วิเคราะห์คลื่น ความถี่ ระดับเสียง ทดลองบีตส์ และบันทึกผลเป็นข้อมูลประกอบการเรียนรู้แบบสืบเสาะ 5E
+          </p>
+          <div class="actions">
+            <a class="btn" href="#lab">เริ่มวิเคราะห์เสียง</a>
+            <a class="btn secondary" href="#activity">เปิดใบกิจกรรม</a>
+          </div>
+        </div>
+        <div class="heroCard">
+          <img class="iconBig" src="icon-512.png" alt="PhySound app icon">
+          <div class="metricGrid">
+            <div class="miniMetric"><b id="heroHz">-- Hz</b><span>ความถี่หลัก</span></div>
+            <div class="miniMetric"><b id="heroDb">-- dB</b><span>ระดับเสียงประมาณ</span></div>
+            <div class="miniMetric"><b id="heroAmp">--</b><span>แอมพลิจูด RMS</span></div>
+            <div class="miniMetric"><b id="heroPeriod">-- ms</b><span>คาบโดยประมาณ</span></div>
+          </div>
+          <p class="small">หมายเหตุ: ค่า dB เป็นค่าประมาณเชิงการเรียนรู้ ขึ้นกับไมโครโฟนและอุปกรณ์</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="lab">
+      <div class="sectionHead">
+        <div>
+          <h2>ห้องทดลองวิเคราะห์เสียง</h2>
+          <p class="sub">ใช้ไมโครโฟนเพื่อดูรูปคลื่น ความถี่ สเปกตรัม และบันทึกผลการทดลอง</p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card full">
+          <div class="actions">
+            <button id="startBtn">🎙️ เปิดไมโครโฟน</button>
+            <button id="stopBtn" class="secondary" disabled>หยุด</button>
+            <button id="captureBtn" class="good" disabled>บันทึกค่าปัจจุบัน</button>
+            <button id="downloadBtn" class="secondary">ดาวน์โหลด CSV</button>
+            <button id="clearBtn" class="warn">ล้างตาราง</button>
+          </div>
+          <p class="note" id="micStatus">ยังไม่ได้เปิดไมโครโฟน — ควรใช้งานผ่าน HTTPS หรือ localhost เช่น GitHub Pages</p>
+          <div class="readouts">
+            <div class="readout"><label>ความถี่หลัก</label><strong id="freqOut">-- Hz</strong></div>
+            <div class="readout"><label>คาบ</label><strong id="periodOut">-- ms</strong></div>
+            <div class="readout"><label>RMS / Amplitude</label><strong id="ampOut">--</strong></div>
+            <div class="readout"><label>ระดับเสียงประมาณ</label><strong id="dbOut">-- dB</strong></div>
+          </div>
+          <div class="grid">
+            <div class="card">
+              <h3>รูปคลื่นเสียง</h3>
+              <canvas id="waveCanvas" width="900" height="260"></canvas>
+            </div>
+            <div class="card">
+              <h3>สเปกตรัมความถี่</h3>
+              <canvas id="spectrumCanvas" width="900" height="260"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="card full">
+          <h3>ตารางบันทึกผล</h3>
+          <div class="formGrid">
+            <div class="field">
+              <label>กิจกรรม/แหล่งกำเนิดเสียง</label>
+              <input id="sourceInput" placeholder="เช่น เสียงพูด, นกหวีด, เคาะโต๊ะ">
+            </div>
+            <div class="field">
+              <label>ระยะ/เงื่อนไข</label>
+              <input id="conditionInput" placeholder="เช่น ห่าง 1 m, เป่าเบา, เป่าแรง">
+            </div>
+            <div class="field">
+              <label>ข้อสังเกต</label>
+              <input id="noteInput" placeholder="นักเรียนสรุปจากกราฟ">
+            </div>
+          </div>
+          <div class="tableWrap" style="margin-top:14px">
+            <table>
+              <thead>
+                <tr>
+                  <th>เวลา</th><th>กิจกรรม</th><th>เงื่อนไข</th><th>f หลัก (Hz)</th><th>คาบ (ms)</th><th>RMS</th><th>dB ประมาณ</th><th>ข้อสังเกต</th>
+                </tr>
+              </thead>
+              <tbody id="resultBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="beats">
+      <div class="sectionHead">
+        <div>
+          <h2>ห้องทดลองบีตส์</h2>
+          <p class="sub">สร้างเสียง 2 ความถี่ใกล้กัน เพื่อฟังและคำนวณความถี่บีตส์</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>กำหนดความถี่</h3>
+          <div class="formGrid">
+            <div class="field"><label>f₁ (Hz)</label><input id="beatF1" type="number" value="440"></div>
+            <div class="field"><label>f₂ (Hz)</label><input id="beatF2" type="number" value="444"></div>
+            <div class="field"><label>ความดัง</label><input id="beatVol" type="range" min="0" max="0.35" step="0.01" value="0.08"></div>
+          </div>
+          <p>ความถี่บีตส์: <span class="pill" id="beatOut">4 Hz</span></p>
+          <div class="actions">
+            <button id="playBeat">▶️ เล่นเสียงบีตส์</button>
+            <button id="stopBeat" class="secondary">หยุดเสียง</button>
+          </div>
+        </div>
+        <div class="card">
+          <h3>แนวสรุปสำหรับนักเรียน</h3>
+          <p>
+            เมื่อนำคลื่นเสียง 2 คลื่นที่มีความถี่ใกล้กันมาซ้อนทับกัน จะได้เสียงดัง–ค่อยสลับกัน เรียกว่า “บีตส์”
+            โดยความถี่บีตส์เท่ากับผลต่างของความถี่ทั้งสอง
+          </p>
+          <p class="note">สูตร: f<sub>beat</sub> = |f₁ − f₂|</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="calc">
+      <div class="sectionHead">
+        <div>
+          <h2>เครื่องคำนวณฟิสิกส์เรื่องเสียง</h2>
+          <p class="sub">ช่วยคำนวณค่าพื้นฐานที่ใช้ในใบกิจกรรมและการอภิปรายผล</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card third">
+          <h3>v = fλ</h3>
+          <div class="field"><label>ความถี่ f (Hz)</label><input id="calcF" type="number" value="440"></div>
+          <div class="field"><label>ความยาวคลื่น λ (m)</label><input id="calcL" type="number" value="0.78" step="0.01"></div>
+          <p>อัตราเร็วเสียง v = <span class="pill" id="calcV">343.2 m/s</span></p>
+        </div>
+        <div class="card third">
+          <h3>f = 1/T</h3>
+          <div class="field"><label>คาบ T (ms)</label><input id="calcT" type="number" value="2.27" step="0.01"></div>
+          <p>ความถี่ f = <span class="pill" id="calcFT">440.5 Hz</span></p>
+        </div>
+        <div class="card third">
+          <h3>β = 10log(I/I₀)</h3>
+          <div class="field"><label>ความเข้มเสียง I (W/m²)</label><input id="calcI" type="number" value="0.000001" step="0.0000001"></div>
+          <p>ระดับเสียง β = <span class="pill" id="calcBeta">60.0 dB</span></p>
+          <p class="small">ใช้ I₀ = 1×10⁻¹² W/m²</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="activity">
+      <div class="sectionHead">
+        <div>
+          <h2>ใบกิจกรรมดิจิทัล</h2>
+          <p class="sub">ใช้ประกอบการจัดการเรียนรู้แบบสืบเสาะหาความรู้ 5E</p>
+        </div>
+      </div>
+      <div class="card full">
+        <div class="tabs">
+          <button class="tab active" data-tab="engage">Engage</button>
+          <button class="tab" data-tab="explore">Explore</button>
+          <button class="tab" data-tab="explain">Explain</button>
+          <button class="tab" data-tab="elaborate">Elaborate</button>
+          <button class="tab" data-tab="evaluate">Evaluate</button>
+        </div>
+
+        <div id="engage" class="tabPanel active">
+          <h3>1. Engage — กระตุ้นความสนใจ</h3>
+          <p>คำถามนำ: เสียงสูงกับเสียงดังเหมือนกันหรือไม่? เพราะเหตุใดเสียงผู้ชาย เสียงผู้หญิง และเสียงเครื่องดนตรีจึงแตกต่างกัน?</p>
+          <textarea placeholder="บันทึกความคิดเริ่มต้นของนักเรียน"></textarea>
+        </div>
+        <div id="explore" class="tabPanel">
+          <h3>2. Explore — สำรวจและทดลอง</h3>
+          <p>ให้นักเรียนเลือกแหล่งกำเนิดเสียงอย่างน้อย 3 ชนิด วัดความถี่ แอมพลิจูด และระดับเสียงด้วย PhySound แล้วบันทึกผล</p>
+          <textarea placeholder="สรุปวิธีทดลองและผลที่พบ"></textarea>
+        </div>
+        <div id="explain" class="tabPanel">
+          <h3>3. Explain — อธิบายหลักการ</h3>
+          <p>ใช้ข้อมูลจากกราฟ waveform และ spectrum อธิบายความสัมพันธ์ระหว่างความถี่ คาบ แอมพลิจูด และการรับรู้เสียง</p>
+          <textarea placeholder="อธิบายด้วยภาษาของนักเรียน"></textarea>
+        </div>
+        <div id="elaborate" class="tabPanel">
+          <h3>4. Elaborate — ขยายความรู้</h3>
+          <p>เลือกสถานการณ์จริง เช่น มลภาวะทางเสียงในโรงเรียน เสียงเครื่องดนตรี หรือการวิเคราะห์เสียงเคาะวัตถุ แล้วประยุกต์ใช้ความรู้เรื่องเสียง</p>
+          <textarea placeholder="แนวทางการประยุกต์ใช้ความรู้"></textarea>
+        </div>
+        <div id="evaluate" class="tabPanel">
+          <h3>5. Evaluate — ประเมินผล</h3>
+          <p>ประเมินจากแบบทดสอบก่อน–หลังเรียน ใบกิจกรรม รายงานการทดลอง และความสามารถในการวิเคราะห์ปรากฏการณ์เสียง</p>
+          <textarea placeholder="สิ่งที่เรียนรู้ / ข้อสรุป / คำถามต่อยอด"></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section id="teacher">
+      <div class="sectionHead">
+        <div>
+          <h2>คู่มือครูโดยย่อ</h2>
+          <p class="sub">แนวใช้ PhySound เป็นนวัตกรรมประกอบการพัฒนางาน ค.ศ.4</p>
+        </div>
+      </div>
+      <div class="step5e">
+        <div class="step"><b>Engage</b>ใช้เสียงจริงกระตุ้นคำถาม เช่น เสียงสูง/เสียงดังต่างกันอย่างไร</div>
+        <div class="step"><b>Explore</b>นักเรียนวัดเสียงด้วยมือถือ เก็บข้อมูลหลายเงื่อนไข</div>
+        <div class="step"><b>Explain</b>เชื่อมข้อมูลกับความถี่ คาบ แอมพลิจูด และ dB</div>
+        <div class="step"><b>Elaborate</b>ประยุกต์กับสถานการณ์จริงในโรงเรียน/ชุมชน</div>
+        <div class="step"><b>Evaluate</b>ใช้แบบทดสอบ ใบกิจกรรม ตารางข้อมูล และรายงานผล</div>
+      </div>
+      <div class="card full" style="margin-top:16px">
+        <h3>ชื่อวิจัยที่ใช้ได้</h3>
+        <p class="note">
+          การพัฒนาผลสัมฤทธิ์ทางการเรียนและความสามารถในการวิเคราะห์ปรากฏการณ์เสียงของนักเรียนชั้นมัธยมศึกษาปีที่ 5 โดยใช้กิจกรรมการเรียนรู้แบบสืบเสาะหาความรู้ 5E ร่วมกับแอปพลิเคชัน PhySound
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <p>PhySound • Physics Sound Learning App • พร้อมใช้งานบน GitHub Pages</p>
+  </footer>
+
+  <script>
+    let audioContext, analyser, micSource, dataTime, dataFreq, rafId;
+    let latest = {freq:0, period:0, rms:0, db:0};
+    const results = [];
+
+    const $ = id => document.getElementById(id);
+    const waveCanvas = $("waveCanvas");
+    const spectrumCanvas = $("spectrumCanvas");
+    const wctx = waveCanvas.getContext("2d");
+    const sctx = spectrumCanvas.getContext("2d");
+
+    function drawGrid(ctx, canvas){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = "#020617";
+      ctx.fillRect(0,0,canvas.width,canvas.height);
+      ctx.strokeStyle = "rgba(148,163,184,.12)";
+      ctx.lineWidth = 1;
+      for(let x=0;x<canvas.width;x+=60){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,canvas.height);ctx.stroke();}
+      for(let y=0;y<canvas.height;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(canvas.width,y);ctx.stroke();}
+    }
+
+    function estimateFrequency(freqData, sampleRate){
+      const nyquist = sampleRate/2;
+      const binHz = nyquist / freqData.length;
+      const minHz = 50, maxHz = 3000;
+      let minBin = Math.max(1, Math.floor(minHz/binHz));
+      let maxBin = Math.min(freqData.length-1, Math.floor(maxHz/binHz));
+      let maxVal = -Infinity, maxBinIndex = 0;
+      for(let i=minBin;i<=maxBin;i++){
+        if(freqData[i] > maxVal){
+          maxVal = freqData[i];
+          maxBinIndex = i;
+        }
+      }
+      return maxBinIndex * binHz;
+    }
+
+    function calcRms(timeData){
+      let sum = 0;
+      for(let i=0;i<timeData.length;i++){
+        const v = (timeData[i]-128)/128;
+        sum += v*v;
+      }
+      return Math.sqrt(sum/timeData.length);
+    }
+
+    function rmsToDb(rms){
+      const min = 0.00001;
+      let db = 20 * Math.log10(Math.max(rms, min)) + 90;
+      return Math.max(0, Math.min(120, db));
+    }
+
+    function updateReadouts(){
+      const f = latest.freq || 0;
+      const p = f > 0 ? 1000/f : 0;
+      latest.period = p;
+      $("freqOut").textContent = f ? `${f.toFixed(1)} Hz` : "-- Hz";
+      $("periodOut").textContent = p ? `${p.toFixed(2)} ms` : "-- ms";
+      $("ampOut").textContent = latest.rms ? latest.rms.toFixed(3) : "--";
+      $("dbOut").textContent = latest.db ? `${latest.db.toFixed(1)} dB` : "-- dB";
+      $("heroHz").textContent = f ? `${f.toFixed(0)} Hz` : "-- Hz";
+      $("heroDb").textContent = latest.db ? `${latest.db.toFixed(0)} dB` : "-- dB";
+      $("heroAmp").textContent = latest.rms ? latest.rms.toFixed(3) : "--";
+      $("heroPeriod").textContent = p ? `${p.toFixed(1)} ms` : "-- ms";
+    }
+
+    function drawWave(){
+      drawGrid(wctx, waveCanvas);
+      wctx.lineWidth = 3;
+      const grad = wctx.createLinearGradient(0,0,waveCanvas.width,0);
+      grad.addColorStop(0,"#22d3ee");
+      grad.addColorStop(.5,"#60a5fa");
+      grad.addColorStop(1,"#c084fc");
+      wctx.strokeStyle = grad;
+      wctx.beginPath();
+      const slice = waveCanvas.width / dataTime.length;
+      for(let i=0;i<dataTime.length;i++){
+        const y = (dataTime[i]/255) * waveCanvas.height;
+        const x = i * slice;
+        if(i===0) wctx.moveTo(x,y); else wctx.lineTo(x,y);
+      }
+      wctx.stroke();
+      wctx.strokeStyle = "rgba(255,255,255,.25)";
+      wctx.beginPath(); wctx.moveTo(0,waveCanvas.height/2); wctx.lineTo(waveCanvas.width,waveCanvas.height/2); wctx.stroke();
+    }
+
+    function drawSpectrum(){
+      drawGrid(sctx, spectrumCanvas);
+      const barW = spectrumCanvas.width / dataFreq.length * 2.5;
+      let x = 0;
+      for(let i=0;i<dataFreq.length;i++){
+        const v = dataFreq[i] / 255;
+        const h = v * spectrumCanvas.height;
+        const grad = sctx.createLinearGradient(0, spectrumCanvas.height-h, 0, spectrumCanvas.height);
+        grad.addColorStop(0,"#22d3ee");
+        grad.addColorStop(1,"#7c3aed");
+        sctx.fillStyle = grad;
+        sctx.fillRect(x, spectrumCanvas.height-h, barW, h);
+        x += barW + 1;
+        if(x > spectrumCanvas.width) break;
+      }
+    }
+
+    function loop(){
+      analyser.getByteTimeDomainData(dataTime);
+      analyser.getByteFrequencyData(dataFreq);
+      latest.rms = calcRms(dataTime);
+      latest.db = rmsToDb(latest.rms);
+      latest.freq = estimateFrequency(dataFreq, audioContext.sampleRate);
+      drawWave();
+      drawSpectrum();
+      updateReadouts();
+      rafId = requestAnimationFrame(loop);
+    }
+
+    async function startMic(){
+      try{
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+        analyser = audioContext.createAnalyser();
+        analyser.fftSize = 2048;
+        analyser.smoothingTimeConstant = 0.72;
+        micSource = audioContext.createMediaStreamSource(stream);
+        micSource.connect(analyser);
+        dataTime = new Uint8Array(analyser.fftSize);
+        dataFreq = new Uint8Array(analyser.frequencyBinCount);
+        $("startBtn").disabled = true;
+        $("stopBtn").disabled = false;
+        $("captureBtn").disabled = false;
+        $("micStatus").textContent = "เปิดไมโครโฟนแล้ว — ลองพูด เป่า หรือเคาะวัตถุ แล้วสังเกตกราฟ";
+        loop();
+      }catch(err){
+        $("micStatus").textContent = "ไม่สามารถเปิดไมโครโฟนได้: " + err.message + " | ให้ลองเปิดผ่าน HTTPS หรือ localhost";
+      }
+    }
+
+    function stopMic(){
+      if(rafId) cancelAnimationFrame(rafId);
+      if(audioContext) audioContext.close();
+      audioContext = null;
+      $("startBtn").disabled = false;
+      $("stopBtn").disabled = true;
+      $("captureBtn").disabled = true;
+      $("micStatus").textContent = "หยุดไมโครโฟนแล้ว";
+    }
+
+    function renderTable(){
+      const body = $("resultBody");
+      body.innerHTML = "";
+      for(const r of results){
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${r.time}</td>
+          <td>${escapeHtml(r.source)}</td>
+          <td>${escapeHtml(r.condition)}</td>
+          <td>${r.freq}</td>
+          <td>${r.period}</td>
+          <td>${r.rms}</td>
+          <td>${r.db}</td>
+          <td>${escapeHtml(r.note)}</td>`;
+        body.appendChild(tr);
+      }
+    }
+
+    function escapeHtml(str){
+      return String(str || "").replace(/[&<>"']/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[s]));
+    }
+
+    function capture(){
+      const row = {
+        time: new Date().toLocaleString("th-TH"),
+        source: $("sourceInput").value || "ไม่ระบุ",
+        condition: $("conditionInput").value || "-",
+        freq: latest.freq ? latest.freq.toFixed(1) : "",
+        period: latest.period ? latest.period.toFixed(2) : "",
+        rms: latest.rms ? latest.rms.toFixed(3) : "",
+        db: latest.db ? latest.db.toFixed(1) : "",
+        note: $("noteInput").value || ""
+      };
+      results.push(row);
+      renderTable();
+    }
+
+    function downloadCsv(){
+      const header = ["time","source","condition","frequency_Hz","period_ms","rms","dB_est","note"];
+      const rows = results.map(r => [r.time,r.source,r.condition,r.freq,r.period,r.rms,r.db,r.note]);
+      const csv = [header, ...rows].map(row => row.map(v => `"${String(v).replaceAll('"','""')}"`).join(",")).join("\n");
+      const blob = new Blob(["\ufeff"+csv], {type:"text/csv;charset=utf-8"});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "PhySound_results.csv";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    $("startBtn").addEventListener("click", startMic);
+    $("stopBtn").addEventListener("click", stopMic);
+    $("captureBtn").addEventListener("click", capture);
+    $("downloadBtn").addEventListener("click", downloadCsv);
+    $("clearBtn").addEventListener("click", () => {results.length = 0; renderTable();});
+
+    // Beats
+    let beatCtx, osc1, osc2, gainNode;
+    function updateBeat(){
+      const f1 = Number($("beatF1").value || 0);
+      const f2 = Number($("beatF2").value || 0);
+      $("beatOut").textContent = `${Math.abs(f1-f2).toFixed(1)} Hz`;
+      if(osc1 && osc2){
+        osc1.frequency.value = f1; osc2.frequency.value = f2;
+        gainNode.gain.value = Number($("beatVol").value || 0.08);
+      }
+    }
+    ["beatF1","beatF2","beatVol"].forEach(id => $(id).addEventListener("input", updateBeat));
+    $("playBeat").addEventListener("click", () => {
+      if(beatCtx) beatCtx.close();
+      beatCtx = new (window.AudioContext || window.webkitAudioContext)();
+      osc1 = beatCtx.createOscillator();
+      osc2 = beatCtx.createOscillator();
+      gainNode = beatCtx.createGain();
+      osc1.type = "sine"; osc2.type = "sine";
+      osc1.frequency.value = Number($("beatF1").value || 440);
+      osc2.frequency.value = Number($("beatF2").value || 444);
+      gainNode.gain.value = Number($("beatVol").value || 0.08);
+      osc1.connect(gainNode); osc2.connect(gainNode); gainNode.connect(beatCtx.destination);
+      osc1.start(); osc2.start(); updateBeat();
+    });
+    $("stopBeat").addEventListener("click", () => {
+      if(beatCtx) beatCtx.close();
+      beatCtx = osc1 = osc2 = gainNode = null;
+    });
+    updateBeat();
+
+    // Calculators
+    function updateCalcs(){
+      const f = Number($("calcF").value || 0);
+      const l = Number($("calcL").value || 0);
+      $("calcV").textContent = `${(f*l).toFixed(1)} m/s`;
+      const t = Number($("calcT").value || 0);
+      $("calcFT").textContent = t > 0 ? `${(1000/t).toFixed(1)} Hz` : "-- Hz";
+      const I = Number($("calcI").value || 0);
+      const beta = I > 0 ? 10*Math.log10(I/1e-12) : 0;
+      $("calcBeta").textContent = `${beta.toFixed(1)} dB`;
+    }
+    ["calcF","calcL","calcT","calcI"].forEach(id => $(id).addEventListener("input", updateCalcs));
+    updateCalcs();
+
+    // Tabs
+    document.querySelectorAll(".tab").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".tabPanel").forEach(p => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.tab).classList.add("active");
+      });
+    });
+
+    // Initial drawing
+    drawGrid(wctx, waveCanvas);
+    drawGrid(sctx, spectrumCanvas);
+
+    // Register service worker
+    if("serviceWorker" in navigator){
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js").catch(()=>{});
+      });
+    }
+  </script>
+</body>
+</html>
