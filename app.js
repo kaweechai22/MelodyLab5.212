@@ -687,16 +687,15 @@ function drawPressureWaveFinal(ctx, c, p, w, h){
   const xMax = w - 76;
   const obsXBase = w * 0.555;
   const phase = vizState.t * 0.105 * p.speed;
-  const k = 2 * Math.PI / 270;
+  const wavelengthPx = 270;
+  const k = 2 * Math.PI / wavelengthPx;
 
-  // Split layout inside the same v5.67 canvas size.
+  // Split layout in the v5.67-style large canvas
   const titleY = 34;
   const arrowY = 78;
-
-  const particleTop = 122;
+  const particleTop = 118;
   const particleAxisY = Math.round(h * 0.52);
-  const particleBottom = particleAxisY - 22;
-
+  const particleBottom = particleAxisY - 24;
   const curveTop = particleAxisY + 72;
   const curveBottom = h - 52;
   const curveMid = (curveTop + curveBottom) / 2;
@@ -735,7 +734,7 @@ function drawPressureWaveFinal(ctx, c, p, w, h){
 
   // Shared observation line
   ctx.save();
-  ctx.strokeStyle="rgba(255,255,255,.76)";
+  ctx.strokeStyle="rgba(255,255,255,.78)";
   ctx.setLineDash([8,8]);
   ctx.lineWidth=2;
   ctx.beginPath();
@@ -749,25 +748,41 @@ function drawPressureWaveFinal(ctx, c, p, w, h){
   ctx.fillText("ตำแหน่งสังเกต", obsXBase, particleTop-28);
   ctx.restore();
 
-  // Glow bands, matching Longitudinal v5.67 visual language
-  const bandCenters=[xMin+52,xMin+230,xMin+420,xMin+610,xMin+800];
-  bandCenters.forEach((bx,i)=>{
-    const g=ctx.createLinearGradient(bx-60,0,bx+60,0);
-    const high = i % 2 === 0;
-    g.addColorStop(0,"rgba(0,0,0,0)");
-    g.addColorStop(.5, high ? "rgba(34,211,238,.18)" : "rgba(168,85,247,.13)");
-    g.addColorStop(1,"rgba(0,0,0,0)");
-    ctx.fillStyle=g;
-    ctx.fillRect(bx-70, particleTop-20, 140, particleBottom-particleTop+40);
-  });
+  // Helper: pressure value at coordinate x.
+  // ΔP ∝ cos(kx - wt). Positive = compression/dense. Negative = rarefaction/sparse.
+  const pressureAt = (x)=>Math.cos(k*(x-obsXBase)-phase);
 
-  // Upper graph = Longitudinal v5.67 particle style.
+  // Draw high/low pressure bands exactly from the pressure function, not a decorative pattern.
+  ctx.save();
+  for(let x=xMin; x<=xMax; x+=8){
+    const pr = pressureAt(x);
+    const alpha = Math.abs(pr);
+    const g = ctx.createLinearGradient(x-18,0,x+18,0);
+    if(pr >= 0){
+      g.addColorStop(0,"rgba(0,0,0,0)");
+      g.addColorStop(.5,`rgba(34,211,238,${0.04 + 0.15*alpha})`);
+      g.addColorStop(1,"rgba(0,0,0,0)");
+    }else{
+      g.addColorStop(0,"rgba(0,0,0,0)");
+      g.addColorStop(.5,`rgba(168,85,247,${0.035 + 0.12*alpha})`);
+      g.addColorStop(1,"rgba(0,0,0,0)");
+    }
+    ctx.fillStyle=g;
+    ctx.fillRect(x-18, particleTop-18, 36, particleBottom-particleTop+36);
+  }
+  ctx.restore();
+
+  // Upper particle graph: use previous full/clean particle style, but map density correctly to pressure.
+  // Physics relation:
+  // displacement u(x,t) = -U sin(kx - wt)
+  // pressure ΔP(x,t) ∝ -du/dx = +cos(kx - wt)
+  // so positive pressure peaks must be dense/compressed.
   const rows = 15;
   const availableHeight = Math.max(180, particleBottom - particleTop);
   const rowGap = availableHeight / (rows - 1);
   const dotR = Math.max(10.5, Math.min(14.2, rowGap * 0.62));
   const baseGap = Math.max(39, Math.min(48, w * 0.038));
-  const currentAmpPx = 16.5 * p.A;
+  const displacementAmpPx = 17.0 * p.A;
   const obsRow = Math.floor(rows/2);
   let obsParticleX = obsXBase;
   let obsParticleY = particleTop + obsRow * rowGap;
@@ -781,27 +796,35 @@ function drawPressureWaveFinal(ctx, c, p, w, h){
     const y = particleTop + row * rowGap;
     for(let i=0;i<baseXs.length;i++){
       const base = baseXs[i];
-      const disp = currentAmpPx * Math.sin(k*(base-obsXBase)-phase);
-      const x = base + disp;
+
+      // This sign is important. It makes dense particle columns align with +ΔP peaks.
+      const displacement = -displacementAmpPx * Math.sin(k*(base-obsXBase)-phase);
+      const x = base + displacement;
+
       const isObs = row===obsRow && Math.abs(base-obsXBase) < 0.5;
       if(isObs){
-        // Keep red particle exactly on observation x, linked to lower graph.
+        // Linked observation position: keep it exactly on the shared vertical x line
+        // so students can compare the upper particle state with lower pressure graph.
         obsParticleX = obsXBase;
         obsParticleY = y;
         continue;
       }
-      drawParticleShadow(ctx,x,y,dotR);
-      drawParticleSphere(ctx,x,y,dotR,"cyan");
+
+      // Slight visual emphasis: larger/brighter near compression, smaller near rarefaction.
+      const pr = pressureAt(base);
+      const localR = dotR * (0.86 + 0.18 * Math.max(pr,0) - 0.08 * Math.max(-pr,0));
+      drawParticleShadow(ctx,x,y,localR);
+      drawParticleSphere(ctx,x,y,localR,"cyan");
     }
   }
 
-  // Red observation particle above, linked with lower marker.
+  // Red observation particle above.
   ctx.save();
   drawParticleShadow(ctx,obsParticleX,obsParticleY,dotR+1.9);
   drawParticleSphere(ctx,obsParticleX,obsParticleY,dotR+1.9,"red");
   ctx.restore();
 
-  // x-axis below particle field
+  // x-axis under particle field
   ctx.save();
   ctx.strokeStyle="rgba(255,245,220,.94)";
   ctx.fillStyle="rgba(255,255,255,.94)";
@@ -825,6 +848,17 @@ function drawPressureWaveFinal(ctx, c, p, w, h){
   }
   ctx.font="22px Sarabun, system-ui, sans-serif";
   ctx.fillText("x", w-36, particleAxisY+30);
+  ctx.restore();
+
+  // Labels that explicitly connect the two graphs.
+  ctx.save();
+  ctx.font="bold 14px Sarabun, system-ui, sans-serif";
+  ctx.textAlign="center";
+  for(let x=xMin+18; x<=xMax-18; x+=wavelengthPx/2){
+    const pr = pressureAt(x);
+    ctx.fillStyle = pr>=0 ? "rgba(125,235,255,.90)" : "rgba(210,185,255,.84)";
+    ctx.fillText(pr>=0 ? "อัดแน่น / +ΔP" : "เบาบาง / -ΔP", x, particleTop-6);
+  }
   ctx.restore();
 
   // Lower pressure graph axes
@@ -902,10 +936,10 @@ function drawPressureWaveFinal(ctx, c, p, w, h){
   ctx.fillText("-ΔP", xMin-91, curveBottom+4);
   ctx.restore();
 
-  // Pressure curve
+  // Pressure curve: same pressureAt(x) function as particle density above.
   const pts=[];
   for(let x=xMin; x<=xMax; x+=4){
-    const y = curveMid - Math.cos(k*(x-obsXBase)-phase) * curveAmp;
+    const y = curveMid - pressureAt(x) * curveAmp;
     pts.push([x,y]);
   }
   ctx.save();
@@ -918,9 +952,9 @@ function drawPressureWaveFinal(ctx, c, p, w, h){
   ctx.stroke();
   ctx.restore();
 
-  // Red marker on lower graph exactly under the red observation particle.
+  // Red marker on lower graph: same x as upper red observation particle, same pressureAt().
   const graphMarkerX = obsXBase;
-  const graphMarkerY = curveMid - Math.cos(k*(graphMarkerX-obsXBase)-phase) * curveAmp;
+  const graphMarkerY = curveMid - pressureAt(graphMarkerX) * curveAmp;
   ctx.save();
   drawParticleShadow(ctx, graphMarkerX, graphMarkerY, 9.5);
   drawParticleSphere(ctx, graphMarkerX, graphMarkerY, 9.5, "red");
