@@ -1,7 +1,7 @@
 {
-  "name": "MelodyLab v5.175",
+  "name": "MelodyLab v5.177",
   "short_name": "MelodyLab",
-  "description": "ห้องทดลองเสียงและคลื่นด้วยมือถือ",
+  "description": "MelodyLab ห้องทดลองเสียงและคลื่นด้วยมือถือ",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#08111f",
