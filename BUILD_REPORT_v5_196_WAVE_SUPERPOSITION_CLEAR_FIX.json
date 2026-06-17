@@ -1,0 +1,11 @@
+{
+  "version": "v5.196",
+  "base": "v5.195",
+  "changes": [
+    "Shortened lead paragraph to one compact sentence",
+    "Added visible v5.196 badge on page to verify correct file loaded",
+    "Default animation speed set to 0.3x",
+    "Internal animation multiplier reduced to 0.35",
+    "Updated service worker cache name"
+  ]
+}
