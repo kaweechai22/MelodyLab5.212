@@ -1,0 +1,11 @@
+{
+  "version": "v5.199",
+  "base": "v5.198",
+  "changes": [
+    "Verified ultra-slow animation settings",
+    "Corrected browser title and visible badge version",
+    "Updated service worker cache name",
+    "Confirmed slider min 0.05 max 0.5 default 0.05",
+    "Confirmed internal multiplier 0.12"
+  ]
+}

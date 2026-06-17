@@ -1,0 +1,10 @@
+{
+  "version": "v5.198",
+  "base": "v5.197",
+  "changes": [
+    "Default animation speed set to 0.05x",
+    "Internal playback multiplier set to 0.12 so even 0.5x remains slow",
+    "Visible version badge added",
+    "Service worker cache name changed"
+  ]
+}

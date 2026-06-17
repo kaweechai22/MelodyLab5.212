@@ -1,0 +1,17 @@
+{
+  "version": "v5.200",
+  "base": "v5.199",
+  "fix": "Decoupled visual animation speed from sound frequency f. The f slider now changes wavelength only; animation speed is controlled by timeSpeed slider/buttons.",
+  "speed_model": {
+    "slider_min": 0.05,
+    "slider_max": 0.5,
+    "slider_default": 0.1,
+    "actual_cycles_per_second": "timeSpeed × 0.25",
+    "default_cycle_seconds": 40,
+    "max_cycle_seconds": 8
+  },
+  "mobile": [
+    "Added slower/faster buttons for mobile",
+    "Range input touch-action pan-x"
+  ]
+}

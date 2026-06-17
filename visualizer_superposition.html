@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MelodyLab v5.195 - Wave Superposition (การซ้อนทับของคลื่น)</title>
+  <title>MelodyLab v5.200 - Wave Superposition (การซ้อนทับของคลื่น)</title>
   <meta name="description" content="MelodyLab ห้องทดลองเสียงและเก็บข้อมูล ด้วยมือถือ">
   <meta name="theme-color" content="#0f172a">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/png" href="icon-192.png">
   <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="stylesheet" href="style.css">
-  <meta name="melodylab-build-version" content="v5.197-wave-superposition-slower-animation">
+  <meta name="melodylab-build-version" content="v5.200-wave-superposition-mobile-speed-fixed">
   <style>
     .supReadoutBar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:10px}
     .supReadoutBar>div{border:1px solid rgba(148,163,184,.18);background:rgba(15,23,42,.48);border-radius:14px;padding:9px 11px;min-height:56px}
     .supReadoutBar label{display:block;color:#94a3b8;font-size:.78rem;line-height:1.2;margin-bottom:4px}
     .supReadoutBar b{display:block;color:#e5eef8;font-size:1rem;line-height:1.18}
     .compactSupNote{margin-top:8px;color:#9fb4ca;font-size:.84rem;line-height:1.45}
+    .versionBadge{display:inline-block;margin-top:10px;padding:5px 10px;border-radius:999px;border:1px solid rgba(34,197,94,.35);background:rgba(34,197,94,.14);color:#bbf7d0;font-weight:800;font-size:.80rem}
     .neonParamRow .paramIcon{color:#f8fafc;border:1px solid rgba(255,255,255,.16);box-shadow:0 10px 24px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.10)}
     .a1Row .paramIcon{background:linear-gradient(135deg,#38bdf8,#06b6d4)}
     .a2Row .paramIcon{background:linear-gradient(135deg,#ec4899,#f472b6)}
@@ -24,6 +25,11 @@
     .phaseRow .paramIcon{background:linear-gradient(135deg,#a855f7,#c084fc)}
     .timeRow .paramIcon{background:linear-gradient(135deg,#22c55e,#86efac)}
     .templateInsightCard li{line-height:1.55}
+
+    .speedButtons{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:8px}
+    .speedButtons button{border:1px solid rgba(148,163,184,.26);background:rgba(15,23,42,.72);color:#e5eef8;border-radius:12px;padding:7px 10px;font-weight:800;cursor:pointer;touch-action:manipulation}
+    .timeRow input[type=range]{touch-action:pan-x}
+    @media(max-width:760px){.speedButtons{justify-content:flex-start;width:100%}.speedButtons button{min-width:86px;padding:9px 12px}}
     @media(max-width:760px){
       .supReadoutBar{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
       .supReadoutBar>div{min-height:auto;padding:9px 10px}
@@ -44,6 +50,7 @@
     <div>
       <h2>Wave Superposition (การซ้อนทับของคลื่น)</h2>
       <p class="sectionLead">การซ้อนทับของคลื่นคือการรวมการกระจัดของคลื่นสองขบวน ณ ตำแหน่งเดียวกัน โดยคลื่นรวมมีค่าเป็น y = y₁ + y₂ จึงเกิดการเสริมกันหรือหักล้างกันได้ตามความต่างเฟส</p>
+      <span class="versionBadge">v5.200 • mobile speed fixed</span>
     </div>
   </div>
   <div class="visualizerTemplateGrid longitudinalFocusGrid">
@@ -66,7 +73,7 @@
         <div><label>Resultant amplitude</label><b id="supResultAmpLabel">--</b></div>
         <div><label>State</label><b id="supStateLabel">--</b></div>
       </div>
-      <p class="compactSupNote">กราฟบนแสดงคลื่นที่ 1, คลื่นที่ 2 และกราฟรวมจากการซ้อนทับ โดยจุดสังเกตแนวตั้งทางขวาช่วยให้เห็นว่า ณ ตำแหน่งเดียวกัน การกระจัดรวมเท่ากับ y₁ + y₂</p>
+      <p class="compactSupNote">กราฟบนแสดง y₁, y₂ และ y = y₁ + y₂ ส่วน f ใช้กำหนดความยาวคลื่น λ เท่านั้น ความเร็วภาพควบคุมด้วย slider แยกเพื่อให้สังเกตได้ชัด</p>
       <details class="explainDetails">
         <summary>สาระสำคัญที่ควรสังเกต</summary>
         <div class="detailsBody"><div class="templateUnderCanvas explainGrid">
@@ -94,7 +101,7 @@
       <div class="field richField neonParamRow a2Row"><div class="paramIcon">A₂</div><div class="paramText"><label>แอมพลิจูดคลื่นที่ 2</label><small>กำหนดขนาดการกระจัดของคลื่นที่ 2</small></div><input id="vizAmp2" type="range" min="0.20" max="1.50" step="0.05" value="0.80"><div class="paramValueWrap"><span id="vizAmp2Label" class="valueBadge">--</span></div></div>
       <div class="field richField neonParamRow freqRow"><div class="paramIcon">f</div><div class="paramText"><label>ความถี่ f</label><small>ใช้ร่วมกับ v เพื่อคำนวณความยาวคลื่น λ = v/f</small></div><input id="vizFreq" type="range" min="100" max="1000" step="10" value="440"><div class="paramValueWrap"><span id="vizFreqLabel" class="valueBadge">--</span></div></div>
       <div class="field richField neonParamRow phaseRow"><div class="paramIcon">Δφ</div><div class="paramText"><label>ความต่างเฟส Δφ</label><small>เลื่อนเฟสของคลื่นที่ 2 เทียบกับคลื่นที่ 1</small></div><input id="vizPhaseDiff" type="range" min="0" max="180" step="5" value="0"><div class="paramValueWrap"><span id="vizPhaseDiffLabel" class="valueBadge">--</span></div></div>
-      <div class="field richField neonParamRow timeRow"><div class="paramIcon">◷</div><div class="paramText"><label>ความเร็วแอนิเมชัน</label><small>ปรับความเร็วของภาพเคลื่อนไหว</small></div><input id="vizTimeSpeed" type="range" min="0.05" max="0.5" step="0.05" value="0.15"><div class="paramValueWrap"><span id="vizTimeLabel" class="valueBadge">--</span></div></div>
+      <div class="field richField neonParamRow timeRow"><div class="paramIcon">◷</div><div class="paramText"><label>ความเร็วแอนิเมชัน</label><small>ควบคุมความเร็วภาพโดยตรง ไม่ผูกกับความถี่เสียง f</small></div><input id="vizTimeSpeed" type="range" min="0.05" max="0.5" step="0.05" value="0.10"><div class="paramValueWrap"><span id="vizTimeLabel" class="valueBadge">--</span></div><div class="speedButtons"><button type="button" id="vizSpeedDown">ช้าลง</button><button type="button" id="vizSpeedUp">เร็วขึ้น</button></div></div>
     </div>
   </div>
   <div class="card templateDataCard localDataCard" id="vizLogCard">
@@ -110,7 +117,7 @@ const $ = id => document.getElementById(id);
 const state = {running:true,time:0,last:performance.now(),raf:0,logs:[]};
 function fmt(v,n=2){return Number(v).toFixed(n);}
 function params(){
-  const A1=Number($('vizAmp1')?.value||0.8),A2=Number($('vizAmp2')?.value||0.8),f=Number($('vizFreq')?.value||440),phaseDeg=Number($('vizPhaseDiff')?.value||0),timeSpeed=Number($('vizTimeSpeed')?.value||0.15);
+  const A1=Number($('vizAmp1')?.value||0.8),A2=Number($('vizAmp2')?.value||0.8),f=Number($('vizFreq')?.value||440),phaseDeg=Number($('vizPhaseDiff')?.value||0),timeSpeed=Number($('vizTimeSpeed')?.value||0.10);
   const v=343,lambda=v/f,phase=phaseDeg*Math.PI/180;
   const Ares=Math.sqrt(A1*A1 + A2*A2 + 2*A1*A2*Math.cos(phase));
   let stateText='ซ้อนทับบางส่วน';
@@ -126,7 +133,7 @@ function updateLabels(){
   $('vizAmp2Label').textContent=fmt(p.A2,2);
   $('vizFreqLabel').textContent=`${Math.round(p.f)} Hz`;
   $('vizPhaseDiffLabel').textContent=`${Math.round(p.phaseDeg)}°`;
-  $('vizTimeLabel').textContent=`${fmt(p.timeSpeed,1)}×`;
+  $('vizTimeLabel').textContent=`${fmt(p.timeSpeed,2)}×`;
   $('supSpeedLabel').textContent=`${fmt(p.v,1)} m/s`;
   $('supLambdaLabel').textContent=`${fmt(p.lambda,2)} m`;
   $('supPhaseLabel').textContent=`${Math.round(p.phaseDeg)}°`;
@@ -152,7 +159,7 @@ function draw(){
   ctx.fillStyle='rgba(2,6,23,.52)'; ctx.strokeStyle='rgba(148,163,184,.20)'; rr(ctx,left+12,14,230,30,12,true,true);
   ctx.fillStyle='#dbeafe'; ctx.font='700 12px system-ui,sans-serif'; ctx.fillText(`Aรวม,max = ${fmt(p.Ares,2)}   λ = ${fmt(p.lambda,2)} m`,left+26,34);
   const probeX = right-92; const probeXM=(probeX-left)/plotW*viewLen;
-  const phaseTime=2*Math.PI*p.f*state.time;
+  const phaseTime=2*Math.PI*state.time;
   const drawWave=(fn,y0,color,width=2.6,alpha=0.95)=>{
     ctx.strokeStyle=color; ctx.lineWidth=width; ctx.globalAlpha=alpha; ctx.beginPath();
     for(let x=left;x<=right;x++){
@@ -188,7 +195,7 @@ function background(ctx,w,h){
 }
 function arrow(ctx,x1,y1,x2,y2){ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1),hh=8;ctx.beginPath();ctx.moveTo(x2,y2);ctx.lineTo(x2-hh*Math.cos(a-Math.PI/6),y2-hh*Math.sin(a-Math.PI/6));ctx.lineTo(x2-hh*Math.cos(a+Math.PI/6),y2-hh*Math.sin(a+Math.PI/6));ctx.closePath();ctx.fill();}
 function rr(ctx,x,y,w,h,r,fill=true,stroke=false){const q=Math.min(r,Math.abs(w)/2,Math.abs(h)/2);ctx.beginPath();ctx.moveTo(x+q,y);ctx.arcTo(x+w,y,x+w,y+h,q);ctx.arcTo(x+w,y+h,x,y+h,q);ctx.arcTo(x,y+h,x,y,q);ctx.arcTo(x,y,x+w,y,q);ctx.closePath();if(fill)ctx.fill();if(stroke)ctx.stroke();}
-function tick(now){const dt=Math.min(.05,(now-state.last)/1000); state.last=now; if(state.running) state.time+=dt*params().timeSpeed; draw(); state.raf=requestAnimationFrame(tick);} 
+function tick(now){const dt=Math.min(.05,(now-state.last)/1000); state.last=now; if(state.running) state.time+=dt*params().timeSpeed*0.25; draw(); state.raf=requestAnimationFrame(tick);} 
 function play(){state.running=true;} function pause(){state.running=false;} function reset(){state.time=0; state.last=performance.now(); draw();}
 function row(){const p=params();return {timestamp:new Date().toISOString(),topic:'Wave Superposition',amplitude_1:Number(fmt(p.A1,2)),amplitude_2:Number(fmt(p.A2,2)),frequency_Hz:Math.round(p.f),wave_speed_m_s:Number(fmt(p.v,1)),wavelength_m:Number(fmt(p.lambda,4)),phase_difference_deg:Math.round(p.phaseDeg),resultant_amplitude_max:Number(fmt(p.Ares,3)),state:p.stateText};}
 function renderLog(){const head=document.querySelector('.localHead'),body=document.querySelector('.localBody'); if(!head||!body) return; const sample=state.logs[0]||row(), keys=Object.keys(sample); head.innerHTML=keys.map(k=>`<th>${esc(k)}</th>`).join(''); body.innerHTML=state.logs.map(r=>`<tr>${keys.map(k=>`<td>${esc(r[k]??'')}</td>`).join('')}</tr>`).join('');}
@@ -198,6 +205,9 @@ function downloadCsv(){if(!state.logs.length) state.logs.push(row()); const keys
 function savePng(){const c=$('visualizerCanvas'); if(!c) return; draw(); c.toBlob(blob=>{if(!blob) return; const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='waveSuperposition.png'; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href); a.remove();},500);},'image/png');}
 document.addEventListener('DOMContentLoaded',()=>{
   ['vizAmp1','vizAmp2','vizFreq','vizPhaseDiff','vizTimeSpeed'].forEach(id=>{$(id)?.addEventListener('input',draw); $(id)?.addEventListener('change',draw);});
+  const adjustSpeed=(delta)=>{const el=$('vizTimeSpeed'); if(!el)return; const next=Math.min(Number(el.max),Math.max(Number(el.min),Number(el.value)+delta)); el.value=next.toFixed(2); draw();};
+  $('vizSpeedDown')?.addEventListener('click',()=>adjustSpeed(-0.05));
+  $('vizSpeedUp')?.addEventListener('click',()=>adjustSpeed(0.05));
   $('vizPlayBtn')?.addEventListener('click',play); $('vizPauseBtn')?.addEventListener('click',pause); $('vizResetBtn')?.addEventListener('click',reset); $('vizExportBtn')?.addEventListener('click',savePng);
   document.querySelector('.localCaptureBtn')?.addEventListener('click',()=>{state.logs.push(row()); renderLog();});
   document.querySelector('.localDownloadBtn')?.addEventListener('click',downloadCsv);
