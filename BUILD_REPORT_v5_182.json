@@ -1,0 +1,9 @@
+{
+  "base": "MelodyLab_GitHub_v5_167_SoundVisualizers_PhysicsAudit",
+  "file_count": 42,
+  "app_js_bytes": 168312,
+  "style_css_bytes": 117497,
+  "diffraction_build": "v5.182-base167-add-sound-diffraction",
+  "duplicate_ids": [],
+  "missing_refs": 0
+}

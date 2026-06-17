@@ -1,50 +1,4 @@
-<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MelodyLab v5.169 - Sound Refraction (การหักเหของเสียง)</title><meta name="description" content="MelodyLab ห้องทดลองเสียงและเก็บข้อมูล ด้วยมือถือ"><meta name="theme-color" content="#0f172a"><link rel="manifest" href="manifest.json"><link rel="icon" type="image/png" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link rel="stylesheet" href="style.css"><meta name="melodylab-build-version" content="v5.169-sound-refraction-physics-color-meaning"><style>
-/* v5.169 sound refraction physics-color meaning */
-#visualizer[data-viz-mode="soundRefraction"] .neonParamRow .paramIcon{
-  width:54px;min-width:54px;height:54px;border-radius:16px;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:800;letter-spacing:.02em;color:#eef6ff;
-  background:linear-gradient(135deg,#1e293b,#334155);
-  border:1px solid rgba(148,163,184,.30);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 0 1px rgba(15,23,42,.18);
-}
-/* neutral control group */
-#visualizer[data-viz-mode="soundRefraction"] .refractionModeRow .paramIcon{
-  background:linear-gradient(135deg,#334155,#475569);
-}
-/* swap between warm upper / cool lower */
-#visualizer[data-viz-mode="soundRefraction"] .tempSwapRow .paramIcon{
-  background:linear-gradient(135deg,#f97316 0%, #fb7185 42%, #38bdf8 58%, #2563eb 100%);
-}
-/* upper air temperature = warm color */
-#visualizer[data-viz-mode="soundRefraction"] .tempTopRow .paramIcon{
-  background:linear-gradient(135deg,#ea580c,#ef4444);
-}
-/* lower air temperature = cool color */
-#visualizer[data-viz-mode="soundRefraction"] .tempBottomRow .paramIcon{
-  background:linear-gradient(135deg,#0284c7,#2563eb);
-}
-/* angle from normal = measuring/protractor color */
-#visualizer[data-viz-mode="soundRefraction"] .angleRow .paramIcon{
-  background:linear-gradient(135deg,#ca8a04,#fde047); color:#fff8db;
-}
-/* frequency = wave/spectrum color */
-#visualizer[data-viz-mode="soundRefraction"] .freqRow .paramIcon{
-  background:linear-gradient(135deg,#7c3aed,#a855f7);
-}
-/* number of layers = stacked atmospheric layers */
-#visualizer[data-viz-mode="soundRefraction"] .layerCountRow .paramIcon{
-  background:linear-gradient(180deg,#0ea5e9 0%, #38bdf8 33%, #6366f1 66%, #8b5cf6 100%);
-}
-/* bend magnification = emphasis / teaching highlight */
-#visualizer[data-viz-mode="soundRefraction"] .bendBoostRow .paramIcon{
-  background:linear-gradient(135deg,#ec4899,#fb7185);
-}
-/* animation time/speed = motion / run color */
-#visualizer[data-viz-mode="soundRefraction"] .timeRow .paramIcon{
-  background:linear-gradient(135deg,#16a34a,#22c55e);
-}
-</style></head><body class="detailPage page-visualizer"><header><div class="wrap nav detailNav"><button class="backBtn" onclick="location.href='visualizer.html'">←</button><a class="brand" href="index.html"><img src="icon-192.png" alt="MelodyLab"><span>Sound Refraction (การหักเหของเสียง)</span></a></div></header>
+<!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>MelodyLab v5.167 - Sound Refraction (การหักเหของเสียง)</title><meta name="description" content="MelodyLab ห้องทดลองเสียงและเก็บข้อมูล ด้วยมือถือ"><meta name="theme-color" content="#0f172a"><link rel="manifest" href="manifest.json"><link rel="icon" type="image/png" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png"><link rel="stylesheet" href="style.css"><meta name="melodylab-build-version" content="v5.167-sound-visualizers-physics-audit"></head><body class="detailPage page-visualizer"><header><div class="wrap nav detailNav"><button class="backBtn" onclick="location.href='visualizer.html'">←</button><a class="brand" href="index.html"><img src="icon-192.png" alt="MelodyLab"><span>Sound Refraction (การหักเหของเสียง)</span></a></div></header>
 <main class="wrap detailMain" data-current="visualizer">
 <section class="section activeDetail visualizerSinglePage visualizerTemplatePage longitudinalFocusPage rebuiltTopicPage" id="visualizer" data-viz-mode="soundRefraction">
   <div class="sectionHead templateHead">
@@ -67,10 +21,10 @@
       <details class="explainDetails"><summary>คำอธิบายเพิ่มเติม</summary>
         <div class="detailsBody"><div class="templateUnderCanvas explainGrid">
           <div class="templateInsightCard"><div class="insightTitle">สาระสำคัญที่ควรสังเกต</div><ul>
-                <li>ความถี่คงเดิม แต่ความยาวคลื่นเปลี่ยนตามความเร็วเสียง</li>
-                <li>โหมดการหักเห วัดมุม θ₁ และ θ₂ จากเส้นแนวฉาก</li>
-                <li>โหมดหลายชั้น เสียงหักเหเล็กน้อยต่อเนื่องหลายชั้น</li>
-                <li>โหมดไล่ระดับ เสียงค่อย ๆ เบนเข้าหาบริเวณอุณหภูมิต่ำกว่า</li>
+                <li>ความถี่ของเสียงคงเดิม แต่ความยาวคลื่นเปลี่ยนตามความเร็วเสียงในแต่ละบริเวณ</li>
+                <li>โหมดการหักเหใช้ดูมุมตกกระทบและมุมหักเหจากเส้นแนวฉาก</li>
+                <li>แบบหลายชั้นแสดงการหักเหเล็ก ๆ หลายครั้งต่อเนื่องกัน</li>
+                <li>แบบอุณหภูมิไล่ระดับต่อเนื่องแสดงแนวโน้มการเบนของเสียงเมื่ออุณหภูมิเปลี่ยนอย่างต่อเนื่อง</li>
             </ul></div>
           <div class="templateLegendCard">
             <div class="legendRow"><span class="legendDot cyan"></span><span>หน้าคลื่นของเสียง</span></div>

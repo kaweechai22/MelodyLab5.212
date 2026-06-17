@@ -1,21 +1,30 @@
 {
-  "name": "MelodyLab v5.177",
+  "name": "MelodyLab",
   "short_name": "MelodyLab",
-  "description": "MelodyLab ห้องทดลองเสียงและคลื่นด้วยมือถือ",
-  "start_url": "index.html",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#08111f",
+  "background_color": "#07111f",
   "theme_color": "#0f172a",
+  "description": "ห้องทดลองเสียงและเก็บข้อมูล ด้วยมือถือ",
   "icons": [
     {
       "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "icon-512.png",
       "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "1254x1254",
       "type": "image/png"
     }
-  ]
+  ],
+  "orientation": "any"
 }

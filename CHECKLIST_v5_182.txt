@@ -1,0 +1,29 @@
+CHECKLIST v5.182 — BASE167 + Sound Diffraction
+
+ฐาน
+[ผ่าน] ใช้ MelodyLab v5.167 SoundVisualizers_PhysicsAudit เป็นฐานเต็ม
+[ผ่าน] app.js เดิมของ v5.167 ยังอยู่
+[ผ่าน] style.css เดิมของ v5.167 ยังอยู่
+[ผ่าน] manifest.json เดิมของ v5.167 ยังอยู่
+[ผ่าน] sw.js เดิมของ v5.167 ยังอยู่
+
+สิ่งที่แก้
+[ผ่าน] แทนเฉพาะ visualizer_sound_diffraction.html
+[ผ่าน] ไม่แตะ index.html
+[ผ่าน] ไม่แตะ visualizer.html
+[ผ่าน] ไม่แตะ app.js หลัก
+
+Diffraction
+[ผ่าน] ใช้ปุ่มเดิมของ MelodyLab
+[ผ่าน] ลดความรกในกรอบแอนิเมชัน
+[ผ่าน] หน้าคลื่นจากลำโพงเป็นคลื่นโค้งและเคลื่อนซ้ายไปขวา
+[ผ่าน] เส้นแนวการแผ่เปิด/ปิดได้ ค่าเริ่มต้นปิด
+[ผ่าน] ฉากรับเป็น I/I0 ความเข้มเสียงสัมพัทธ์
+[ผ่าน] ใช้ lambda = v/f และ v ≈ 331 + 0.6T
+[ผ่าน] ใช้ a sin(theta1)=lambda เฉพาะเมื่อ a > lambda
+
+ตรวจโค้ด
+[ผ่าน] app.js ผ่าน node --check
+[ผ่าน] inline script หน้า Diffraction ผ่าน node --check
+[ผ่าน] ไม่มี id ซ้ำในหน้า Diffraction
+[ผ่าน] ไม่มี href/src หายภายใน zip

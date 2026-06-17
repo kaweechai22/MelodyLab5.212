@@ -1,201 +1,3165 @@
-:root{
-  --bg:#08111f;
-  --panel:#0f172a;
-  --panel2:#111c33;
-  --card:#101a2e;
-  --card2:#0d1628;
-  --text:#e5eefc;
-  --muted:#9fb0c9;
-  --line:rgba(148,163,184,.22);
-  --cyan:#38bdf8;
-  --blue:#60a5fa;
-  --red:#fb7185;
-  --green:#22c55e;
-  --yellow:#facc15;
-  --violet:#a78bfa;
-  --orange:#fb923c;
-  --shadow:0 18px 50px rgba(0,0,0,.35);
-  --radius:22px;
+:root{--bg:#06111f;--panel:#0f172a;--text:#e5f0ff;--muted:#9fb3c8;--line:rgba(148,163,184,.22);--cyan:#22d3ee;--blue:#3b82f6;--purple:#a855f7;--green:#34d399;--yellow:#fbbf24;--red:#fb7185;--radius:22px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Sarabun","Noto Sans Thai",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:radial-gradient(circle at 15% 8%,rgba(34,211,238,.25),transparent 28%),radial-gradient(circle at 85% 6%,rgba(168,85,247,.24),transparent 30%),linear-gradient(135deg,#06111f 0%,#0b1530 48%,#12082f 100%);min-height:100vh}a{color:inherit}.wrap{width:min(1280px,calc(100% - 28px));margin:0 auto}header{position:sticky;top:0;z-index:60;backdrop-filter:blur(18px);background:rgba(7,17,31,.78);border-bottom:1px solid var(--line)}.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}.brand{display:flex;align-items:center;gap:12px;font-weight:900;text-decoration:none}.brand img{width:42px;height:42px;border-radius:14px}.brand span{font-size:1.15rem}.navlinks{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.navlinks a{text-decoration:none;padding:8px 10px;border:1px solid transparent;border-radius:999px;color:#c7d6e8;font-size:.88rem}.navlinks a:hover{border-color:var(--line);background:rgba(255,255,255,.06)}.hero{padding:30px 0 16px}.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(34,211,238,.34);background:rgba(34,211,238,.08);color:#bdf6ff;border-radius:999px;padding:8px 12px;font-weight:800}h1{font-size:clamp(2rem,4.5vw,4.2rem);line-height:1.04;margin:14px 0 10px}h2{font-size:clamp(1.3rem,2.4vw,2rem);margin:0 0 6px}h3{margin:0 0 10px;font-size:1.13rem}.grad{background:linear-gradient(90deg,var(--cyan),#93c5fd,#f0abfc);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:1.03rem;color:#c9d7e8;line-height:1.7;margin:0 0 12px}.sub,.small{color:var(--muted);line-height:1.6}.section{padding:16px 0}.sectionHead{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:10px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{grid-column:span 6;border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border-radius:var(--radius);padding:16px;box-shadow:0 14px 42px rgba(0,0,0,.22)}.card.full{grid-column:1/-1}.card.wide{grid-column:span 8}.card.side{grid-column:span 4}.card.third{grid-column:span 4}.actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}button,.btn{border:none;cursor:pointer;font:inherit;font-weight:850;border-radius:13px;padding:11px 14px;color:white;background:linear-gradient(135deg,var(--blue),var(--purple));box-shadow:0 12px 28px rgba(59,130,246,.22);text-decoration:none;display:inline-flex;align-items:center;gap:7px}button.secondary{background:rgba(255,255,255,.07);border:1px solid var(--line);box-shadow:none;color:#dbeafe}button.good{background:linear-gradient(135deg,#10b981,#22c55e)}button.warn{background:linear-gradient(135deg,#f97316,#ef4444)}button:disabled{opacity:.55;cursor:not-allowed}.menuGrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:10px}.menuItem{display:block;text-decoration:none;border:1px solid var(--line);background:rgba(15,23,42,.76);border-radius:20px;padding:16px;transition:.18s}.menuItem:hover{transform:translateY(-3px);border-color:rgba(34,211,238,.42)}.menuItem .icon{font-size:1.7rem;display:block;margin-bottom:6px}.menuItem p{color:#c7d6e8;line-height:1.55;margin:0;font-size:.92rem}canvas{width:100%;height:220px;background:#020617;border:1px solid rgba(148,163,184,.18);border-radius:16px;display:block}.canvasSmall{height:160px}.spectrogram{height:280px}.readouts{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin:10px 0}.readout{padding:11px;border-radius:15px;background:rgba(2,6,23,.55);border:1px solid var(--line)}.readout label{font-size:.8rem;color:var(--muted);display:block}.readout strong{font-size:1.08rem}input,textarea,select{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px 11px;background:rgba(2,6,23,.5);color:#e5f0ff;font:inherit;outline:none}.field label{display:block;margin:0 0 6px;color:#b8c7dc;font-weight:750;font-size:.92rem}.formGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.pill{display:inline-flex;border-radius:999px;padding:5px 9px;background:rgba(34,211,238,.1);color:#cffafe;font-weight:850}.note{border-left:4px solid var(--cyan);padding:11px 13px;border-radius:13px;background:rgba(34,211,238,.08);color:#d8f7ff;line-height:1.65}.statusDot{display:inline-block;width:10px;height:10px;border-radius:50%;background:#64748b;margin-right:8px}.statusDot.on{background:#34d399;box-shadow:0 0 18px rgba(52,211,153,.7)}.tableWrap{overflow:auto;border:1px solid var(--line);border-radius:16px}table{width:100%;border-collapse:collapse}th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;white-space:nowrap}th{background:rgba(34,211,238,.08);color:#cffafe}td{color:#d6e4f7}.meterBig{font-size:clamp(2rem,5vw,4.2rem);font-weight:900;line-height:1;text-align:center}.footer{padding:34px 0 46px;color:#9fb3c8;text-align:center}.toggle{display:flex;gap:7px;flex-wrap:wrap}.toggle button{padding:8px 11px}.toggle button.active{background:linear-gradient(135deg,var(--blue),var(--purple));border:none}.compact{font-size:.9rem}.hidden{display:none!important}@media(max-width:1100px){.menuGrid{grid-template-columns:1fr 1fr}.card,.card.wide,.card.side,.card.third{grid-column:1/-1}.readouts,.formGrid{grid-template-columns:1fr 1fr}.nav{align-items:flex-start;flex-direction:column}.navlinks{justify-content:flex-start}}@media(max-width:660px){.menuGrid{grid-template-columns:1fr}.readouts,.formGrid{grid-template-columns:1fr}canvas{height:190px}.spectrogram{height:230px}}
+.visualizerGrid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.visualizerGrid .mainViz{grid-column:span 8}
+.visualizerGrid .controlViz{grid-column:span 4}
+.vizModeBar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.vizModeBar button{padding:8px 10px;font-size:.92rem}
+.vizModeBar button.active{background:linear-gradient(135deg,var(--blue),var(--purple));border:none}
+.vizReadout{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.vizReadout div{border:1px solid var(--line);background:rgba(2,6,23,.55);border-radius:12px;padding:10px}
+.vizReadout label{display:block;color:var(--muted);font-size:.78rem}
+.vizReadout b{font-size:1rem}
+@media(max-width:1100px){.visualizerGrid .mainViz,.visualizerGrid .controlViz{grid-column:1/-1}.vizReadout{grid-template-columns:1fr 1fr}}
+@media(max-width:660px){.vizReadout{grid-template-columns:1fr}}
+
+.cleanHero{
+  padding:8px 0 0;
+  min-height:0;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,"Noto Sans Thai",sans-serif;
-  background:
-    radial-gradient(circle at 18% 8%,rgba(56,189,248,.18),transparent 34%),
-    radial-gradient(circle at 82% 0%,rgba(167,139,250,.15),transparent 30%),
-    linear-gradient(180deg,#07101f 0%,#0b1220 48%,#070b14 100%);
-  color:var(--text);
-  min-height:100vh;
+.cleanHero:empty{
+  display:none;
 }
-a{color:inherit;text-decoration:none}
-button,input,select{font:inherit}
-button{cursor:pointer;border:0}
-.wrap{width:min(1180px,calc(100% - 28px));margin:0 auto}
-header{
-  position:sticky;top:0;z-index:20;
-  background:rgba(8,17,31,.82);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--line);
+
+
+/* v5.8 clean home header */
+.nav{
+  justify-content:flex-start !important;
 }
-.nav{display:flex;align-items:center;justify-content:space-between;min-height:70px;gap:12px}
-.detailNav{justify-content:flex-start}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
-.brand img{width:42px;height:42px;border-radius:13px;box-shadow:0 0 0 1px rgba(255,255,255,.12)}
+.navlinks{
+  display:none !important;
+}
+.brand{
+  gap:12px;
+}
+.brand span{
+  max-width:none;
+}
+
+/* ให้หน้าแรกเป็นหน้าเมนูหลักแบบจบใน 1 หน้าจอมากขึ้น */
+.homeMenu{
+  min-height: calc(100vh - 110px);
+  padding-top: 14px;
+  padding-bottom: 22px;
+  display:block;
+}
+
+.homeMenu .menuGrid{
+  align-content:start;
+}
+
+/* ลดระยะบนลงเล็กน้อยให้เหมือนภาพ */
+main.wrap{
+  padding-top: 10px;
+}
+
+
+/* v5.9 phyphox-style page navigation */
+.homeOnly main > section:not(.homeMenu){
+  display:none !important;
+}
+.homeOnly .homeMenu{
+  min-height:calc(100vh - 110px);
+  padding-top:18px;
+}
+.detailPage main > section{
+  display:none !important;
+}
+.detailPage main > section.activeDetail{
+  display:block !important;
+  min-height:calc(100vh - 90px);
+  padding-top:18px;
+}
+.detailPage .detailNav{
+  gap:10px;
+}
 .backBtn{
-  width:42px;height:42px;border-radius:14px;
-  color:#dbeafe;background:rgba(15,23,42,.92);
-  border:1px solid rgba(148,163,184,.25);
-  font-size:24px;line-height:1;
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  color:#eaf6ff;
+  font-size:26px;
+  line-height:1;
+  cursor:pointer;
 }
-.backBtn:hover{background:#1e293b}
-main{padding:24px 0 44px}
-.section{margin:0 0 24px}
-.sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:0 0 16px}
-.sectionHead h2{font-size:clamp(1.35rem,2.3vw,2.15rem);line-height:1.15;margin:0 0 8px}
-.sectionLead,.sub,.panelSubtext,.small{color:var(--muted);margin:.2rem 0 0;line-height:1.55}
-.panelTitleStack h3{margin:0 0 4px;font-size:1.05rem}
-.card{
-  background:linear-gradient(180deg,rgba(17,28,51,.92),rgba(11,18,32,.96));
-  border:1px solid rgba(148,163,184,.20);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
+.backBtn:hover{
+  background:rgba(255,255,255,.14);
+}
+.detailPage .brand span{
+  font-size:1.08rem;
+}
+.detailPage .brand img{
+  width:40px;
+  height:40px;
+}
+.detailPage .menuGrid,
+.detailPage .homeMenu{
+  display:none !important;
+}
+@media(max-width:760px){
+  .detailPage .brand span{
+    font-size:.96rem;
+    line-height:1.25;
+  }
+  .backBtn{
+    width:38px;
+    height:38px;
+    font-size:24px;
+  }
+}
+
+
+/* v5.10 embedded export */
+.localExportCard{
+  margin-top:14px;
+}
+.localExportCard .sub{
+  margin-top:0;
+}
+.localLogWrap{
+  margin-top:12px;
+  max-height:260px;
+}
+
+
+/* v5.11 topic-by-topic workflow */
+.topicByTopicNote{
+  margin:0 0 14px;
+  padding:10px 14px;
+  border-radius:14px;
+  border:1px solid rgba(34,211,238,.35);
+  background:rgba(34,211,238,.08);
+  color:#d8f7ff;
+  font-weight:700;
+}
+.localExportCard h3{
+  margin-bottom:6px;
+}
+.localExportCard .localLogWrap{
+  margin-top:12px;
+}
+
+
+/* v5.12 Mobile-fit home layout */
+.homeOnly .homeMenu{
+  min-height:calc(100dvh - 76px);
+  height:calc(100dvh - 76px);
+  overflow:hidden;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+.homeOnly .topicByTopicNote{
+  margin:0 0 10px;
+  padding:8px 12px;
+  font-size:.88rem;
+  line-height:1.35;
+}
+.homeOnly .menuGrid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+  align-content:start;
+}
+.homeOnly .menuItem{
+  min-height:118px;
+  padding:14px;
+  border-radius:18px;
+}
+.homeOnly .menuItem .icon{
+  font-size:1.9rem;
+  margin-bottom:6px;
+}
+.homeOnly .menuItem h3{
+  font-size:1rem;
+  line-height:1.18;
+  margin:0 0 6px;
+}
+.homeOnly .menuItem p{
+  font-size:.82rem;
+  line-height:1.3;
+  margin:0;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
   overflow:hidden;
 }
-.visualizerTemplateGrid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(320px,.55fr);gap:18px;align-items:start}
-.mainViz{padding:14px}
-.controlViz{padding:16px;position:sticky;top:88px}
-.vizMediaFrame{
-  position:relative;
-  background:
-    radial-gradient(circle at 25% 10%,rgba(56,189,248,.16),transparent 30%),
-    linear-gradient(180deg,#081422,#050b13);
-  border:1px solid rgba(148,163,184,.20);
-  border-radius:20px;
-  overflow:hidden;
+
+@media(max-width:760px){
+  .homeOnly header .nav{
+    padding-top:8px;
+    padding-bottom:8px;
+  }
+  .homeOnly .brand img{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+  }
+  .homeOnly .brand span{
+    font-size:.95rem;
+  }
+  .homeOnly main.wrap{
+    padding-top:4px;
+  }
+  .homeOnly .homeMenu{
+    min-height:calc(100dvh - 58px);
+    height:calc(100dvh - 58px);
+    padding-top:6px;
+    padding-bottom:8px;
+  }
+  .homeOnly .topicByTopicNote{
+    margin:0 0 6px;
+    padding:6px 8px;
+    font-size:.70rem;
+    line-height:1.25;
+    border-radius:10px;
+  }
+  .homeOnly .menuGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:7px;
+  }
+  .homeOnly .menuItem{
+    min-height:74px;
+    padding:7px 8px;
+    border-radius:12px;
+  }
+  .homeOnly .menuItem .icon{
+    font-size:1.25rem;
+    margin-bottom:2px;
+  }
+  .homeOnly .menuItem h3{
+    font-size:.78rem;
+    line-height:1.12;
+    margin:0 0 2px;
+  }
+  .homeOnly .menuItem p{
+    font-size:.62rem;
+    line-height:1.12;
+    -webkit-line-clamp:2;
+  }
+}
+
+@media(max-width:380px){
+  .homeOnly .topicByTopicNote{
+    font-size:.66rem;
+    padding:5px 7px;
+  }
+  .homeOnly .menuGrid{
+    gap:6px;
+  }
+  .homeOnly .menuItem{
+    min-height:68px;
+    padding:6px 7px;
+  }
+  .homeOnly .menuItem .icon{
+    font-size:1.15rem;
+  }
+  .homeOnly .menuItem h3{
+    font-size:.72rem;
+  }
+  .homeOnly .menuItem p{
+    font-size:.58rem;
+  }
+}
+
+.homeOnly .menuItem{
+    min-height:69px;
+  }
+}
+
+.homeOnly .menuItem p{
+    display:none;
+  }
+}
+
+
+/* v5.13 MelodyLab branding */
+.topicByTopicNote b{
+  font-size:1.02em;
+}
+.topicByTopicNote span{
+  opacity:.9;
+  font-weight:600;
+}
+
+
+/* v5.14 orientation-consistent mobile layout */
+/* ใช้ layout เดียวกันทั้งมือถือแนวตั้งและแนวนอน ลดปัญหาค่าหรือข้อมูลที่แสดงไม่ตรงกัน */
+@media (hover:none) and (pointer:coarse), (max-width:900px){
+  .homeOnly .homeMenu{
+    height:auto !important;
+    min-height:calc(100dvh - 58px);
+    overflow:visible !important;
+    padding-top:6px;
+    padding-bottom:10px;
+  }
+
+  .homeOnly .topicByTopicNote{
+    display:block !important;
+    margin:0 0 6px;
+    padding:6px 8px;
+    font-size:.70rem;
+    line-height:1.25;
+    border-radius:10px;
+  }
+
+  .homeOnly .menuGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:7px !important;
+  }
+
+  .homeOnly .menuItem{
+    min-height:74px !important;
+    padding:7px 8px !important;
+    border-radius:12px !important;
+  }
+
+  .homeOnly .menuItem .icon{
+    font-size:1.25rem !important;
+    margin-bottom:2px !important;
+  }
+
+  .homeOnly .menuItem h3{
+    font-size:.78rem !important;
+    line-height:1.12 !important;
+    margin:0 0 2px !important;
+  }
+
+  .homeOnly .menuItem p{
+    display:-webkit-box !important;
+    font-size:.62rem !important;
+    line-height:1.12 !important;
+    -webkit-line-clamp:2 !important;
+    -webkit-box-orient:vertical !important;
+    overflow:hidden !important;
+  }
+
+  .readouts,
+  .formGrid,
+  .vizReadout{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+/* มือถือแนวนอน: ใช้สัดส่วนเดียวกับแนวตั้ง แต่ลดความสูงการ์ดเล็กน้อยโดยไม่ซ่อนข้อมูลสำคัญ */
+@media (orientation: landscape) and (hover:none) and (pointer:coarse){
+  .homeOnly header .nav{
+    padding-top:6px;
+    padding-bottom:6px;
+  }
+
+  .homeOnly .brand img{
+    width:32px;
+    height:32px;
+  }
+
+  .homeOnly .brand span{
+    font-size:.92rem;
+  }
+
+  .homeOnly .topicByTopicNote{
+    font-size:.66rem;
+    padding:5px 8px;
+    margin-bottom:5px;
+  }
+
+  .homeOnly .menuGrid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:6px !important;
+  }
+
+  .homeOnly .menuItem{
+    min-height:62px !important;
+    padding:6px 8px !important;
+  }
+
+  .homeOnly .menuItem .icon{
+    font-size:1.10rem !important;
+    margin-bottom:1px !important;
+  }
+
+  .homeOnly .menuItem h3{
+    font-size:.70rem !important;
+    line-height:1.08 !important;
+  }
+
+  .homeOnly .menuItem p{
+    display:-webkit-box !important;
+    font-size:.54rem !important;
+    line-height:1.08 !important;
+    -webkit-line-clamp:2 !important;
+  }
+}
+
+/* หน้าทดลอง: ให้ canvas และตารางอ่านได้สม่ำเสมอเมื่อหมุนจอ */
+@media (max-width:900px){
+  canvas{
+    max-width:100%;
+  }
+  .visualizerGrid .mainViz,
+  .visualizerGrid .controlViz,
+  .card,
+  .card.wide,
+  .card.side,
+  .card.third,
+  .card.quarter{
+    grid-column:1/-1;
+  }
+}
+
+
+/* v5.15 clean home text */
+.footer{
+  display:none !important;
+}
+.topicByTopicNote{
+  display:none !important;
+}
+
+
+/* v5.16 home one-column layout */
+.homeOnly .menuGrid{
+  grid-template-columns: 1fr !important;
+}
+.homeOnly .menuItem{
+  width: 100%;
+}
+
+/* มือถือและจอเล็ก: ให้เรียงลงมา 1 คอลัมน์ชัดเจน */
+@media (max-width: 900px){
+  .homeOnly .menuGrid{
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .homeOnly .menuItem{
+    min-height: 88px !important;
+    padding: 10px 12px !important;
+  }
+  .homeOnly .menuItem .icon{
+    font-size: 1.35rem !important;
+  }
+  .homeOnly .menuItem h3{
+    font-size: .9rem !important;
+    line-height: 1.18 !important;
+    margin-bottom: 4px !important;
+  }
+  .homeOnly .menuItem p{
+    font-size: .72rem !important;
+    line-height: 1.2 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  .homeOnly .homeMenu{
+    height: auto !important;
+    overflow: visible !important;
+  }
+}
+
+
+/* v5.17 visualizer subpages */
+.visualizerMenuPage .visualizerSubGrid{
+  grid-template-columns:1fr !important;
+  gap:10px !important;
+}
+.visualizerMenuPage .vizSubItem{
+  min-height:88px !important;
+  padding:12px 14px !important;
+}
+.visualizerMenuPage .vizSubItem .icon{
+  font-size:1.35rem !important;
+}
+.visualizerMenuPage .vizSubItem h3{
+  font-size:.98rem !important;
+  line-height:1.18 !important;
+}
+.visualizerMenuPage .vizSubItem p{
+  font-size:.78rem !important;
+  line-height:1.25 !important;
 }
 .vizSingleModeLabel{
-  position:absolute;left:14px;top:12px;z-index:2;
-  display:inline-flex;gap:8px;align-items:center;
-  padding:7px 11px;border-radius:999px;
-  background:rgba(2,6,23,.68);border:1px solid rgba(148,163,184,.22);
-  color:#dbeafe;font-weight:700;font-size:.88rem;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  margin-bottom:10px;
+  border-radius:14px;
+  background:rgba(99,102,241,.18);
+  border:1px solid rgba(129,140,248,.35);
+  color:#eaf2ff;
+  font-weight:800;
+}
+.visualizerSinglePage .visualizerGrid{
+  grid-template-columns:1fr !important;
+}
+.visualizerSinglePage .mainViz,
+.visualizerSinglePage .controlViz{
+  grid-column:1/-1 !important;
+}
+@media(min-width:900px){
+  .visualizerSinglePage .visualizerGrid{
+    grid-template-columns:2fr 1fr !important;
+  }
+  .visualizerSinglePage .mainViz{
+    grid-column:span 2 !important;
+  }
+  .visualizerSinglePage .controlViz{
+    grid-column:span 1 !important;
+  }
+}
+
+
+
+
+
+
+/* v5.19 visualizer real player bar */
+.visualizerSinglePage .sectionHead .actions{
+  display:none !important;
+}
+.vizPlayerBar{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:10px;
+  margin:14px 0 6px;
+  padding:10px 14px;
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(8,12,24,.96),rgba(18,25,42,.96));
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 10px 24px rgba(0,0,0,.18);
+}
+.playerCluster{
+  display:flex;
+  align-items:center;
+}
+.playerLeft{
+  justify-content:flex-start;
+}
+.playerCenter{
+  justify-content:center;
+  gap:12px;
+}
+.playerRight{
+  justify-content:flex-end;
+}
+.playerNow{
+  color:#dbe8ff;
+  font-size:.86rem;
+  font-weight:800;
+  letter-spacing:.02em;
+  opacity:.92;
+}
+.mediaBtn,
+.mediaUtilityBtn{
+  border:0;
+  cursor:pointer;
+  transition:transform .15s ease, filter .15s ease, opacity .15s ease, background .15s ease;
+}
+.mediaBtn:hover,
+.mediaUtilityBtn:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.06);
+}
+.mediaBtn:active,
+.mediaUtilityBtn:active{
+  transform:translateY(0);
+}
+.mediaBtn{
+  width:46px;
+  height:46px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#edf4ff;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.07);
+}
+.mediaGhost{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(148,163,184,.22);
+}
+.mediaPlay{
+  width:58px;
+  height:58px;
+  background:linear-gradient(135deg,#6d7dff,#8b5cf6);
+  color:#fff;
+  box-shadow:0 10px 18px rgba(91,99,255,.25), inset 0 1px 0 rgba(255,255,255,.2);
+}
+.mediaUtilityBtn{
+  min-width:84px;
+  height:40px;
+  border-radius:999px;
+  padding:0 14px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(148,163,184,.22);
+  color:#edf4ff;
+  font-weight:800;
+}
+.mediaIcon{
+  font-size:1.08rem;
+  line-height:1;
+}
+.mediaPlay .mediaIcon{
+  font-size:1.25rem;
+  margin-left:2px;
+}
+.mediaLabel{
+  font-size:.82rem;
+  line-height:1;
+}
+.vizPlayerMeta{
+  margin:0 0 12px;
+}
+.vizPlayerTrack{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:0 6px;
+  color:#b8c8df;
+  font-size:.76rem;
+}
+.trackDot{
+  width:9px;
+  height:9px;
+  border-radius:999px;
+  background:#8b5cf6;
+  box-shadow:0 0 0 4px rgba(139,92,246,.16);
+  flex:0 0 auto;
+}
+.trackLine{
+  height:4px;
+  border-radius:999px;
+  flex:1 1 auto;
+  background:linear-gradient(90deg,#6d7dff 0%, #8b5cf6 52%, rgba(255,255,255,.16) 52%, rgba(255,255,255,.10) 100%);
+}
+.trackTime{
+  flex:0 0 auto;
+  font-weight:700;
+  opacity:.9;
+}
+@media (max-width: 760px){
+  .vizPlayerBar{
+    grid-template-columns:1fr;
+    gap:10px;
+    padding:10px 12px;
+  }
+  .playerLeft,
+  .playerCenter,
+  .playerRight{
+    justify-content:center;
+  }
+  .playerCenter{
+    order:1;
+  }
+  .playerLeft{
+    order:0;
+  }
+  .playerRight{
+    order:2;
+  }
+  .playerNow{
+    font-size:.8rem;
+  }
+  .mediaBtn{
+    width:42px;
+    height:42px;
+  }
+  .mediaPlay{
+    width:54px;
+    height:54px;
+  }
+  .mediaUtilityBtn{
+    min-width:88px;
+    height:38px;
+  }
+  .vizPlayerTrack{
+    padding:0 2px;
+    font-size:.72rem;
+  }
+}
+
+
+/* v5.19.2 final player styling matching actual HTML */
+.visualizerSinglePage .sectionHead .actions{
+  display:none !important;
+}
+.visualizerSinglePage .vizPlayerBar{
+  display:grid;
+  grid-template-columns:1fr;
+  align-items:center;
+  gap:10px;
+  margin:14px 0 4px;
+  padding:12px 14px;
+  border-radius:18px;
+  background:linear-gradient(180deg,rgba(8,12,24,.96),rgba(18,25,42,.96));
+  border:1px solid rgba(148,163,184,.18);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06), 0 10px 24px rgba(0,0,0,.18);
+}
+.visualizerSinglePage .playerLeft{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.visualizerSinglePage .playerCenter{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.visualizerSinglePage .playerNow{
+  color:#dbe8ff;
+  font-size:.86rem;
+  font-weight:800;
+  letter-spacing:.02em;
+  opacity:.92;
+}
+.visualizerSinglePage .playerBtn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-width:78px;
+  height:42px;
+  padding:0 14px;
+  border-radius:999px;
+  border:1px solid rgba(148,163,184,.22);
+  background:rgba(255,255,255,.08);
+  color:#edf4ff;
+  font-weight:800;
+  cursor:pointer;
+  transition:transform .15s ease, filter .15s ease, opacity .15s ease, background .15s ease;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+}
+.visualizerSinglePage .playerBtn:hover{
+  transform:translateY(-1px);
+  filter:brightness(1.06);
+  background:rgba(255,255,255,.11);
+}
+.visualizerSinglePage .playerBtn:active{
+  transform:translateY(0);
+}
+.visualizerSinglePage .playerPrimary{
+  min-width:92px;
+  height:52px;
+  background:linear-gradient(135deg,#6d7dff,#8b5cf6);
+  border-color:transparent;
+  color:#fff;
+  box-shadow:0 10px 18px rgba(91,99,255,.25), inset 0 1px 0 rgba(255,255,255,.2);
+}
+.visualizerSinglePage .playerExportBtn{
+  background:rgba(255,255,255,.06);
+}
+.visualizerSinglePage .playerIcon{
+  font-size:1.02rem;
+  line-height:1;
+}
+.visualizerSinglePage .playerPrimary .playerIcon{
+  font-size:1.18rem;
+  margin-left:2px;
+}
+.visualizerSinglePage .playerText{
+  font-size:.82rem;
+  line-height:1;
+}
+.visualizerSinglePage .vizPlayerMeta{
+  margin:0 0 12px;
+}
+.visualizerSinglePage .vizPlayerTrack{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:0 6px;
+  color:#b8c8df;
+  font-size:.76rem;
+}
+.visualizerSinglePage .trackDot{
+  width:9px;
+  height:9px;
+  border-radius:999px;
+  background:#8b5cf6;
+  box-shadow:0 0 0 4px rgba(139,92,246,.16);
+  flex:0 0 auto;
+}
+.visualizerSinglePage .trackLine{
+  height:4px;
+  border-radius:999px;
+  flex:1 1 auto;
+  background:linear-gradient(90deg,#6d7dff 0%, #8b5cf6 52%, rgba(255,255,255,.16) 52%, rgba(255,255,255,.10) 100%);
+}
+.visualizerSinglePage .trackTime{
+  flex:0 0 auto;
+  font-weight:700;
+  opacity:.9;
+}
+@media (max-width:760px){
+  .visualizerSinglePage .vizPlayerBar{
+    padding:10px 12px;
+  }
+  .visualizerSinglePage .playerCenter{
+    gap:8px;
+  }
+  .visualizerSinglePage .playerBtn{
+    min-width:70px;
+    height:40px;
+    padding:0 10px;
+  }
+  .visualizerSinglePage .playerPrimary{
+    min-width:84px;
+    height:48px;
+  }
+  .visualizerSinglePage .playerText{
+    font-size:.76rem;
+  }
+  .visualizerSinglePage .vizPlayerTrack{
+    padding:0 2px;
+    font-size:.72rem;
+  }
+}
+
+
+/* v5.20 visualizer icon-only player */
+.visualizerSinglePage .playerBtn{
+  min-width:46px !important;
+  width:46px;
+  height:46px;
+  padding:0 !important;
+  gap:0 !important;
+}
+.visualizerSinglePage .playerPrimary{
+  min-width:58px !important;
+  width:58px;
+  height:58px;
+}
+.visualizerSinglePage .playerExportBtn{
+  min-width:46px !important;
+  width:46px;
+  height:46px;
+  padding:0 !important;
+}
+.visualizerSinglePage .playerText,
+.visualizerSinglePage .mediaLabel{
+  display:none !important;
+}
+.visualizerSinglePage .playerIcon{
+  font-size:1.15rem !important;
+}
+.visualizerSinglePage .playerPrimary .playerIcon{
+  font-size:1.28rem !important;
+}
+@media (max-width:760px){
+  .visualizerSinglePage .playerBtn{
+    min-width:42px !important;
+    width:42px;
+    height:42px;
+  }
+  .visualizerSinglePage .playerPrimary{
+    min-width:52px !important;
+    width:52px;
+    height:52px;
+  }
+  .visualizerSinglePage .playerExportBtn{
+    min-width:42px !important;
+    width:42px;
+    height:42px;
+  }
+}
+
+
+/* v5.21 visualizer portrait-landscape optimized */
+.visualizerSinglePage .sectionHead{
+  margin-bottom: 10px;
+}
+.visualizerSinglePage .visualizerGrid{
+  gap: 12px;
+}
+.visualizerSinglePage .mainViz canvas{
+  display: block;
+  width: 100%;
+  border-radius: 14px;
+}
+.visualizerSinglePage .vizReadout{
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 8px !important;
+}
+.visualizerSinglePage .controlViz .formGrid,
+.visualizerSinglePage .controlViz .readouts,
+.visualizerSinglePage .controlViz .vizReadout{
+  gap: 8px !important;
+}
+.visualizerSinglePage .controlViz .field label{
+  font-size: .82rem;
+}
+.visualizerSinglePage .controlViz .field input,
+.visualizerSinglePage .controlViz .field select{
+  min-height: 40px;
+}
+.visualizerSinglePage .vizPlayerBar{
+  margin-top: 10px;
+}
+.visualizerSinglePage .vizPlayerMeta{
+  margin-bottom: 10px;
+}
+
+/* มือถือแนวตั้ง: เรียงลงมาเป็นขั้นตอน */
+@media (max-width: 760px) and (orientation: portrait){
+  .visualizerSinglePage .detailNav{
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .visualizerSinglePage main.wrap{
+    padding-top: 6px;
+  }
+  .visualizerSinglePage .visualizerGrid{
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .visualizerSinglePage .mainViz,
+  .visualizerSinglePage .controlViz{
+    grid-column: 1 / -1 !important;
+  }
+  .visualizerSinglePage .mainViz canvas{
+    min-height: 220px;
+    max-height: 320px;
+  }
+  .visualizerSinglePage .vizReadout{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .visualizerSinglePage .controlViz .formGrid{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* มือถือแนวนอน: ขยายพื้นที่ภาพจำลอง และวางค่าควบคุมแยกด้านขวา */
+@media (max-width: 950px) and (orientation: landscape){
+  .visualizerSinglePage .detailNav{
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .visualizerSinglePage .brand img{
+    width: 34px;
+    height: 34px;
+  }
+  .visualizerSinglePage .brand span{
+    font-size: .92rem;
+    line-height: 1.18;
+  }
+  .visualizerSinglePage main.wrap{
+    padding-top: 4px;
+  }
+  .visualizerSinglePage .section{
+    padding-top: 8px;
+  }
+  .visualizerSinglePage .visualizerGrid{
+    grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.95fr) !important;
+    gap: 10px !important;
+    align-items: start;
+  }
+  .visualizerSinglePage .mainViz{
+    grid-column: 1 !important;
+  }
+  .visualizerSinglePage .controlViz{
+    grid-column: 2 !important;
+  }
+  .visualizerSinglePage .mainViz canvas{
+    min-height: 180px;
+    max-height: 235px;
+  }
+  .visualizerSinglePage .vizPlayerBar{
+    padding: 8px 10px !important;
+    margin-top: 8px;
+    margin-bottom: 2px;
+  }
+  .visualizerSinglePage .vizPlayerTrack{
+    gap: 8px;
+  }
+  .visualizerSinglePage .vizReadout{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+  }
+  .visualizerSinglePage .controlViz .formGrid{
+    grid-template-columns: 1fr !important;
+  }
+  .visualizerSinglePage .controlViz .field label{
+    font-size: .76rem;
+  }
+  .visualizerSinglePage .controlViz .field input,
+  .visualizerSinglePage .controlViz .field select{
+    min-height: 36px;
+    font-size: .85rem;
+  }
+}
+
+/* จอกว้างขึ้นอีกนิดบนแท็บเล็ตแนวนอน */
+@media (min-width: 951px){
+  .visualizerSinglePage .visualizerGrid{
+    grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.95fr) !important;
+    align-items: start;
+  }
+  .visualizerSinglePage .mainViz{
+    grid-column: 1 !important;
+  }
+  .visualizerSinglePage .controlViz{
+    grid-column: 2 !important;
+  }
+}
+
+
+/* v5.22 fixed visualizer menu list */
+.detailPage.page-visualizer main > section.visualizerMenuPage{
+  display:block !important;
+}
+.visualizerMenuPage .sectionHead{
+  margin-bottom:10px;
+}
+.visualizerMenuPage .visualizerSubGrid{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:10px !important;
+}
+.visualizerMenuPage .vizSubItem{
+  display:grid;
+  grid-template-columns:46px 1fr;
+  align-items:center;
+  min-height:86px !important;
+  padding:12px 14px !important;
+  border-radius:18px !important;
+}
+.visualizerMenuPage .vizSubItem .icon{
+  font-size:1.45rem !important;
+  margin:0 !important;
+}
+.visualizerMenuPage .vizSubItem h3{
+  font-size:.98rem !important;
+  line-height:1.18 !important;
+  margin:0 0 4px !important;
+}
+.visualizerMenuPage .vizSubItem p{
+  font-size:.76rem !important;
+  line-height:1.25 !important;
+  margin:0 !important;
+  color:var(--muted);
+}
+@media (orientation: landscape) and (max-width:950px){
+  .visualizerMenuPage .visualizerSubGrid{
+    grid-template-columns:1fr 1fr !important;
+  }
+  .visualizerMenuPage .vizSubItem{
+    min-height:74px !important;
+  }
+  .visualizerMenuPage .vizSubItem h3{
+    font-size:.86rem !important;
+  }
+  .visualizerMenuPage .vizSubItem p{
+    font-size:.66rem !important;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+}
+
+
+/* v5.23 longitudinal cleanup */
+#visualizer[data-viz-mode="longitudinal"] .playerCenter{
+  justify-content:center;
+}
+#visualizer[data-viz-mode="longitudinal"] .localExportCard .actions{
+  flex-wrap:wrap;
+}
+#visualizer[data-viz-mode="longitudinal"] .localPngBtn{
+  border-color: rgba(148,163,184,.22);
+}
+
+
+/* v5.24 pressure cleanup */
+#visualizer[data-viz-mode="pressure"] .playerCenter{
+  justify-content:center;
+}
+#visualizer[data-viz-mode="pressure"] .localExportCard .actions{
+  flex-wrap:wrap;
+}
+#visualizer[data-viz-mode="pressure"] .localPngBtn{
+  border-color: rgba(148,163,184,.22);
+}
+
+
+/* v5.25 displacement + transverse cleanup */
+#visualizer[data-viz-mode="displacementPressure"] .playerCenter,
+#visualizer[data-viz-mode="transverseCompare"] .playerCenter{
+  justify-content:center;
+}
+#visualizer[data-viz-mode="displacementPressure"] .localExportCard .actions,
+#visualizer[data-viz-mode="transverseCompare"] .localExportCard .actions{
+  flex-wrap:wrap;
+}
+#visualizer[data-viz-mode="displacementPressure"] .localPngBtn,
+#visualizer[data-viz-mode="transverseCompare"] .localPngBtn{
+  border-color: rgba(148,163,184,.22);
+}
+
+
+/* v5.26 superposition beats standing cleanup */
+#visualizer[data-viz-mode="superposition"] .playerCenter,
+#visualizer[data-viz-mode="beatsViz"] .playerCenter,
+#visualizer[data-viz-mode="standingAir"] .playerCenter{
+  justify-content:center;
+}
+#visualizer[data-viz-mode="superposition"] .localExportCard .actions,
+#visualizer[data-viz-mode="beatsViz"] .localExportCard .actions,
+#visualizer[data-viz-mode="standingAir"] .localExportCard .actions{
+  flex-wrap:wrap;
+}
+#visualizer[data-viz-mode="superposition"] .localPngBtn,
+#visualizer[data-viz-mode="beatsViz"] .localPngBtn,
+#visualizer[data-viz-mode="standingAir"] .localPngBtn{
+  border-color: rgba(148,163,184,.22);
+}
+
+
+/* v5.27 longitudinal visualizer template */
+.visualizerTemplatePage .templateHead{margin-bottom:14px}
+.visualizerTemplatePage .miniTag{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.35);color:#cfe9ff;font-size:.78rem;font-weight:700;letter-spacing:.02em;margin-bottom:10px}
+.visualizerTemplatePage .sectionLead{margin:8px 0 0;color:var(--muted);max-width:860px;line-height:1.55}
+.vizConceptStrip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 16px}
+.conceptChip{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:20px;background:linear-gradient(180deg, rgba(15,23,42,.92), rgba(19,33,58,.9));border:1px solid rgba(148,163,184,.18);box-shadow:0 10px 25px rgba(2,6,23,.22)}
+.conceptChip.accent{border-color:rgba(255,77,109,.28)}
+.chipIcon{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:12px;background:rgba(99,102,241,.22);color:#fff;font-weight:800;font-size:1.1rem;flex:0 0 auto}
+.chipIcon.dot{background:rgba(255,77,109,.16);position:relative}
+.chipIcon.dot::before{content:"";width:14px;height:14px;border-radius:50%;background:#ff4d6d;box-shadow:0 0 0 3px rgba(255,255,255,.18);display:block}
+.conceptChip b{display:block;font-size:.95rem;margin-bottom:2px}
+.conceptChip small{display:block;color:var(--muted);line-height:1.35}
+.visualizerTemplateGrid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(320px,.95fr);gap:16px;align-items:start}
+.templateMainViz,.templateControlViz,.templateExportCard{border-radius:24px;background:linear-gradient(180deg, rgba(17,24,39,.95), rgba(20,32,58,.95));box-shadow:0 18px 40px rgba(2,6,23,.26)}
+.templateMainViz{padding-bottom:16px}
+.templateUnderCanvas{display:grid;grid-template-columns:1.2fr .9fr;gap:12px;padding:12px 16px 0}
+.templateInsightCard,.templateLegendCard{background:rgba(8,15,29,.72);border:1px solid rgba(148,163,184,.16);border-radius:18px;padding:14px 16px}
+.insightTitle{font-weight:800;margin-bottom:8px;color:#eef6ff}
+.templateInsightCard ul{margin:0;padding-left:18px;color:#c7d2e5;line-height:1.5}
+.templateLegendCard{display:grid;gap:10px;align-content:start}
+.legendRow{display:flex;align-items:center;gap:10px;color:#dbeafe;font-size:.92rem}
+.legendDot{width:14px;height:14px;border-radius:50%;display:inline-block;flex:0 0 auto}
+.legendDot.cyan{background:#22d3ee}
+.legendDot.red{background:#ff4d6d;box-shadow:0 0 0 2px rgba(255,255,255,.2)}
+.legendMark{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;color:#cbd5e1;font-weight:800}
+.templateReadout > div{min-height:96px}
+.templateReadout small{display:block;margin-top:7px;color:#9fb3c8;font-size:.78rem;line-height:1.35}
+.panelTitleRow{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:10px}
+.panelTitleRow h3{margin:0}
+.panelHint{display:inline-flex;align-items:center;color:#9fb3c8;font-size:.8rem;line-height:1.35;text-align:right;max-width:220px}
+.richField{padding:2px 0 6px}
+.richField label{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.valueBadge{display:inline-flex;align-items:center;justify-content:center;padding:4px 10px;border-radius:999px;background:rgba(99,102,241,.18);border:1px solid rgba(99,102,241,.35);color:#e0e7ff;font-size:.78rem;font-weight:700}
+.miniInfoGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.miniInfoCard{padding:12px 12px 13px;border-radius:16px;background:rgba(9,16,31,.72);border:1px solid rgba(148,163,184,.14)}
+.miniInfoCard b{display:block;font-size:.86rem;margin-bottom:6px;color:#eef6ff}
+.miniInfoCard small{display:block;color:#9fb3c8;line-height:1.38}
+.templateExportCard .actions{flex-wrap:wrap}
+#visualizer[data-viz-mode="longitudinal"] .vizPlayerBar{margin:12px 16px 0}
+#visualizer[data-viz-mode="longitudinal"] .vizReadout{padding:14px 16px 0}
+#visualizer[data-viz-mode="longitudinal"] .controlViz{padding-top:18px}
+@media (max-width: 980px){
+  .vizConceptStrip{grid-template-columns:1fr 1fr}
+  .visualizerTemplateGrid{grid-template-columns:1fr}
+  .templateUnderCanvas{grid-template-columns:1fr}
+  .panelHint{max-width:none;text-align:left}
+}
+@media (max-width: 640px){
+  .vizConceptStrip{grid-template-columns:1fr}
+  .conceptChip{padding:12px 14px}
+  .chipIcon{width:34px;height:34px;font-size:1rem}
+  .templateReadout > div{min-height:86px}
+  .miniInfoGrid{grid-template-columns:1fr}
+  .panelTitleRow{flex-direction:column}
+}
+
+
+/* v5.28 all visualizer template */
+.legendDot.yellow{background:#fbbf24}
+.legendDot.purple{background:#a855f7}
+.valueBadge.textOnly{padding-inline:12px}
+.visualizerTemplatePage .templateLegendCard .legendRow span:last-child{line-height:1.35}
+@media (max-width: 980px){
+  .visualizerTemplateGrid{grid-template-columns:1fr}
+}
+
+
+/* v5.29 longitudinal focus cleanup */
+.longitudinalFocusPage .longitudinalFocusGrid{align-items:start}
+.longitudinalFocusPage .longitudinalMainViz{padding-bottom:14px}
+.longitudinalFocusPage .vizMediaFrame{border-radius:22px;overflow:hidden;background:linear-gradient(180deg, rgba(6,11,24,.94), rgba(10,16,30,.96));border:1px solid rgba(148,163,184,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)}
+.longitudinalFocusPage .vizMediaFrame .vizSingleModeLabel{margin:0;border-radius:0;padding:14px 16px;background:rgba(17,24,39,.75);border-bottom:1px solid rgba(148,163,184,.12)}
+.longitudinalFocusPage .vizMediaFrame canvas{display:block}
+.longitudinalFocusPage .embeddedPlayerBar{margin:0;border-radius:0;padding:10px 14px;background:rgba(8,13,24,.96);border-top:1px solid rgba(148,163,184,.12)}
+.longitudinalFocusPage .templateReadout{padding-top:14px}
+.longitudinalFocusPage .explainDetails{margin:14px 0 0;border:1px solid rgba(148,163,184,.16);border-radius:18px;background:rgba(8,15,29,.62);overflow:hidden}
+.longitudinalFocusPage .explainDetails summary{cursor:pointer;list-style:none;padding:14px 16px;font-weight:700;color:#eef6ff;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.longitudinalFocusPage .explainDetails summary::-webkit-details-marker{display:none}
+.longitudinalFocusPage .explainDetails summary::after{content:'▾';font-size:.95rem;color:#cbd5e1;transition:transform .18s ease}
+.longitudinalFocusPage .explainDetails[open] summary::after{transform:rotate(180deg)}
+.longitudinalFocusPage .detailsBody{padding:0 16px 16px}
+.longitudinalFocusPage .compactExplainStrip{margin-top:2px;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.longitudinalFocusPage .compactExplainStrip .conceptChip{padding:12px 14px}
+.longitudinalFocusPage .explainGrid{padding:12px 0 0;grid-template-columns:1.1fr .9fr}
+.longitudinalFocusPage .templateControlViz .miniInfoGrid{display:none !important}
+@media (max-width: 980px){
+  .longitudinalFocusPage .compactExplainStrip{grid-template-columns:1fr 1fr}
+  .longitudinalFocusPage .explainGrid{grid-template-columns:1fr}
+}
+@media (max-width: 640px){
+  .longitudinalFocusPage .compactExplainStrip{grid-template-columns:1fr}
+  .longitudinalFocusPage .embeddedPlayerBar{padding:10px 12px}
+  .longitudinalFocusPage .embeddedPlayerBar .playerNow{font-size:.82rem}
+}
+
+
+/* v5.30 longitudinal minimal player */
+.longitudinalFocusPage .embeddedPlayerBar{display:flex;justify-content:center;align-items:center;min-height:78px}
+.longitudinalFocusPage .embeddedPlayerBar .playerCluster.playerLeft,
+.longitudinalFocusPage .embeddedPlayerBar .vizPlayerMeta{display:none !important}
+.longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{width:100%;justify-content:center}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn{width:52px;height:52px}
+.longitudinalFocusPage .embeddedPlayerBar .playerPrimary{transform:scale(1.06)}
+.longitudinalFocusPage .templateMainViz .templateReadout{display:none !important}
+
+
+/* v5.31 longitudinal balanced proportions */
+.longitudinalFocusPage .longitudinalFocusGrid{
+  grid-template-columns:minmax(0,2.15fr) minmax(260px,.72fr);
+  gap:14px;
+  align-items:start;
+}
+.longitudinalFocusPage .longitudinalMainViz{padding-bottom:12px;min-width:0}
+.longitudinalFocusPage .longitudinalControlViz{
+  justify-self:end;
+  width:100%;
+  max-width:320px;
+  padding:16px 16px 14px;
+}
+.longitudinalFocusPage .vizMediaFrame{border-radius:22px;overflow:hidden;background:linear-gradient(180deg, rgba(6,11,24,.94), rgba(10,16,30,.96));border:1px solid rgba(148,163,184,.16);box-shadow:inset 0 0 0 1px rgba(255,255,255,.03)}
+.longitudinalFocusPage .vizMediaFrame .vizSingleModeLabel{margin:0;border-radius:0;padding:13px 16px;background:rgba(17,24,39,.75);border-bottom:1px solid rgba(148,163,184,.12)}
+.longitudinalFocusPage .vizMediaFrame canvas{display:block;width:100%;height:auto;aspect-ratio:1200/520;background:#040914}
+.longitudinalFocusPage .embeddedPlayerBar{display:flex;justify-content:center;align-items:center;min-height:72px;margin:0;border-radius:0;padding:10px 12px;background:rgba(8,13,24,.96);border-top:1px solid rgba(148,163,184,.12)}
+.longitudinalFocusPage .embeddedPlayerBar .playerCluster.playerLeft,
+.longitudinalFocusPage .embeddedPlayerBar .vizPlayerMeta{display:none !important}
+.longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{width:100%;justify-content:center;gap:16px}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn{width:50px;height:50px}
+.longitudinalFocusPage .embeddedPlayerBar .playerPrimary{transform:scale(1.05)}
+.longitudinalFocusPage .explainDetails{margin:12px 0 0;border:1px solid rgba(148,163,184,.16);border-radius:18px;background:rgba(8,15,29,.62);overflow:hidden}
+.longitudinalFocusPage .explainDetails summary{cursor:pointer;list-style:none;padding:13px 16px;font-weight:700;color:#eef6ff;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.longitudinalFocusPage .explainDetails summary::-webkit-details-marker{display:none}
+.longitudinalFocusPage .explainDetails summary::after{content:'▾';font-size:.95rem;color:#cbd5e1;transition:transform .18s ease}
+.longitudinalFocusPage .explainDetails[open] summary::after{transform:rotate(180deg)}
+.longitudinalFocusPage .detailsBody{padding:0 14px 14px}
+.longitudinalFocusPage .compactExplainStrip{margin-top:2px;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.longitudinalFocusPage .compactExplainStrip .conceptChip{padding:12px 14px}
+.longitudinalFocusPage .explainGrid{padding:12px 0 0;grid-template-columns:1.15fr .85fr}
+.longitudinalFocusPage .longitudinalControlViz .panelTitleRow{margin-bottom:8px}
+.longitudinalFocusPage .longitudinalControlViz .panelHint{max-width:170px;font-size:.74rem}
+.longitudinalFocusPage .longitudinalControlViz .richField{padding:0 0 4px}
+.longitudinalFocusPage .longitudinalControlViz .field label{font-size:.94rem}
+.longitudinalFocusPage .longitudinalControlViz input[type="range"]{margin-top:4px}
+.longitudinalFocusPage .longitudinalControlViz .valueBadge{padding:3px 9px;font-size:.75rem}
+.longitudinalFocusPage .templateMainViz .templateReadout,
+.longitudinalFocusPage .templateControlViz .miniInfoGrid{display:none !important}
+@media (max-width: 1100px){
+  .longitudinalFocusPage .longitudinalFocusGrid{grid-template-columns:minmax(0,1.65fr) minmax(250px,.85fr)}
+  .longitudinalFocusPage .longitudinalControlViz{max-width:none}
+}
+@media (max-width: 980px){
+  .longitudinalFocusPage .longitudinalFocusGrid{grid-template-columns:1fr}
+  .longitudinalFocusPage .longitudinalControlViz{justify-self:stretch;max-width:none;padding:18px}
+  .longitudinalFocusPage .compactExplainStrip{grid-template-columns:1fr 1fr}
+  .longitudinalFocusPage .explainGrid{grid-template-columns:1fr}
+}
+@media (max-width: 640px){
+  .longitudinalFocusPage .compactExplainStrip{grid-template-columns:1fr}
+  .longitudinalFocusPage .embeddedPlayerBar{padding:10px 12px}
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn{width:46px;height:46px}
+}
+
+
+/* v5.32 longitudinal refined text layout */
+.longitudinalFocusPage .panelTitleStack{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin-bottom:10px}
+.longitudinalFocusPage .panelTitleStack h3{margin:0}
+.longitudinalFocusPage .panelSubtext{margin:0;color:#9fb2cf;font-size:.82rem;line-height:1.4}
+.longitudinalFocusPage .longitudinalControlViz .panelSubtext{max-width:100%}
+.longitudinalFocusPage .templateExportCard .panelSubtext{max-width:100%}
+.longitudinalFocusPage .longitudinalControlViz .panelTitleRow,
+.longitudinalFocusPage .templateExportCard .panelTitleRow{display:none !important}
+
+
+/* v5.33 visualizer menu balanced */
+.visualizerMenuPage .visualizerMenuHead{margin-bottom:12px}
+.visualizerMenuPage .visualizerMenuHead h2{margin-bottom:0}
+.visualizerMenuPage .visualizerSubGrid{
+  grid-template-columns:1fr !important;
+  gap:12px !important;
+}
+.visualizerMenuPage .vizSubItem{
+  display:grid !important;
+  grid-template-columns:56px minmax(0,1fr) 18px;
+  align-items:center;
+  gap:14px;
+  min-height:96px !important;
+  padding:16px 18px !important;
+  border-radius:22px;
+}
+.visualizerMenuPage .vizSubIconWrap{
+  width:50px;
+  height:50px;
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg, rgba(99,102,241,.24), rgba(34,211,238,.10));
+  border:1px solid rgba(129,140,248,.26);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+}
+.visualizerMenuPage .vizSubItem .icon{
+  font-size:1.55rem !important;
+  display:block;
+  margin:0 !important;
+  line-height:1;
+}
+.visualizerMenuPage .vizSubText{
+  min-width:0;
+}
+.visualizerMenuPage .vizSubItem h3{
+  font-size:1.02rem !important;
+  line-height:1.32 !important;
+  margin:0 0 6px !important;
+  color:#eef6ff;
+}
+.visualizerMenuPage .vizSubItem p{
+  margin:0 !important;
+  font-size:.86rem !important;
+  line-height:1.45 !important;
+  color:#bed0e7;
+  max-width:none !important;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.visualizerMenuPage .vizSubArrow{
+  font-size:1.4rem;
+  line-height:1;
+  color:#93a4bf;
+  opacity:.9;
+}
+.visualizerMenuPage .vizSubItem:hover .vizSubArrow{
+  color:#dbeafe;
+}
+@media (max-width: 640px){
+  .visualizerMenuPage .vizSubItem{
+    grid-template-columns:50px minmax(0,1fr) 16px;
+    gap:12px;
+    padding:14px 14px !important;
+    min-height:90px !important;
+  }
+  .visualizerMenuPage .vizSubIconWrap{width:44px;height:44px;border-radius:14px}
+  .visualizerMenuPage .vizSubItem .icon{font-size:1.3rem !important}
+  .visualizerMenuPage .vizSubItem h3{font-size:.96rem !important;line-height:1.28 !important}
+  .visualizerMenuPage .vizSubItem p{font-size:.82rem !important;line-height:1.4 !important}
+}
+
+/* v5.34 Longitudinal final visual style */
+.longitudinalFocusPage .vizMediaFrame canvas{
+  min-height: 440px;
+}
+@media (orientation: landscape) and (max-height: 600px){
+  .longitudinalFocusPage .longitudinalFocusGrid{
+    grid-template-columns:minmax(0,2.2fr) minmax(250px,.72fr);
+  }
+  .longitudinalFocusPage .vizMediaFrame canvas{
+    min-height: 360px;
+  }
+}
+
+/* v5.39: keep full Home, tune Longitudinal graph only */
+.longitudinalFocusPage .vizMediaFrame canvas{
+  min-height: 430px;
+}
+@media (orientation: landscape) and (max-height: 620px){
+  .longitudinalFocusPage .vizMediaFrame canvas{
+    min-height: 360px;
+  }
+}
+
+/* v5.40: full Home preserved, Longitudinal subpage cleaned */
+.longitudinalFocusPage .vizMediaFrame canvas{
+  min-height: 430px;
+}
+@media (orientation: landscape) and (max-height: 620px){
+  .longitudinalFocusPage .vizMediaFrame canvas{
+    min-height: 360px;
+  }
+}
+
+
+/* v5.41 longitudinal player ui refinement */
+.longitudinalFocusPage .embeddedPlayerBar{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:88px;
+  margin:0;
+  border-radius:0 0 18px 18px;
+  padding:14px 16px 16px;
+  background:linear-gradient(180deg, rgba(2,6,23,.20) 0%, rgba(2,6,23,.82) 24%, rgba(2,6,23,.97) 100%);
+  border-top:1px solid rgba(148,163,184,.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05), 0 -10px 22px rgba(2,6,23,.18);
+  backdrop-filter:blur(12px);
+}
+.longitudinalFocusPage .embeddedPlayerBar::before{
+  content:"";
+  position:absolute;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:180px;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(34,211,238,0), rgba(34,211,238,.7), rgba(168,85,247,.72), rgba(168,85,247,0));
+  opacity:.55;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerCluster.playerLeft,
+.longitudinalFocusPage .embeddedPlayerBar .vizPlayerMeta{display:none !important}
+.longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{
+  width:100%;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn{
+  position:relative;
+  width:58px;
+  height:58px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background:linear-gradient(180deg, rgba(30,41,59,.98), rgba(15,23,42,.98));
+  box-shadow:0 10px 22px rgba(2,6,23,.28), inset 0 1px 0 rgba(255,255,255,.06);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .18s ease;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn::after{
+  content:"";
+  position:absolute;
+  inset:4px;
+  border-radius:inherit;
+  border:1px solid rgba(255,255,255,.04);
+  pointer-events:none;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn:hover{
+  transform:translateY(-2px) scale(1.03);
+  border-color:rgba(103,232,249,.36);
+  box-shadow:0 14px 26px rgba(2,6,23,.34), 0 0 0 4px rgba(34,211,238,.06), inset 0 1px 0 rgba(255,255,255,.10);
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn:active{
+  transform:translateY(0) scale(.98);
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+  width:68px;
+  height:68px;
+  background:linear-gradient(135deg, #7c3aed 0%, #6366f1 45%, #06b6d4 100%);
+  border-color:rgba(255,255,255,.22);
+  box-shadow:0 18px 30px rgba(79,70,229,.30), 0 0 0 6px rgba(99,102,241,.10), inset 0 1px 0 rgba(255,255,255,.28);
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerPrimary:hover{
+  box-shadow:0 20px 34px rgba(79,70,229,.38), 0 0 0 8px rgba(99,102,241,.12), inset 0 1px 0 rgba(255,255,255,.34);
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn.isActive{
+  border-color:rgba(96,165,250,.44);
+  box-shadow:0 12px 26px rgba(2,6,23,.34), 0 0 0 5px rgba(96,165,250,.09), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerPrimary.isActive{
+  box-shadow:0 20px 36px rgba(79,70,229,.40), 0 0 0 8px rgba(99,102,241,.13), inset 0 1px 0 rgba(255,255,255,.36);
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn.isPressed{
+  animation:playerPulse .45s ease;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerGlyph{
+  width:24px;
+  height:24px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  color:#e6f0ff;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerPrimary .playerGlyph{
+  width:28px;
+  height:28px;
+  color:#ffffff;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerGlyph svg{
+  width:100%;
+  height:100%;
+  display:block;
+  stroke:currentColor;
+  stroke-width:2.2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  fill:none;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerPlay svg{fill:currentColor;stroke:none;margin-left:2px}
+.longitudinalFocusPage .embeddedPlayerBar .playerPause svg rect{fill:currentColor;stroke:none}
+
+@keyframes playerPulse{
+  0%{transform:scale(1)}
+  40%{transform:scale(.92)}
+  100%{transform:scale(1)}
+}
+
+@media (max-width: 640px){
+  .longitudinalFocusPage .embeddedPlayerBar{
+    min-height:80px;
+    padding:12px 12px 14px;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar::before{width:140px}
+  .longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{gap:14px}
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn{width:52px;height:52px}
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{width:62px;height:62px}
+}
+
+/* v5.47: remove non-functional page back button to gain vertical space */
+.detailPage .backBtn{
+  display:none !important;
+}
+.detailPage .detailNav{
+  justify-content:flex-start;
+  gap:0;
+}
+.detailPage .brand{
+  gap:14px;
+}
+@media(max-width:760px){
+  .detailPage .brand img{
+    width:42px;
+    height:42px;
+  }
+}
+
+
+/* v5.52 mobile graph focus */
+@media (max-width: 760px){
+  .detailPage main > section.activeDetail{
+    padding-top:10px;
+  }
+  .detailPage .detailNav{
+    padding:8px 0 6px;
+  }
+  .detailPage .brand{
+    gap:10px;
+  }
+  .detailPage .brand img{
+    width:36px;
+    height:36px;
+    border-radius:12px;
+  }
+  .detailPage .brand span{
+    font-size:.9rem;
+    line-height:1.2;
+  }
+  .longitudinalFocusPage .vizMediaFrame .vizSingleModeLabel{
+    padding:9px 12px;
+  }
+  .longitudinalFocusPage .vizMediaFrame canvas{
+    aspect-ratio: 1200 / 470;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar{
+    min-height:70px;
+    padding:8px 10px 10px;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn{
+    width:46px;
+    height:46px;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+    width:56px;
+    height:56px;
+  }
+  .longitudinalFocusPage .explainDetails{
+    margin-top:10px;
+  }
+  .longitudinalFocusPage .explainDetails summary{
+    padding:11px 14px;
+  }
+}
+
+/* v5.53 FIXED: apply selected neon mockup style to the real v5.52 base */
+.longitudinalFocusPage{
+  --neon-cyan:#19d8ff;
+  --neon-blue:#2688ff;
+  --neon-purple:#a855ff;
+  --neon-pink:#ff4d9d;
+  --neon-green:#53db65;
+}
+
+/* Simulation card: stronger neon frame, darker stage, graph remains scientifically unchanged */
+.longitudinalFocusPage .longitudinalMainViz{
+  background:linear-gradient(145deg,rgba(6,18,37,.96),rgba(13,16,48,.98)) !important;
+  border:1px solid rgba(45,212,255,.26) !important;
+  box-shadow:
+    0 22px 52px rgba(2,6,23,.38),
+    0 0 0 1px rgba(168,85,247,.16),
+    inset 0 1px 0 rgba(255,255,255,.06) !important;
+}
+.longitudinalFocusPage .vizMediaFrame{
+  border-radius:24px !important;
+  border:1px solid rgba(34,211,238,.55) !important;
+  background:
+    radial-gradient(circle at 12% 15%,rgba(34,211,238,.18),transparent 30%),
+    radial-gradient(circle at 90% 12%,rgba(168,85,247,.22),transparent 34%),
+    linear-gradient(180deg,rgba(3,10,25,.96),rgba(4,12,30,.98)) !important;
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,.28),
+    0 0 30px rgba(34,211,238,.18),
+    inset 0 0 36px rgba(34,211,238,.04) !important;
+}
+.longitudinalFocusPage .vizMediaFrame canvas{
+  border-color:rgba(34,211,238,.20) !important;
+  background:#020817 !important;
+}
+
+/* Player: icon-only glowing media controls like the selected example */
+.longitudinalFocusPage .embeddedPlayerBar{
+  margin-top:12px !important;
+  border-radius:24px !important;
+  border:1px solid rgba(34,211,238,.42) !important;
+  background:
+    radial-gradient(circle at 22% 0%,rgba(34,211,238,.18),transparent 35%),
+    radial-gradient(circle at 82% 0%,rgba(168,85,247,.20),transparent 35%),
+    linear-gradient(180deg,rgba(5,15,36,.92),rgba(3,7,22,.98)) !important;
+  box-shadow:
+    0 0 0 1px rgba(168,85,247,.22),
+    0 18px 38px rgba(2,6,23,.36),
+    inset 0 1px 0 rgba(255,255,255,.06) !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar::before{
+  top:auto !important;
+  bottom:0 !important;
+  left:50% !important;
+  transform:translateX(-50%) !important;
+  width:78% !important;
+  height:3px !important;
+  opacity:.90 !important;
+  background:linear-gradient(90deg,rgba(34,211,238,0),rgba(34,211,238,.9),rgba(168,85,247,.9),rgba(244,63,180,.75),rgba(244,63,180,0)) !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{
+  gap:28px !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn{
+  width:62px !important;
+  height:62px !important;
+  border-radius:999px !important;
+  border:1.5px solid rgba(78,190,255,.75) !important;
+  background:
+    radial-gradient(circle at 32% 25%,rgba(255,255,255,.15),transparent 32%),
+    linear-gradient(145deg,rgba(8,22,50,.95),rgba(4,9,24,.98)) !important;
+  box-shadow:
+    0 0 0 4px rgba(34,211,238,.08),
+    0 0 24px rgba(34,211,238,.32),
+    inset 0 1px 0 rgba(255,255,255,.16) !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+  width:76px !important;
+  height:76px !important;
+  border-color:rgba(34,211,238,.98) !important;
+  background:
+    radial-gradient(circle at 30% 25%,rgba(255,255,255,.35),transparent 28%),
+    linear-gradient(135deg,#7c3aed 0%,#3b82f6 45%,#19d8ff 100%) !important;
+  box-shadow:
+    0 0 0 11px rgba(124,58,237,.18),
+    0 0 34px rgba(34,211,238,.58),
+    0 20px 38px rgba(59,130,246,.22),
+    inset 0 1px 0 rgba(255,255,255,.34) !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerReset{
+  border-color:rgba(217,70,239,.86) !important;
+  box-shadow:
+    0 0 0 4px rgba(168,85,247,.10),
+    0 0 24px rgba(217,70,239,.34),
+    inset 0 1px 0 rgba(255,255,255,.16) !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerGlyph{
+  color:#f7fbff !important;
+}
+
+/* Explanation bar */
+.longitudinalFocusPage .explainDetails{
+  border-radius:22px !important;
+  border:1px solid rgba(34,211,238,.30) !important;
+  background:
+    radial-gradient(circle at 90% 0%,rgba(168,85,247,.12),transparent 36%),
+    rgba(6,15,34,.82) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 12px 26px rgba(2,6,23,.22) !important;
+}
+.longitudinalFocusPage .explainDetails summary{
+  font-size:1.2rem !important;
+  padding:18px 22px !important;
+}
+
+/* Parameters panel: colorful icon rows + sliders */
+.longitudinalFocusPage .neonControlViz{
+  border-radius:26px !important;
+  border:1px solid rgba(34,211,238,.28) !important;
+  background:
+    radial-gradient(circle at 0% 10%,rgba(34,211,238,.18),transparent 36%),
+    radial-gradient(circle at 100% 90%,rgba(168,85,247,.18),transparent 34%),
+    linear-gradient(145deg,rgba(6,18,38,.96),rgba(10,12,42,.96)) !important;
+  box-shadow:0 20px 48px rgba(2,6,23,.35),inset 0 1px 0 rgba(255,255,255,.06) !important;
+}
+.longitudinalFocusPage .neonControlViz .panelTitleStack h3{
+  font-size:1.55rem !important;
+  margin-bottom:2px !important;
+}
+.longitudinalFocusPage .neonControlViz .panelSubtext{
+  font-size:1rem !important;
+  color:#aab9d2 !important;
+  margin-bottom:16px !important;
+}
+.longitudinalFocusPage .neonParamRow{
+  display:grid !important;
+  grid-template-columns:58px minmax(145px,.85fr) minmax(120px,1fr) 112px;
+  align-items:center !important;
+  gap:14px !important;
+  padding:17px 0 !important;
+  border-bottom:1px solid rgba(148,163,184,.12) !important;
+}
+.longitudinalFocusPage .neonParamRow:last-child{border-bottom:none !important}
+.longitudinalFocusPage .paramIcon{
+  width:48px;
+  height:48px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:1.55rem;
+  font-weight:900;
+  box-shadow:0 0 24px rgba(255,255,255,.18),inset 0 1px 0 rgba(255,255,255,.20);
+}
+.longitudinalFocusPage .freqRow .paramIcon{background:linear-gradient(135deg,#155ee8,#1ed3ff)}
+.longitudinalFocusPage .ampRow .paramIcon{background:linear-gradient(135deg,#16a34a,#6ee767)}
+.longitudinalFocusPage .speedRow .paramIcon{background:linear-gradient(135deg,#db2777,#ff6aa8)}
+.longitudinalFocusPage .timeRow .paramIcon{background:linear-gradient(135deg,#6d28d9,#a855f7)}
+.longitudinalFocusPage .paramText label{
+  display:block !important;
+  margin:0 !important;
+  font-size:1rem !important;
+  line-height:1.25 !important;
+  color:#f2f7ff !important;
+  font-weight:900 !important;
+}
+.longitudinalFocusPage .paramText small{
+  display:block;
+  margin-top:2px;
+  font-size:.82rem;
+  line-height:1.1;
+  font-weight:800;
+}
+.longitudinalFocusPage .freqRow .paramText small{color:#2f8cff}
+.longitudinalFocusPage .ampRow .paramText small{color:#56e768}
+.longitudinalFocusPage .speedRow .paramText small{color:#ff5ca8}
+.longitudinalFocusPage .timeRow .paramText small{color:#a855f7}
+.longitudinalFocusPage .neonParamRow input[type="range"]{
+  width:100% !important;
+  height:7px !important;
+  padding:0 !important;
+  border:none !important;
+  border-radius:999px !important;
+  background:rgba(60,78,110,.45) !important;
+}
+.longitudinalFocusPage .freqRow input[type="range"]{accent-color:#278cff;color:#278cff}
+.longitudinalFocusPage .ampRow input[type="range"]{accent-color:#54de63;color:#54de63}
+.longitudinalFocusPage .speedRow input[type="range"]{accent-color:#ff4d9d;color:#ff4d9d}
+.longitudinalFocusPage .timeRow input[type="range"]{accent-color:#a855f7;color:#a855f7}
+.longitudinalFocusPage .paramValueWrap{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+}
+.longitudinalFocusPage .neonParamRow .valueBadge{
+  min-width:96px !important;
+  text-align:center !important;
+  display:inline-flex !important;
+  justify-content:center !important;
+  padding:11px 14px !important;
+  border-radius:16px !important;
+  background:rgba(2,8,25,.68) !important;
+  border:1px solid rgba(148,163,184,.18) !important;
+  color:#fff !important;
+  font-size:1.1rem !important;
+  font-weight:900 !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 10px 22px rgba(2,6,23,.26) !important;
+}
+
+@media(max-width:760px){
+  .longitudinalFocusPage .neonControlViz{padding:22px 18px !important}
+  .longitudinalFocusPage .neonParamRow{
+    grid-template-columns:48px minmax(0,1fr) 44% !important;
+    grid-template-areas:
+      "icon text value"
+      "icon slider slider";
+    gap:8px 12px !important;
+    padding:15px 0 !important;
+  }
+  .longitudinalFocusPage .paramIcon{grid-area:icon;width:44px;height:44px;font-size:1.35rem}
+  .longitudinalFocusPage .paramText{grid-area:text}
+  .longitudinalFocusPage .neonParamRow input[type="range"]{grid-area:slider}
+  .longitudinalFocusPage .paramValueWrap{grid-area:value}
+  .longitudinalFocusPage .neonParamRow .valueBadge{min-width:82px !important;font-size:1rem !important;padding:9px 12px !important}
+  .longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{gap:20px !important}
+}
+@media(max-width:950px) and (orientation:landscape){
+  .longitudinalFocusPage .neonControlViz .panelTitleStack h3{font-size:1.2rem !important}
+  .longitudinalFocusPage .neonControlViz .panelSubtext{font-size:.82rem !important;margin-bottom:8px !important}
+  .longitudinalFocusPage .neonParamRow{
+    grid-template-columns:38px minmax(0,1fr) !important;
+    grid-template-areas:
+      "icon text"
+      "icon value"
+      "slider slider";
+    gap:6px 10px !important;
+    padding:11px 0 !important;
+  }
+  .longitudinalFocusPage .paramIcon{grid-area:icon;width:36px;height:36px;font-size:1.1rem}
+  .longitudinalFocusPage .paramText{grid-area:text}
+  .longitudinalFocusPage .paramText label{font-size:.86rem !important}
+  .longitudinalFocusPage .paramText small{font-size:.72rem}
+  .longitudinalFocusPage .paramValueWrap{grid-area:value;justify-content:flex-start}
+  .longitudinalFocusPage .neonParamRow input[type="range"]{grid-area:slider}
+  .longitudinalFocusPage .neonParamRow .valueBadge{min-width:72px !important;font-size:.82rem !important;padding:6px 9px !important}
+}
+
+
+/* v5.55: make longitudinal graph more prominent by tightening empty space */
+.longitudinalFocusPage .embeddedPlayerBar{margin-top:6px !important;}
+@media(max-width:760px){
+  .longitudinalFocusPage .vizMediaFrame canvas{aspect-ratio:1200 / 450 !important;}
+  .longitudinalFocusPage .embeddedPlayerBar{margin-top:4px !important;}
+}
+@media(max-width:950px) and (orientation:landscape){
+  .longitudinalFocusPage .vizMediaFrame canvas{aspect-ratio:1200 / 410 !important;}
+  .longitudinalFocusPage .embeddedPlayerBar{margin-top:4px !important;}
+}
+
+
+/* v5.56: tighter mobile longitudinal layout */
+.longitudinalFocusPage .vizMediaFrame canvas{aspect-ratio:1200/500 !important;}
+.longitudinalFocusPage .embeddedPlayerBar{padding:8px 12px !important; min-height:64px !important;}
+@media(max-width:760px){
+  .longitudinalFocusPage .vizMediaFrame canvas{aspect-ratio:1200/430 !important;}
+  .longitudinalFocusPage .embeddedPlayerBar{padding:6px 10px !important; min-height:60px !important;}
+}
+@media(max-width:950px) and (orientation:landscape){
+  .longitudinalFocusPage .vizMediaFrame canvas{aspect-ratio:1200/380 !important;}
+  .longitudinalFocusPage .embeddedPlayerBar{padding:6px 10px !important; min-height:58px !important;}
+}
+
+
+/* v5.57: make longitudinal graph more prominent on mobile while preserving all elements */
+.longitudinalFocusPage .vizMediaFrame canvas{min-height:380px !important; aspect-ratio:1200/440 !important;}
+.longitudinalFocusPage .embeddedPlayerBar{margin-top:6px !important; min-height:72px !important; padding:8px 12px 10px !important;}
+@media (max-width:760px){
+  .longitudinalFocusPage .vizMediaFrame canvas{min-height:300px !important; aspect-ratio:1200/380 !important;}
+  .longitudinalFocusPage .embeddedPlayerBar{margin-top:4px !important; min-height:64px !important; padding:7px 10px 9px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{gap:16px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn{width:50px !important; height:50px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{width:60px !important; height:60px !important;}
+}
+@media (max-width:950px) and (orientation:landscape){
+  .longitudinalFocusPage .vizMediaFrame canvas{min-height:240px !important; aspect-ratio:1200/320 !important;}
+  .longitudinalFocusPage .embeddedPlayerBar{margin-top:4px !important; min-height:60px !important; padding:6px 10px 8px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{gap:14px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn{width:46px !important; height:46px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{width:56px !important; height:56px !important;}
+}
+
+
+/* v5.58: make particle graph the visual focus on phones */
+.longitudinalFocusPage .vizMediaFrame .vizSingleModeLabel{padding:10px 14px !important;}
+.longitudinalFocusPage .longitudinalMainViz{padding-bottom:8px !important;}
+.longitudinalFocusPage .embeddedPlayerBar{margin-top:4px !important; min-height:62px !important; padding:6px 10px 8px !important;}
+@media (max-width:760px){
+  .longitudinalFocusPage .vizMediaFrame .vizSingleModeLabel{padding:8px 12px !important;}
+  .longitudinalFocusPage .vizMediaFrame canvas{min-height:250px !important; aspect-ratio:1200/330 !important;}
+  .longitudinalFocusPage .embeddedPlayerBar{margin-top:2px !important; min-height:56px !important; padding:5px 10px 6px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{gap:18px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn{width:48px !important; height:48px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{width:58px !important; height:58px !important;}
+}
+@media (max-width:950px) and (orientation:landscape){
+  .longitudinalFocusPage .vizMediaFrame .vizSingleModeLabel{padding:8px 12px !important;}
+  .longitudinalFocusPage .vizMediaFrame canvas{min-height:220px !important; aspect-ratio:1200/300 !important;}
+  .longitudinalFocusPage .embeddedPlayerBar{margin-top:2px !important; min-height:52px !important; padding:4px 8px 6px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{gap:14px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn{width:44px !important; height:44px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{width:52px !important; height:52px !important;}
+}
+
+
+/* v5.59: graph priority + smaller parameter panel */
+.longitudinalFocusPage .neonControlViz{padding:20px 16px !important;}
+.longitudinalFocusPage .neonControlViz .panelTitleStack h3{font-size:1.8rem !important;line-height:1.08 !important;}
+.longitudinalFocusPage .neonControlViz .panelSubtext{font-size:.82rem !important;line-height:1.45 !important;margin-bottom:6px !important;}
+.longitudinalFocusPage .neonParamRow{padding:14px 0 !important;gap:10px !important;}
+.longitudinalFocusPage .paramIcon{width:44px !important;height:44px !important;font-size:1.35rem !important;}
+.longitudinalFocusPage .paramText label{font-size:.88rem !important;line-height:1.22 !important;}
+.longitudinalFocusPage .paramText small{font-size:.72rem !important;line-height:1.1 !important;}
+.longitudinalFocusPage .neonParamRow .valueBadge{min-width:74px !important;font-size:.9rem !important;padding:7px 10px !important;}
+.longitudinalFocusPage .neonParamRow input[type="range"]{margin-top:4px !important;}
+@media (max-width:760px){
+  .longitudinalFocusPage .vizMediaFrame canvas{min-height:200px !important; aspect-ratio:1200/285 !important;}
+  .longitudinalFocusPage .vizMediaFrame .vizSingleModeLabel{padding:8px 12px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar{min-height:52px !important; padding:5px 10px 6px !important; margin-top:0 !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{gap:14px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn{width:44px !important;height:44px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{width:54px !important;height:54px !important;}
+  .longitudinalFocusPage .explainDetails{margin-top:8px !important;}
+  .longitudinalFocusPage .neonControlViz{padding:16px 14px !important;}
+  .longitudinalFocusPage .neonControlViz .panelTitleStack h3{font-size:1.55rem !important;}
+  .longitudinalFocusPage .neonControlViz .panelSubtext{font-size:.74rem !important;margin-bottom:4px !important;}
+  .longitudinalFocusPage .neonParamRow{grid-template-columns:40px 1fr 78px !important; grid-template-areas:"icon text value" ". slider slider" !important; padding:10px 0 !important; gap:8px 10px !important;}
+  .longitudinalFocusPage .paramIcon{width:36px !important;height:36px !important;font-size:1.05rem !important;}
+  .longitudinalFocusPage .paramText label{font-size:.8rem !important;}
+  .longitudinalFocusPage .paramText small{font-size:.67rem !important;}
+  .longitudinalFocusPage .neonParamRow .valueBadge{min-width:66px !important;font-size:.82rem !important;padding:6px 8px !important;}
+}
+@media (max-width:950px) and (orientation:landscape){
+  .longitudinalFocusPage .vizMediaFrame canvas{min-height:170px !important; aspect-ratio:1200/250 !important;}
+  .longitudinalFocusPage .embeddedPlayerBar{min-height:46px !important; padding:4px 8px 5px !important; margin-top:0 !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{gap:12px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn{width:40px !important;height:40px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{width:48px !important;height:48px !important;}
+  .longitudinalFocusPage .longitudinalFocusGrid{grid-template-columns:minmax(0,1.95fr) minmax(180px,.6fr) !important; gap:12px !important;}
+  .longitudinalFocusPage .neonControlViz{padding:14px 12px !important;}
+  .longitudinalFocusPage .neonControlViz .panelTitleStack h3{font-size:1.2rem !important;}
+  .longitudinalFocusPage .panelSubtext{display:none !important;}
+  .longitudinalFocusPage .neonParamRow{padding:8px 0 !important; gap:6px 8px !important;}
+  .longitudinalFocusPage .paramIcon{width:30px !important;height:30px !important;font-size:.9rem !important;}
+  .longitudinalFocusPage .paramText label{font-size:.74rem !important;}
+  .longitudinalFocusPage .paramText small{font-size:.62rem !important;}
+  .longitudinalFocusPage .neonParamRow .valueBadge{min-width:58px !important;font-size:.74rem !important;padding:4px 7px !important;}
+}
+
+
+/* v5.60 final overrides: tighter labels, smaller parameters, equal player buttons */
+.longitudinalFocusPage .longitudinalFocusGrid{grid-template-columns:minmax(0,2.35fr) minmax(150px,.45fr) !important;gap:12px !important;align-items:start !important;}
+.longitudinalFocusPage .vizMediaFrame canvas{aspect-ratio:1200/300 !important; min-height:260px !important;}
+.longitudinalFocusPage .embeddedPlayerBar{margin-top:2px !important; min-height:52px !important; padding:4px 8px 6px !important;}
+.longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{gap:14px !important;}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn, .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{width:44px !important;height:44px !important;transform:none !important;}
+.longitudinalFocusPage .embeddedPlayerBar .playerPrimary .playerGlyph{font-size:1.05rem !important;}
+.longitudinalFocusPage .embeddedPlayerBar .playerGlyph{font-size:1.0rem !important;}
+.longitudinalFocusPage .neonControlViz{padding:14px 12px !important;}
+.longitudinalFocusPage .neonControlViz .panelTitleStack h3{font-size:1.1rem !important;line-height:1.12 !important;}
+.longitudinalFocusPage .panelSubtext{font-size:.68rem !important;line-height:1.35 !important;margin-bottom:2px !important;}
+.longitudinalFocusPage .neonParamRow{padding:6px 0 !important;gap:5px 7px !important;grid-template-columns:30px 1fr 58px !important;grid-template-areas:"icon text value" ". slider slider" !important;}
+.longitudinalFocusPage .paramIcon{width:28px !important;height:28px !important;font-size:.85rem !important;}
+.longitudinalFocusPage .paramText label{font-size:.72rem !important;line-height:1.18 !important;}
+.longitudinalFocusPage .paramText small{font-size:.60rem !important;line-height:1.05 !important;}
+.longitudinalFocusPage .neonParamRow .valueBadge{min-width:54px !important;font-size:.72rem !important;padding:4px 6px !important;border-radius:12px !important;}
+.longitudinalFocusPage .neonParamRow input[type="range"]{margin-top:1px !important;}
+.longitudinalFocusPage .explainDetails{margin-top:6px !important;}
+@media (max-width:760px){
+  .longitudinalFocusPage .vizMediaFrame canvas{aspect-ratio:1200/255 !important; min-height:235px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar{min-height:48px !important;padding:3px 8px 5px !important;margin-top:1px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{gap:12px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn, .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{width:42px !important;height:42px !important;}
+  .longitudinalFocusPage .neonControlViz{padding:12px 10px !important;}
+  .longitudinalFocusPage .neonControlViz .panelTitleStack h3{font-size:1.02rem !important;}
+  .longitudinalFocusPage .panelSubtext{display:none !important;}
+  .longitudinalFocusPage .neonParamRow{grid-template-columns:28px 1fr 54px !important;padding:5px 0 !important;gap:4px 6px !important;}
+  .longitudinalFocusPage .paramIcon{width:26px !important;height:26px !important;font-size:.78rem !important;}
+  .longitudinalFocusPage .paramText label{font-size:.68rem !important;}
+  .longitudinalFocusPage .paramText small{font-size:.57rem !important;}
+  .longitudinalFocusPage .neonParamRow .valueBadge{min-width:50px !important;font-size:.68rem !important;padding:3px 5px !important;}
+}
+@media (max-width:950px) and (orientation:landscape){
+  .longitudinalFocusPage .longitudinalFocusGrid{grid-template-columns:minmax(0,2.75fr) minmax(135px,.35fr) !important;gap:10px !important;}
+  .longitudinalFocusPage .vizMediaFrame canvas{aspect-ratio:1200/230 !important;min-height:160px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar{min-height:44px !important;padding:3px 8px 4px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{gap:10px !important;}
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn, .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{width:38px !important;height:38px !important;}
+  .longitudinalFocusPage .neonControlViz{padding:10px !important;}
+  .longitudinalFocusPage .neonControlViz .panelTitleStack h3{font-size:.96rem !important;}
+  .longitudinalFocusPage .panelSubtext{display:none !important;}
+  .longitudinalFocusPage .neonParamRow{grid-template-columns:24px 1fr 48px !important;padding:4px 0 !important;gap:4px 6px !important;}
+  .longitudinalFocusPage .paramIcon{width:22px !important;height:22px !important;font-size:.72rem !important;}
+  .longitudinalFocusPage .paramText label{font-size:.62rem !important;line-height:1.1 !important;}
+  .longitudinalFocusPage .paramText small{font-size:.52rem !important;line-height:1.0 !important;}
+  .longitudinalFocusPage .neonParamRow .valueBadge{min-width:44px !important;font-size:.62rem !important;padding:2px 4px !important;}
+}
+
+/* v5.61: mobile graph emphasis */
+.longitudinalFocusPage .vizMediaFrame canvas{aspect-ratio:1200/235 !important;min-height:250px !important;}
+.longitudinalFocusPage .embeddedPlayerBar{margin-top:0 !important;}
+@media (max-width:760px){
+  .longitudinalFocusPage .vizMediaFrame canvas{aspect-ratio:1200/220 !important;min-height:220px !important;}
+  .longitudinalFocusPage .vizMediaFrame{padding-bottom:0 !important;}
+}
+
+
+/* v5.63: larger particles + more rows to fill the graph area */
+.longitudinalFocusPage .vizMediaFrame canvas{
+  aspect-ratio:1200/560 !important;
+  min-height:360px !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar{
+  margin-top:4px !important;
+  min-height:62px !important;
+  padding:6px 10px 8px !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{
+  gap:20px !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn,
+.longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+  width:54px !important;
+  height:54px !important;
+  transform:none !important;
+}
+.longitudinalFocusPage .neonControlViz{
+  padding:18px 16px !important;
+}
+.longitudinalFocusPage .neonControlViz .panelTitleStack h3{
+  font-size:1.25rem !important;
+}
+.longitudinalFocusPage .panelSubtext{
+  font-size:.74rem !important;
+}
+.longitudinalFocusPage .neonParamRow{
+  padding:9px 0 !important;
+  gap:8px 10px !important;
+}
+.longitudinalFocusPage .paramIcon{
+  width:34px !important;
+  height:34px !important;
+  font-size:1rem !important;
+}
+.longitudinalFocusPage .paramText label{
+  font-size:.78rem !important;
+}
+.longitudinalFocusPage .paramText small{
+  font-size:.64rem !important;
+}
+.longitudinalFocusPage .neonParamRow .valueBadge{
+  min-width:62px !important;
+  font-size:.76rem !important;
+  padding:4px 7px !important;
+}
+
+@media(max-width:760px){
+  .longitudinalFocusPage .vizMediaFrame canvas{
+    aspect-ratio:1200/610 !important;
+    min-height:330px !important;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar{
+    min-height:58px !important;
+    padding:5px 10px 7px !important;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{
+    gap:18px !important;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn,
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+    width:50px !important;
+    height:50px !important;
+  }
+  .longitudinalFocusPage .neonControlViz{
+    padding:13px 12px !important;
+  }
+  .longitudinalFocusPage .neonControlViz .panelTitleStack h3{
+    font-size:1rem !important;
+  }
+  .longitudinalFocusPage .panelSubtext{
+    display:none !important;
+  }
+  .longitudinalFocusPage .neonParamRow{
+    grid-template-columns:30px 1fr 58px !important;
+    grid-template-areas:"icon text value" ". slider slider" !important;
+    padding:6px 0 !important;
+    gap:5px 7px !important;
+  }
+  .longitudinalFocusPage .paramIcon{
+    width:28px !important;
+    height:28px !important;
+    font-size:.82rem !important;
+  }
+  .longitudinalFocusPage .paramText label{
+    font-size:.70rem !important;
+  }
+  .longitudinalFocusPage .paramText small{
+    font-size:.58rem !important;
+  }
+  .longitudinalFocusPage .neonParamRow .valueBadge{
+    min-width:52px !important;
+    font-size:.68rem !important;
+    padding:3px 5px !important;
+  }
+}
+
+@media(max-width:950px) and (orientation:landscape){
+  .longitudinalFocusPage .longitudinalFocusGrid{
+    grid-template-columns:minmax(0,2.75fr) minmax(140px,.36fr) !important;
+    gap:10px !important;
+  }
+  .longitudinalFocusPage .vizMediaFrame canvas{
+    aspect-ratio:1200/410 !important;
+    min-height:210px !important;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar{
+    min-height:48px !important;
+    padding:4px 8px 5px !important;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn,
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+    width:40px !important;
+    height:40px !important;
+  }
+  .longitudinalFocusPage .neonControlViz{
+    padding:10px !important;
+  }
+  .longitudinalFocusPage .neonControlViz .panelTitleStack h3{
+    font-size:.9rem !important;
+  }
+  .longitudinalFocusPage .panelSubtext{
+    display:none !important;
+  }
+  .longitudinalFocusPage .neonParamRow{
+    padding:4px 0 !important;
+    grid-template-columns:24px 1fr 46px !important;
+    gap:4px 6px !important;
+  }
+  .longitudinalFocusPage .paramIcon{
+    width:22px !important;
+    height:22px !important;
+    font-size:.68rem !important;
+  }
+  .longitudinalFocusPage .paramText label{
+    font-size:.60rem !important;
+  }
+  .longitudinalFocusPage .paramText small{
+    font-size:.50rem !important;
+  }
+  .longitudinalFocusPage .neonParamRow .valueBadge{
+    min-width:42px !important;
+    font-size:.60rem !important;
+    padding:2px 4px !important;
+  }
+}
+
+
+/* v5.64: full vertical graph area + compact UI */
+.longitudinalFocusPage .vizMediaFrame canvas{
+  aspect-ratio:1200/720 !important;
+  min-height:430px !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar{
+  margin-top:4px !important;
+  min-height:56px !important;
+  padding:5px 10px 7px !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{
+  gap:18px !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn,
+.longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+  width:50px !important;
+  height:50px !important;
+  transform:none !important;
+}
+.longitudinalFocusPage .neonControlViz{
+  padding:14px 12px !important;
+}
+.longitudinalFocusPage .neonControlViz .panelTitleStack h3{
+  font-size:1.05rem !important;
+}
+.longitudinalFocusPage .panelSubtext{
+  display:none !important;
+}
+.longitudinalFocusPage .neonParamRow{
+  padding:6px 0 !important;
+  gap:5px 7px !important;
+  grid-template-columns:30px 1fr 58px !important;
+  grid-template-areas:"icon text value" ". slider slider" !important;
+}
+.longitudinalFocusPage .paramIcon{
+  width:28px !important;
+  height:28px !important;
+  font-size:.82rem !important;
+}
+.longitudinalFocusPage .paramText label{
+  font-size:.70rem !important;
+}
+.longitudinalFocusPage .paramText small{
+  font-size:.58rem !important;
+}
+.longitudinalFocusPage .neonParamRow .valueBadge{
+  min-width:52px !important;
+  font-size:.68rem !important;
+  padding:3px 5px !important;
+}
+
+@media(max-width:760px){
+  .longitudinalFocusPage .vizMediaFrame canvas{
+    aspect-ratio:1200/760 !important;
+    min-height:405px !important;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar{
+    min-height:52px !important;
+    padding:4px 10px 6px !important;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn,
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+    width:46px !important;
+    height:46px !important;
+  }
+}
+
+@media(max-width:950px) and (orientation:landscape){
+  .longitudinalFocusPage .longitudinalFocusGrid{
+    grid-template-columns:minmax(0,2.6fr) minmax(140px,.4fr) !important;
+    gap:10px !important;
+  }
+  .longitudinalFocusPage .vizMediaFrame canvas{
+    aspect-ratio:1200/520 !important;
+    min-height:260px !important;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar{
+    min-height:46px !important;
+    padding:4px 8px 5px !important;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn,
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+    width:40px !important;
+    height:40px !important;
+  }
+}
+
+
+/* v5.65 REAL FIX: graph dominates mobile display */
+.longitudinalFocusPage .vizMediaFrame canvas{
+  aspect-ratio:auto !important;
+  min-height:500px !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar{
+  margin-top:3px !important;
+  min-height:52px !important;
+  padding:4px 10px 6px !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerCenterOnly{
+  gap:18px !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn,
+.longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+  width:48px !important;
+  height:48px !important;
+  transform:none !important;
+}
+.longitudinalFocusPage .neonControlViz{
+  padding:12px 10px !important;
+}
+.longitudinalFocusPage .neonControlViz .panelTitleStack h3{
+  font-size:1rem !important;
+}
+.longitudinalFocusPage .panelSubtext{
+  display:none !important;
+}
+.longitudinalFocusPage .neonParamRow{
+  padding:5px 0 !important;
+  gap:4px 6px !important;
+  grid-template-columns:28px 1fr 52px !important;
+  grid-template-areas:"icon text value" ". slider slider" !important;
+}
+.longitudinalFocusPage .paramIcon{
+  width:26px !important;
+  height:26px !important;
+  font-size:.78rem !important;
+}
+.longitudinalFocusPage .paramText label{
+  font-size:.68rem !important;
+}
+.longitudinalFocusPage .paramText small{
+  font-size:.56rem !important;
+}
+.longitudinalFocusPage .neonParamRow .valueBadge{
+  min-width:50px !important;
+  font-size:.66rem !important;
+  padding:3px 5px !important;
+}
+
+@media(max-width:760px){
+  .longitudinalFocusPage .vizMediaFrame canvas{
+    min-height:480px !important;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn,
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+    width:46px !important;
+    height:46px !important;
+  }
+}
+
+@media(max-width:950px) and (orientation:landscape){
+  .longitudinalFocusPage .longitudinalFocusGrid{
+    grid-template-columns:minmax(0,2.7fr) minmax(130px,.35fr) !important;
+    gap:10px !important;
+  }
+  .longitudinalFocusPage .vizMediaFrame canvas{
+    min-height:300px !important;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn,
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+    width:40px !important;
+    height:40px !important;
+  }
+}
+
+
+/* v5.66: force the graph itself to fill the slot vertically */
+.longitudinalFocusPage .vizMediaFrame canvas{
+  aspect-ratio:auto !important;
+  height:46vh !important;
+  min-height:390px !important;
+  max-height:520px !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar{
+  margin-top:2px !important;
+  min-height:50px !important;
+  padding:4px 10px 6px !important;
+}
+.longitudinalFocusPage .embeddedPlayerBar .playerBtn,
+.longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+  width:46px !important;
+  height:46px !important;
+  transform:none !important;
+}
+
+@media(max-width:760px){
+  .longitudinalFocusPage .vizMediaFrame canvas{
+    height:46vh !important;
+    min-height:390px !important;
+    max-height:510px !important;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar{
+    min-height:48px !important;
+  }
+}
+
+@media(max-width:950px) and (orientation:landscape){
+  .longitudinalFocusPage .vizMediaFrame canvas{
+    height:62vh !important;
+    min-height:250px !important;
+    max-height:350px !important;
+  }
+  .longitudinalFocusPage .embeddedPlayerBar .playerBtn,
+  .longitudinalFocusPage .embeddedPlayerBar .playerPrimary{
+    width:38px !important;
+    height:38px !important;
+  }
+}
+
+
+/* v5.67: keep v5.66 graph size, but emphasize larger particles in the canvas renderer */
+/* No canvas-height change here: graph area intentionally remains the same size. */
+
+
+/* v5.72 Pressure page: use Longitudinal v5.67 structure and visual controls */
+.pressureFocusPage .vizMediaFrame canvas{
+  aspect-ratio:auto !important;
+  height:46vh !important;
+  min-height:390px !important;
+  max-height:510px !important;
+}
+.pressureFocusPage .embeddedPlayerBar{
+  margin-top:2px !important;
+  min-height:48px !important;
+  padding:4px 10px 6px !important;
+}
+.pressureFocusPage .embeddedPlayerBar .playerBtn,
+.pressureFocusPage .embeddedPlayerBar .playerPrimary{
+  width:46px !important;
+  height:46px !important;
+  transform:none !important;
+}
+.pressureFocusPage .neonControlViz{
+  padding:12px 10px !important;
+}
+.pressureFocusPage .neonControlViz .panelTitleStack h3{
+  font-size:1rem !important;
+}
+.pressureFocusPage .panelSubtext{
+  display:none !important;
+}
+.pressureFocusPage .neonParamRow{
+  padding:5px 0 !important;
+  gap:4px 6px !important;
+  grid-template-columns:28px 1fr 52px !important;
+  grid-template-areas:"icon text value" ". slider slider" !important;
+}
+.pressureFocusPage .paramIcon{
+  width:26px !important;
+  height:26px !important;
+  font-size:.78rem !important;
+}
+.pressureFocusPage .paramText label{
+  font-size:.68rem !important;
+}
+.pressureFocusPage .paramText small{
+  font-size:.56rem !important;
+}
+.pressureFocusPage .neonParamRow .valueBadge{
+  min-width:50px !important;
+  font-size:.66rem !important;
+  padding:3px 5px !important;
+}
+
+
+.legendLine{display:inline-block;width:30px;height:0;border-top:3px solid #22d3ee;border-radius:999px;vertical-align:middle;margin-right:2px;}
+.legendLine.amber{border-top-color:#fbbf24;}
+.displacementPressureFocusPage .vizMediaFrame canvas{background:transparent;}
+
+.phaseRow .paramIcon{background:linear-gradient(135deg,rgba(168,85,247,.35),rgba(59,130,246,.26));}
+.phaseDiffRow .paramIcon{background:linear-gradient(135deg,rgba(251,191,36,.35),rgba(168,85,247,.28));font-size:.86rem;}
+
+.speedSoundPage .distanceRow .paramIcon{background:linear-gradient(135deg,rgba(251,191,36,.38),rgba(59,130,246,.22));}
+.speedSoundPage .tempRow .paramIcon{background:linear-gradient(135deg,rgba(251,146,60,.38),rgba(168,85,247,.22));}
+.speedSoundPage .travelTimeRow .paramIcon{background:linear-gradient(135deg,rgba(34,211,238,.34),rgba(168,85,247,.24));font-size:.78rem;}
+@media (max-width: 720px){
+  .speedSoundPage .vizMediaFrame canvas{min-height:300px !important;aspect-ratio:1200/610 !important;}
+}
+
+.speedSoundFocusPage .vizMediaFrame canvas{background:transparent;}
+.speedSoundFocusPage .distanceRow .paramIcon{background:linear-gradient(135deg,rgba(251,191,36,.38),rgba(59,130,246,.22));}
+.speedSoundFocusPage .tempRow .paramIcon{background:linear-gradient(135deg,rgba(251,146,60,.38),rgba(168,85,247,.22));}
+.speedSoundFocusPage .travelTimeRow .paramIcon{background:linear-gradient(135deg,rgba(34,211,238,.34),rgba(168,85,247,.24));font-size:.78rem;}
+
+.soundTopicPage .vizMediaFrame canvas{background:transparent;}
+.soundTopicPage .conceptChip .chipIcon{min-width:34px;}
+
+.rebuiltTopicPage .vizMediaFrame canvas{background:transparent;}
+.rebuiltTopicPage select{min-width:116px;border-radius:14px;border:1px solid rgba(148,163,184,.28);background:rgba(15,23,42,.72);color:#e5f4ff;padding:8px 10px;}
+
+/* v5.116-reflection-polish: Echo demo button balance and mobile layout */
+.longitudinalFocusPage .echoDemoRow{
+  grid-template-columns:58px minmax(165px,.9fr) minmax(160px,1.05fr) 118px !important;
+  align-items:center !important;
+}
+.longitudinalFocusPage .echoDemoBtn{
+  width:100% !important;
+  min-height:52px !important;
+  justify-content:center !important;
+  white-space:normal !important;
+  line-height:1.25 !important;
+  border-radius:18px !important;
+  background:linear-gradient(135deg,rgba(34,211,238,.24),rgba(168,85,247,.26)) !important;
+  border:1px solid rgba(34,211,238,.34) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 28px rgba(2,6,23,.24) !important;
+}
+.longitudinalFocusPage .echoDemoBtn:active{transform:translateY(1px)}
+
+@media(max-width:760px){
+  .longitudinalFocusPage .echoDemoRow{
+    grid-template-columns:44px 1fr 86px !important;
+    grid-template-areas:
+      "icon text value"
+      "button button button" !important;
+  }
+  .longitudinalFocusPage .echoDemoRow .echoDemoBtn{grid-area:button;min-height:44px !important;font-size:.86rem !important;margin-top:4px !important;}
+}
+
+@media(max-width:420px){
+  .longitudinalFocusPage .echoDemoRow{
+    grid-template-columns:34px 1fr 70px !important;
+  }
+  .longitudinalFocusPage .echoDemoRow .echoDemoBtn{min-height:40px !important;font-size:.78rem !important;}
+}
+
+
+/* v5.119 strong fix: sound reflection echo demo layout */
+.longitudinalFocusPage .echoDemoRow{
+  display:grid !important;
+  grid-template-columns:52px minmax(180px,1fr) minmax(220px,1.2fr) 118px !important;
+  grid-template-areas:"icon text button value" !important;
+  align-items:center !important;
+  gap:12px !important;
+}
+.longitudinalFocusPage .echoDemoRow .echoIcon{grid-area:icon !important;}
+.longitudinalFocusPage .echoDemoRow .echoText{grid-area:text !important;}
+.longitudinalFocusPage .echoDemoRow .echoValue{grid-area:value !important; justify-self:end !important;}
+.longitudinalFocusPage .echoDemoRow .echoDemoBtn{
+  grid-area:button !important;
+  width:100% !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:54px !important;
+  padding:12px 16px !important;
+  font-size:.98rem !important;
+  font-weight:800 !important;
+  letter-spacing:.01em !important;
+  white-space:normal !important;
+  text-align:center !important;
+  line-height:1.25 !important;
+  border-radius:18px !important;
+  background:linear-gradient(135deg,rgba(34,211,238,.22),rgba(99,102,241,.18),rgba(168,85,247,.26)) !important;
+  border:1px solid rgba(34,211,238,.38) !important;
+  box-shadow:0 10px 24px rgba(2,6,23,.24), inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+.longitudinalFocusPage .echoDemoRow .echoDemoBtn:hover{filter:brightness(1.05);}
+@media (max-width: 760px){
+  .longitudinalFocusPage .echoDemoRow{
+    grid-template-columns:40px 1fr 86px !important;
+    grid-template-areas:
+      "icon text value"
+      "button button button" !important;
+    gap:8px 10px !important;
+  }
+  .longitudinalFocusPage .echoDemoRow .echoValue{justify-self:end !important;}
+  .longitudinalFocusPage .echoDemoRow .echoDemoBtn{min-height:48px !important; font-size:.92rem !important; margin-top:4px !important;}
+}
+@media (max-width: 420px){
+  .longitudinalFocusPage .echoDemoRow{grid-template-columns:34px 1fr 74px !important;}
+  .longitudinalFocusPage .echoDemoRow .echoDemoBtn{font-size:.88rem !important; padding:11px 12px !important;}
+}
+
+/* v5.121 natural physics echo: button text tuned */
+
+
+/* v5.122 cleaner echo row: remove explanatory subtext under the button */
+.longitudinalFocusPage .echoDemoRow .echoText small{display:none !important;}
+.longitudinalFocusPage .echoDemoRow .echoText label{font-size:1rem !important;}
+@media(max-width:760px){.longitudinalFocusPage .echoDemoRow .echoText label{font-size:.94rem !important;}}
+
+
+/* v5.125: two echo samples (Physics | Hello) */
+.longitudinalFocusPage .echoDemoRow{
+  display:grid !important;
+  grid-template-columns:52px minmax(150px,.9fr) minmax(170px,.9fr) minmax(220px,1.1fr) 108px !important;
+  grid-template-areas:"icon text picker button value" !important;
+  align-items:center !important;
+  gap:12px !important;
+}
+.longitudinalFocusPage .echoDemoRow .echoIcon{grid-area:icon !important;}
+.longitudinalFocusPage .echoDemoRow .echoText{grid-area:text !important;}
+.longitudinalFocusPage .echoDemoRow .echoValue{grid-area:value !important; justify-self:end !important;}
+.longitudinalFocusPage .echoSamplePicker{grid-area:picker !important;display:inline-flex !important;align-items:center !important;gap:8px !important;padding:4px !important;border-radius:16px !important;background:rgba(15,23,42,.56) !important;border:1px solid rgba(148,163,184,.22) !important;box-shadow:inset 0 1px 0 rgba(255,255,255,.03) !important;}
+.longitudinalFocusPage .echoChoiceBtn{appearance:none !important;border:none !important;border-radius:12px !important;padding:9px 14px !important;min-width:86px !important;font-weight:800 !important;font-size:.92rem !important;color:#dbeafe !important;background:transparent !important;cursor:pointer !important;transition:all .18s ease !important;}
+.longitudinalFocusPage .echoChoiceBtn.active{background:linear-gradient(135deg,rgba(34,211,238,.22),rgba(168,85,247,.22)) !important;color:#ffffff !important;box-shadow:0 6px 16px rgba(2,6,23,.18), inset 0 1px 0 rgba(255,255,255,.10) !important;border:1px solid rgba(34,211,238,.28) !important;}
+.longitudinalFocusPage .echoChoiceBtn:not(.active):hover{background:rgba(255,255,255,.05) !important;}
+.longitudinalFocusPage .echoDemoRow .echoDemoBtn{grid-area:button !important;width:100% !important;display:flex !important;align-items:center !important;justify-content:center !important;min-height:52px !important;padding:12px 16px !important;font-size:.96rem !important;font-weight:800 !important;border-radius:18px !important;}
+@media (max-width: 900px){.longitudinalFocusPage .echoDemoRow{grid-template-columns:40px 1fr 86px !important;grid-template-areas:"icon text value" "picker picker picker" "button button button" !important;gap:8px 10px !important;}.longitudinalFocusPage .echoSamplePicker{justify-content:center !important;}.longitudinalFocusPage .echoDemoRow .echoDemoBtn{min-height:48px !important;font-size:.92rem !important;}}
+@media (max-width: 420px){.longitudinalFocusPage .echoChoiceBtn{min-width:76px !important;padding:8px 10px !important;font-size:.86rem !important;}}
+
+
+/* v5.126: Sound Refraction temperature side + gradient mode */
+.longitudinalFocusPage .refractionModeRow .paramIcon,.longitudinalFocusPage .hotSideRow .paramIcon{font-size:.78rem !important;}
+.longitudinalFocusPage .refractionModeRow select,.longitudinalFocusPage .hotSideRow select{min-width:132px !important;}
+@media(max-width:760px){.longitudinalFocusPage .refractionModeRow select,.longitudinalFocusPage .hotSideRow select{width:100% !important;min-width:0 !important;}}
+
+
+/* v5.127: Sound Refraction temperature wording polish */
+.longitudinalFocusPage .hotSideRow select{min-width:180px !important;}
+
+
+/* v5.128: Sound Refraction physics aligned labels */
+.longitudinalFocusPage .hotSideRow select{min-width:190px !important;}
+
+/* v5.129: Sound Refraction reference sketch controls */
+.longitudinalFocusPage .tempTopRow .paramIcon,
+.longitudinalFocusPage .tempBottomRow .paramIcon{font-size:.74rem !important;}
+.longitudinalFocusPage .refractionSwapBtn{
+  width:100% !important;
+  min-height:44px !important;
+  justify-content:center !important;
+  border-radius:16px !important;
+  font-weight:800 !important;
+}
+@media(max-width:760px){
+  .longitudinalFocusPage .refractionSwapBtn{grid-area:slider !important;}
+}
+
+
+/* v5.130: Sound Refraction on-spec controls */
+.longitudinalFocusPage .tempSwapRow .paramIcon{font-size:1rem !important;}
+.longitudinalFocusPage .refractionSwapBtn{width:100% !important; min-height:44px !important; justify-content:center !important; border-radius:16px !important; font-weight:800 !important;}
+
+
+/* v5.131: Sound Refraction final polish */
+.longitudinalFocusPage .tempSwapRow .paramIcon{font-size:1rem !important;}
+.longitudinalFocusPage .refractionSwapBtn{width:100% !important; min-height:44px !important; justify-content:center !important; border-radius:16px !important; font-weight:800 !important;}
+.longitudinalFocusPage .tempTopRow .paramIcon,
+.longitudinalFocusPage .tempBottomRow .paramIcon{font-size:.76rem !important;}
+
+
+/* v5.132: Sound Refraction physics fix */
+
+
+/* v5.154: Sound Refraction clean display + responsive width fix */
+#visualizer[data-viz-mode="soundRefraction"].visualizerSinglePage{
+  max-width:none !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .visualizerTemplateGrid{
+  grid-template-columns:minmax(0,1.45fr) minmax(300px,.78fr) !important;
+  gap:16px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .templateMainViz,
+#visualizer[data-viz-mode="soundRefraction"] .templateControlViz{
+  min-width:0 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .vizMediaFrame{
+  width:100% !important;
+  max-width:100% !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .vizMediaFrame canvas{
+  width:100% !important;
+  max-width:100% !important;
+  height:auto !important;
+  aspect-ratio:1200/440 !important;
+  min-height:330px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .refractionModeRow select{
+  min-width:0 !important;
+  width:100% !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .refractionQuickActions{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .refractionQuickActions button{
+  min-width:0 !important;
+  flex:1 1 132px !important;
+  white-space:normal !important;
+}
+
+@media(max-width:1100px){
+  #visualizer[data-viz-mode="soundRefraction"] .visualizerTemplateGrid{
+    grid-template-columns:1fr !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .templateControlViz{
+    max-width:100% !important;
+  }
+}
+
+@media(max-width:720px){
+  #visualizer[data-viz-mode="soundRefraction"] .sectionLead{
+    font-size:.92rem !important;
+    line-height:1.45 !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .neonParamRow{
+    grid-template-columns:42px minmax(0,1fr) !important;
+    grid-template-areas:
+      "icon text"
+      "icon slider"
+      "icon value" !important;
+    gap:8px 10px !important;
+    padding:13px 0 !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .paramIcon{grid-area:icon;width:38px !important;height:38px !important;font-size:.95rem !important;}
+  #visualizer[data-viz-mode="soundRefraction"] .paramText{grid-area:text;min-width:0 !important;}
+  #visualizer[data-viz-mode="soundRefraction"] .neonParamRow input,
+  #visualizer[data-viz-mode="soundRefraction"] .neonParamRow select,
+  #visualizer[data-viz-mode="soundRefraction"] .neonParamRow .actions,
+  #visualizer[data-viz-mode="soundRefraction"] .refractionSwapBtn{grid-area:slider;width:100% !important;}
+  #visualizer[data-viz-mode="soundRefraction"] .paramValueWrap{grid-area:value;justify-content:flex-start !important;}
+  #visualizer[data-viz-mode="soundRefraction"] .neonParamRow .valueBadge{
+    min-width:0 !important;
+    font-size:.92rem !important;
+    padding:8px 11px !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .vizMediaFrame canvas{
+    aspect-ratio:1200/500 !important;
+    min-height:250px !important;
+  }
+}
+
+@media(max-width:420px){
+  #visualizer[data-viz-mode="soundRefraction"] .vizMediaFrame canvas{
+    min-height:220px !important;
+    aspect-ratio:1200/560 !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .refractionQuickActions button{
+    flex-basis:100% !important;
+  }
+}
+
+
+/* v5.155: Sound Refraction clear mode buttons */
+#visualizer[data-viz-mode="soundRefraction"] .visuallyHiddenSelect{
+  position:absolute !important;
+  width:1px !important;
+  height:1px !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .modeSegmented{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:8px !important;
+  width:100% !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .modePill{
+  appearance:none !important;
+  border:1px solid rgba(148,163,184,.22) !important;
+  background:rgba(15,23,42,.72) !important;
+  color:#dbeafe !important;
+  border-radius:16px !important;
+  padding:12px 10px !important;
+  font-weight:900 !important;
+  line-height:1.2 !important;
+  text-align:center !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04) !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .modePill.active{
+  color:#ffffff !important;
+  border-color:rgba(34,211,238,.72) !important;
+  background:linear-gradient(135deg,rgba(29,78,216,.84),rgba(14,165,233,.78)) !important;
+  box-shadow:0 0 0 1px rgba(34,211,238,.18),0 12px 26px rgba(14,165,233,.18) !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .refractionModeRow .paramIcon{
+  font-size:.78rem !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .refractionModeRow .paramValueWrap{
+  display:none !important;
+}
+@media(max-width:720px){
+  #visualizer[data-viz-mode="soundRefraction"] .modeSegmented{
+    grid-template-columns:1fr !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .modePill{
+    padding:11px 12px !important;
+  }
+}
+
+
+/* v5.156: Sound Refraction compact controls + balanced display */
+#visualizer[data-viz-mode="soundRefraction"] .neonControlViz .panelSubtext{
+  font-size:.88rem !important;
+  margin-bottom:10px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .neonParamRow{
+  grid-template-columns:44px minmax(120px,.68fr) minmax(110px,1fr) 86px !important;
+  gap:10px !important;
+  padding:9px 0 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .paramIcon{
+  width:36px !important;
+  height:36px !important;
+  font-size:.82rem !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .paramText label{
+  font-size:.92rem !important;
+  line-height:1.15 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .paramText small{
+  font-size:.72rem !important;
+  line-height:1.25 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .neonParamRow .valueBadge{
+  min-width:72px !important;
+  padding:7px 9px !important;
+  font-size:.86rem !important;
+  border-radius:13px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .modePill{
+  padding:9px 8px !important;
+  font-size:.88rem !important;
+  border-radius:13px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] input[type="range"]{
+  min-height:26px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .vizMediaFrame canvas{
+  min-height:315px !important;
+}
+@media(max-width:720px){
+  #visualizer[data-viz-mode="soundRefraction"] .neonParamRow{
+    padding:10px 0 !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .modePill{
+    padding:9px 10px !important;
+  }
+}
+
+
+/* v5.157: show temperature-side swap only for multilayer and gradient */
+#visualizer[data-viz-mode="soundRefraction"] .refractionModeRow + .neonParamRow .paramText small{
+  font-size:.70rem !important;
+}
+
+
+/* v5.158 — Sound Refraction compact UI polish */
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:22px !important;
+  row-gap:0 !important;
+  align-items:start !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz > .panelTitleStack{
+  grid-column:1 / -1 !important;
+  margin-bottom:2px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz > .refractionModeRow,
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz > .refractionModeRow + .neonParamRow{
+  grid-column:1 / -1 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz > .neonParamRow{
+  margin:0 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .neonParamRow{
+  grid-template-columns:40px minmax(0,1fr) !important;
+  grid-template-areas:
+    "icon text"
+    "icon slider"
+    "icon value" !important;
+  gap:6px 10px !important;
+  padding:10px 0 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .paramIcon{
+  width:34px !important;
+  height:34px !important;
+  min-width:34px !important;
+  font-size:.82rem !important;
+  border-radius:12px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .paramText label{
+  font-size:.95rem !important;
+  font-weight:900 !important;
+  line-height:1.2 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .paramText small{
+  font-size:.73rem !important;
+  line-height:1.32 !important;
+  color:#94a3b8 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .modeSegmented{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:8px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .modePill{
+  padding:10px 8px !important;
+  font-size:.90rem !important;
+  border-radius:14px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .refractionSwapBtn{
+  min-height:42px !important;
+  padding:10px 12px !important;
+  border-radius:14px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .valueBadge{
+  padding:5px 9px !important;
+  font-size:.76rem !important;
+  border-radius:999px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz input[type="range"]{
+  margin-top:1px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz .panelTitleStack p{
+  font-size:.82rem !important;
+  line-height:1.35 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz .field:has(#vizTimeSpeed){
+  grid-column:1 / -1 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz .field:has(#vizLayerCount),
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz .field:has(#vizBendBoost){
+  background:transparent !important;
+}
+
+@media (max-width:980px){
+  #visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz{
+    grid-template-columns:1fr !important;
+    column-gap:0 !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz > .panelTitleStack,
+  #visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz > .neonParamRow{
+    grid-column:1 / -1 !important;
+  }
+}
+
+@media (max-width:720px){
+  #visualizer[data-viz-mode="soundRefraction"] .modeSegmented{
+    grid-template-columns:1fr !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .modePill{
+    padding:10px 12px !important;
+  }
+}
+
+
+/* v5.159 — Sound Refraction release polish */
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  column-gap:12px !important;
+  row-gap:10px !important;
+  padding:18px 18px 16px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz > .panelTitleStack,
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz > .refractionModeRow,
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz > .tempSwapRow,
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz > .timeRow{
+  grid-column:1 / -1 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz > .panelTitleStack{
+  margin-bottom:0 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz .panelTitleStack h3{
+  font-size:1.18rem !important;
+  line-height:1.2 !important;
+  margin:0 0 2px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz .panelTitleStack p{
+  font-size:.78rem !important;
+  line-height:1.3 !important;
+  margin:0 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .neonParamRow{
+  border-bottom:none !important;
+  border:1px solid rgba(148,163,184,.12) !important;
+  background:rgba(7,17,37,.46) !important;
+  border-radius:15px !important;
+  grid-template-columns:34px minmax(0,1fr) auto !important;
+  grid-template-areas:
+    "icon text value"
+    "icon slider slider" !important;
+  gap:5px 8px !important;
+  padding:9px 10px !important;
+  min-height:0 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .paramIcon{
+  grid-area:icon !important;
+  width:32px !important;
+  height:32px !important;
+  min-width:32px !important;
+  border-radius:11px !important;
+  font-size:.78rem !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14) !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .paramText{
+  grid-area:text !important;
+  min-width:0 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .paramText label{
+  font-size:.88rem !important;
+  line-height:1.15 !important;
+  margin:0 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .paramText small{
+  font-size:.68rem !important;
+  line-height:1.25 !important;
+  margin-top:1px !important;
+  color:#91a4bd !important;
+  font-weight:700 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .neonParamRow input,
+#visualizer[data-viz-mode="soundRefraction"] .neonParamRow select,
+#visualizer[data-viz-mode="soundRefraction"] .neonParamRow .actions,
+#visualizer[data-viz-mode="soundRefraction"] .modeSegmented,
+#visualizer[data-viz-mode="soundRefraction"] .refractionSwapBtn{
+  grid-area:slider !important;
+  width:100% !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .paramValueWrap{
+  grid-area:value !important;
+  justify-content:flex-end !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .neonParamRow .valueBadge{
+  min-width:0 !important;
+  padding:4px 8px !important;
+  font-size:.72rem !important;
+  border-radius:999px !important;
+  box-shadow:none !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .modeSegmented{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:7px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .modePill{
+  padding:9px 8px !important;
+  font-size:.86rem !important;
+  border-radius:12px !important;
+  box-shadow:none !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .modePill.active{
+  box-shadow:0 0 0 1px rgba(34,211,238,.18) !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .refractionModeRow,
+#visualizer[data-viz-mode="soundRefraction"] .tempSwapRow{
+  background:rgba(6,18,45,.62) !important;
+  border-color:rgba(34,211,238,.18) !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .refractionSwapBtn{
+  min-height:36px !important;
+  padding:8px 10px !important;
+  border-radius:12px !important;
+  font-size:.84rem !important;
+  font-weight:900 !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] input[type="range"]{
+  height:5px !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .timeRow{
+  background:rgba(12,18,40,.40) !important;
+}
+
+@media(max-width:980px){
+  #visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz{
+    grid-template-columns:1fr !important;
+    row-gap:8px !important;
+  }
+}
+@media(max-width:720px){
+  #visualizer[data-viz-mode="soundRefraction"] .modeSegmented{
+    grid-template-columns:1fr !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .neonParamRow{
+    grid-template-columns:32px minmax(0,1fr) auto !important;
+    padding:9px 9px !important;
+  }
+}
+
+
+/* v5.160 — make swapped temperature relation easier to notice */
+#visualizer[data-viz-mode="soundRefraction"] .tempSwapRow .valueBadge{
+  border-color:rgba(34,211,238,.30) !important;
+  color:#e0f2fe !important;
+}
+
+
+/* v5.161 — physics wording guardrails */
+#visualizer[data-viz-mode="soundRefraction"] .bendBoostRow .paramText small::after{
+  content:" ไม่ใช่ค่าการเบนจริง";
+  color:#fbbf24;
+}
+
+
+/* v5.162 — final physics clean-up */
+#visualizer[data-viz-mode="soundRefraction"] .vizMediaFrame canvas{
+  image-rendering:auto;
+}
+
+
+/* v5.164 — Sound Refraction final layout and landscape graph emphasis */
+@media (max-width:950px) and (orientation:landscape){
+  #visualizer[data-viz-mode="soundRefraction"] .visualizerTemplateGrid.longitudinalFocusGrid{
+    grid-template-columns:minmax(0,2.35fr) minmax(250px,.80fr) !important;
+    gap:12px !important;
+    align-items:start !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .templateMainViz{
+    min-width:0 !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .vizMediaFrame canvas{
+    min-height:380px !important;
+    aspect-ratio:1200/760 !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .embeddedPlayerBar{
+    min-height:46px !important;
+    padding:3px 8px 5px !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .embeddedPlayerBar .playerBtn,
+  #visualizer[data-viz-mode="soundRefraction"] .embeddedPlayerBar .playerPrimary{
+    width:40px !important;
+    height:40px !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz{
+    grid-template-columns:1fr !important;
+    padding:10px 10px 8px !important;
+    row-gap:7px !important;
+    max-height:calc(100vh - 92px) !important;
+    overflow:auto !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .controlViz.templateControlViz.longitudinalControlViz.neonControlViz .panelTitleStack h3{
+    font-size:1rem !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .neonParamRow{
+    padding:6px 8px !important;
+    gap:4px 7px !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .paramText label{
+    font-size:.78rem !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .paramText small{
+    font-size:.60rem !important;
+  }
+  #visualizer[data-viz-mode="soundRefraction"] .modePill{
+    font-size:.78rem !important;
+    padding:7px 6px !important;
+  }
+}
+
+
+/* v5.165 — in-app PNG capture fallback for mobile browsers */
+#visualizer[data-viz-mode="soundRefraction"] .playerShot{
+  border-color:rgba(56,189,248,.60) !important;
+  background:rgba(8,20,44,.82) !important;
+}
+#visualizer[data-viz-mode="soundRefraction"] .playerShot .playerGlyph{
+  font-size:1.04rem !important;
+}
+.pngSaveSheet{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(2,6,23,.76);
   backdrop-filter:blur(10px);
 }
-canvas{display:block;max-width:100%}
-#visualizerCanvas{width:100%;height:auto;min-height:300px}
-.vizPlayerBar{display:flex;justify-content:center;padding:10px;background:rgba(2,6,23,.52);border-top:1px solid rgba(148,163,184,.16)}
-.playerCluster{display:flex;gap:10px;align-items:center;justify-content:center}
-.playerBtn{
-  display:inline-flex;align-items:center;justify-content:center;
-  width:42px;height:42px;border-radius:16px;
-  color:#e0f2fe;background:#16233b;border:1px solid rgba(148,163,184,.22);
-  box-shadow:0 10px 26px rgba(0,0,0,.20);
+.pngSaveSheet.show{
+  display:flex;
 }
-.playerBtn:hover{transform:translateY(-1px);background:#213251}
-.playerPrimary{background:linear-gradient(135deg,#0ea5e9,#6366f1)}
-.playerGlyph svg{width:24px;height:24px;fill:currentColor;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.playerShot{font-size:1.1rem}
-.diffractionReadoutBar{
-  display:grid;grid-template-columns:repeat(5,1fr);gap:10px;
-  padding:12px 2px 0;
+.pngSaveCard{
+  width:min(92vw,720px);
+  max-height:92vh;
+  overflow:auto;
+  border:1px solid rgba(56,189,248,.38);
+  border-radius:22px;
+  padding:14px;
+  background:linear-gradient(180deg,rgba(8,20,44,.96),rgba(3,7,18,.96));
+  box-shadow:0 24px 80px rgba(0,0,0,.55),0 0 40px rgba(34,211,238,.18);
 }
-.diffractionReadoutBar>div{
-  min-width:0;padding:10px 12px;border-radius:16px;
-  background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.18);
+.pngSaveTitle{
+  font-weight:900;
+  font-size:1.05rem;
+  color:#e0f2fe;
+  margin-bottom:4px;
 }
-.diffractionReadoutBar label{display:block;font-size:.74rem;color:var(--muted);margin-bottom:4px}
-.diffractionReadoutBar b{display:block;color:#e0f2fe;font-size:.98rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.explainDetails{margin-top:12px;border:1px solid rgba(148,163,184,.18);border-radius:18px;background:rgba(2,6,23,.24);overflow:hidden}
-.explainDetails summary{cursor:pointer;padding:12px 14px;font-weight:800;color:#dbeafe}
-.detailsBody{padding:0 14px 14px}
-.explainGrid{display:grid;grid-template-columns:1.1fr .9fr 1.1fr;gap:12px}
-.templateInsightCard,.templateLegendCard{
-  padding:13px;border-radius:16px;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.16)
+.pngSaveHint{
+  font-size:.82rem;
+  line-height:1.35;
+  color:#a7c7e7;
+  margin-bottom:10px;
 }
-.insightTitle{font-weight:800;margin-bottom:8px;color:#f8fafc}
-ul{margin:0;padding-left:1.2rem;color:#d4e1f5;line-height:1.62}
-.legendRow{display:flex;align-items:center;gap:10px;margin:8px 0;color:#d4e1f5}
-.legendDot{width:14px;height:14px;border-radius:999px;display:inline-block;box-shadow:0 0 16px currentColor}
-.legendDot.cyan{background:var(--cyan);color:var(--cyan)}
-.legendDot.red{background:var(--red);color:var(--red)}
-.legendDot.violet{background:var(--violet);color:var(--violet)}
-.legendMark{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;border-radius:9px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);font-weight:900;color:#e0f2fe}
-.field{margin:12px 0}
-.richField{
-  display:grid;grid-template-columns:48px minmax(0,1fr);gap:10px;align-items:center;
-  padding:11px;border-radius:18px;background:rgba(15,23,42,.58);border:1px solid rgba(148,163,184,.16)
+.pngSaveCard img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:16px;
+  border:1px solid rgba(148,163,184,.18);
+  background:#020617;
 }
-.richField input[type="range"],.richField .modeSegmented{grid-column:1 / -1;width:100%}
-.paramIcon{
-  width:46px;height:46px;border-radius:16px;display:flex;align-items:center;justify-content:center;
-  font-weight:900;color:white;box-shadow:0 10px 28px rgba(0,0,0,.24);font-size:.86rem;
+.pngSaveActions{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:10px;
 }
-.paramText label{display:block;font-weight:800;color:#f8fafc}
-.paramText small{display:block;color:var(--muted);font-size:.78rem;line-height:1.35;margin-top:2px}
-.paramValueWrap{grid-column:1 / -1;display:flex;justify-content:flex-end}
-.valueBadge{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:5px 10px;border-radius:999px;background:rgba(2,6,23,.60);border:1px solid rgba(148,163,184,.20);color:#e0f2fe;font-weight:800;font-size:.86rem}
-input[type="range"]{accent-color:#38bdf8;min-width:0}
-.modeSegmented{display:flex;gap:8px;flex-wrap:wrap}
-.modePill{flex:1 1 auto;min-height:36px;border-radius:999px;padding:7px 10px;background:#18243c;color:#cbd5e1;border:1px solid rgba(148,163,184,.22);font-weight:800;font-size:.82rem}
-.modePill.active{background:linear-gradient(135deg,#0ea5e9,#6366f1);color:white;border-color:rgba(255,255,255,.26)}
-.visuallyHiddenSelect{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.actions button,.secondary,button.good,button.warn{
-  min-height:40px;padding:9px 13px;border-radius:14px;background:#17243c;color:#e5eefc;border:1px solid rgba(148,163,184,.22);font-weight:800
+.pngCloseBtn{
+  min-height:38px;
 }
-.actions button:hover{background:#243556}
-.localExportCard{margin-top:18px;padding:16px}
-.tableWrap{width:100%;overflow:auto;margin-top:12px;border-radius:16px;border:1px solid rgba(148,163,184,.16)}
-table{width:100%;border-collapse:collapse;font-size:.86rem;background:rgba(2,6,23,.22)}
-th,td{border-bottom:1px solid rgba(148,163,184,.14);padding:9px 10px;text-align:left;white-space:nowrap}
-th{color:#dbeafe;background:rgba(15,23,42,.88);position:sticky;top:0}
-td{color:#d4e1f5}
-.homeMenu .menuGrid,.vizSubGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.menuItem{display:flex;gap:12px;align-items:flex-start;padding:16px;border-radius:20px;background:rgba(17,28,51,.82);border:1px solid rgba(148,163,184,.18);box-shadow:var(--shadow)}
-.menuItem h3{margin:0 0 6px;font-size:1rem}.menuItem p{margin:0;color:var(--muted);line-height:1.45}.icon{font-size:1.35rem}.vizSubArrow{margin-left:auto;color:var(--muted);font-size:1.5rem}
-/* Sound Diffraction parameter colors: each icon uses a physics meaning */
-#visualizer[data-viz-mode="soundDiffraction"] .diffractionModeRow .paramIcon{background:linear-gradient(135deg,#0ea5e9,#2563eb)}
-#visualizer[data-viz-mode="soundDiffraction"] .apertureRow .paramIcon{background:linear-gradient(135deg,#f59e0b,#facc15);color:#111827}
-#visualizer[data-viz-mode="soundDiffraction"] .freqRow .paramIcon{background:linear-gradient(135deg,#7c3aed,#a78bfa)}
-#visualizer[data-viz-mode="soundDiffraction"] .tempRow .paramIcon{background:linear-gradient(135deg,#fb923c,#ef4444)}
-#visualizer[data-viz-mode="soundDiffraction"] .separationRow .paramIcon{background:linear-gradient(135deg,#14b8a6,#22c55e)}
-#visualizer[data-viz-mode="soundDiffraction"] .ampRow .paramIcon{background:linear-gradient(135deg,#fb7185,#f43f5e)}
-#visualizer[data-viz-mode="soundDiffraction"] .timeRow .paramIcon{background:linear-gradient(135deg,#16a34a,#84cc16)}
-.pngModalBackdrop{position:fixed;inset:0;background:rgba(2,6,23,.82);z-index:100;display:flex;align-items:center;justify-content:center;padding:18px}
-.pngModal{background:#0f172a;border:1px solid rgba(148,163,184,.25);border-radius:22px;box-shadow:var(--shadow);padding:16px;max-width:min(960px,96vw);max-height:92vh;overflow:auto}
-.pngModal img{max-width:100%;height:auto;border-radius:14px;display:block;background:#020617}.pngModal p{color:var(--muted);margin:0 0 10px}.pngModal button{margin-top:12px}
-@media (max-width:920px){
-  .visualizerTemplateGrid{grid-template-columns:1fr}
-  .controlViz{position:static}
-  .explainGrid{grid-template-columns:1fr}
-  .diffractionReadoutBar{grid-template-columns:repeat(2,1fr)}
-  .diffractionReadoutBar>div:last-child{grid-column:1/-1}
-}
-@media (max-width:540px){
-  .wrap{width:min(100% - 18px,1180px)}
-  main{padding-top:14px}
-  .nav{min-height:62px}.brand img{width:36px;height:36px}.brand span{font-size:.92rem}
-  .mainViz,.controlViz,.localExportCard{padding:10px;border-radius:18px}
-  #visualizerCanvas{min-height:280px}
-  .vizSingleModeLabel{font-size:.75rem;left:10px;top:10px}
-  .diffractionReadoutBar{grid-template-columns:1fr;gap:8px}
-  .richField{grid-template-columns:42px minmax(0,1fr);padding:10px}.paramIcon{width:40px;height:40px;border-radius:14px;font-size:.78rem}
-  .modePill{flex-basis:100%}
-}
-
-/* v5.172: single-opening diffraction only */
-#visualizer[data-viz-mode="soundDiffraction"] .diffractionModeRow,#visualizer[data-viz-mode="soundDiffraction"] .separationRow{display:none!important}
-#visualizer[data-viz-mode="soundDiffraction"] .diffractionReadoutBar b#vizAngleLabel{font-size:.9rem}
-
-/* v5.173: receiver profile labels represent relative sound intensity I/I0, not optical brightness. */
-
-/* v5.175: MelodyLab main-home polish and visualizer menu */
-.homeHeroCard{padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(135deg,rgba(14,165,233,.16),rgba(99,102,241,.10)),linear-gradient(180deg,rgba(17,28,51,.95),rgba(11,18,32,.98));}
-.homeHeroCard h1{margin:0 0 6px;font-size:clamp(1.8rem,3vw,3rem);letter-spacing:.3px;background:linear-gradient(90deg,#67e8f9,#e0f2fe,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent;}
-.homeHeroCard p{margin:0;color:#cbd5e1;line-height:1.6;max-width:760px;}
-.heroBadge{white-space:nowrap;border:1px solid rgba(56,189,248,.35);background:rgba(8,47,73,.35);color:#bae6fd;border-radius:999px;padding:9px 13px;font-weight:800;font-size:.86rem;}
-.featuredTopic{border-color:rgba(250,204,21,.38);background:linear-gradient(135deg,rgba(250,204,21,.08),rgba(17,28,51,.84));}
-.vizSubItem{align-items:center}.vizSubIconWrap{width:42px;height:42px;border-radius:15px;display:flex;align-items:center;justify-content:center;background:rgba(56,189,248,.10);border:1px solid rgba(56,189,248,.22);flex:0 0 auto}.vizSubText{min-width:0}.vizSubArrow{align-self:center}
-@media (max-width:650px){.homeHeroCard{align-items:flex-start;flex-direction:column}.heroBadge{white-space:normal}}
