@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MelodyLab v5.229 - Standing Wave (คลื่นนิ่งของเสียง)</title>
+  <title>MelodyLab v5.231 - Standing Wave (คลื่นนิ่งของเสียง)</title>
   <meta name="description" content="MelodyLab ห้องทดลองเสียงและเก็บข้อมูล ด้วยมือถือ">
   <meta name="theme-color" content="#0f172a">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/png" href="icon-192.png">
   <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="stylesheet" href="style.css">
-  <meta name="melodylab-build-version" content="v5.229-standing-wave-pressure-primary">
+  <meta name="melodylab-build-version" content="v5.231-standing-wave-fully-verified">
   <style>
     .standingWavePage .versionBadge{display:inline-flex;margin-top:10px;padding:8px 14px;border-radius:999px;background:rgba(16,185,129,.14);border:1px solid rgba(52,211,153,.35);color:#bbf7d0;font-weight:900}
     .standingCanvas{display:block;width:100% !important;height:min(66vh,560px) !important;min-height:450px !important;max-height:560px !important;aspect-ratio:auto !important}
@@ -56,7 +56,7 @@
     <div>
       <h2>11. Standing Wave (คลื่นนิ่งของเสียง)</h2>
       <p class="sectionLead">คลื่นนิ่งของเสียงในท่อเกิดจากคลื่นไป–กลับซ้อนทับกัน โดย <b>การกระจัด</b> และ <b>ความดันเสียง</b> มีบัพ/ปฏิบัพสลับตำแหน่งกัน</p>
-      <span class="versionBadge">v5.229 • กราฟความดันเป็นหลัก + อนุภาคประกอบ</span>
+      <span class="versionBadge">v5.231 • Final verified</span>
     </div>
   </div>
 
@@ -83,7 +83,7 @@
       </div>
 
       <div class="physicsFocus">
-        <b>จุดเน้น:</b> กราฟบนแสดง <b>การกระจัดของอากาศ</b> ส่วนกราฟล่างแสดง <b>ความดันเสียงเป็นหลัก</b> พร้อมอนุภาคเพื่อช่วยมองเห็นการอัดแน่น–เบาบาง และไมโครโฟนรับเสียงดังสุดที่ <b>ปฏิบัพ (Antinode) ของความดัน</b>
+        <b>จุดเน้น:</b> กราฟบนแสดง <b>การกระจัดของอากาศ</b> ส่วนกราฟล่างแสดง <b>ความดันเสียงเป็นหลัก</b> พร้อมอนุภาคเพื่อช่วยมองเห็นการอัดแน่น–เบาบาง และไมโครโฟนรับเสียงดังสุดที่ <b>ปฏิบัพ (Antinode) ของความดัน</b> โดย L ทำให้ท่อสั้น–ยาวจริงในภาพ และ v ทำให้ความถี่/จังหวะเร็วขึ้น
       </div>
 
       <details class="explainDetails" open>
@@ -135,14 +135,14 @@
 
       <div class="field richField neonParamRow">
         <div class="paramIcon lengthIcon">L</div>
-        <div class="paramText"><label>ความยาว L</label><small>ความยาวท่อ/เส้นเชือก</small></div>
+        <div class="paramText"><label>ความยาว L</label><small>ปรับแล้วท่อสั้น–ยาวในภาพ</small></div>
         <input id="standingLength" type="range" min="0.20" max="2.00" step="0.05" value="1.00">
         <div class="paramValueWrap"><span id="lengthLabel" class="valueBadge">--</span></div>
       </div>
 
       <div class="field richField neonParamRow">
         <div class="paramIcon speedIcon">v</div>
-        <div class="paramText"><label>อัตราเร็วคลื่น</label><small>เสียงในอากาศประมาณ 343 m/s</small></div>
+        <div class="paramText"><label>อัตราเร็วคลื่น</label><small>ปรับแล้วความถี่และจังหวะเปลี่ยน</small></div>
         <input id="standingSpeed" type="range" min="100" max="500" step="1" value="343">
         <div class="paramValueWrap"><span id="speedLabel" class="valueBadge">--</span></div>
       </div>
@@ -414,7 +414,11 @@ function drawDisplacementLayer(ctx,left,right,y,amp,p,dispTime){
 function draw(){
   const canvas=$('standingCanvas');if(!canvas)return;
   const {w,h}=canvasScale(canvas),ctx=canvas.getContext('2d'),p=params();updateLabels();background(ctx,w,h);
-  const left=Math.max(56,Math.round(w*0.12)),right=w-Math.max(38,Math.round(w*0.07)),plotW=right-left;
+  const left=Math.max(56,Math.round(w*0.12));
+  const maxRight=w-Math.max(38,Math.round(w*0.07));
+  const maxPlotW=maxRight-left;
+  const lengthScale=0.42+0.58*clamp((p.L-0.20)/(2.00-0.20),0,1);
+  const right=left+maxPlotW*lengthScale;
   const yTube=Math.round(h*0.29), yD=Math.round(h*0.68);
   const amp=Math.min(38*p.A,h*0.080);
   const theta=2*Math.PI*state.time;
@@ -430,7 +434,7 @@ function draw(){
   ctx.fillStyle='rgba(15,23,42,.80)';ctx.strokeStyle='rgba(148,163,184,.18)';
   rr(ctx,16,h-66,Math.min(w-32,396),52,15,true,true);
   ctx.fillStyle='rgba(226,232,240,.96)';ctx.font='900 12px system-ui,sans-serif';ctx.fillText(`${p.boundaryName} • ${p.modeText}`,32,h-44);
-  ctx.fillStyle='rgba(148,163,184,.96)';ctx.font='800 10px system-ui,sans-serif';ctx.fillText(`${p.formula}, λ = ${fmt(p.lambda,2)} m, f = ${fmt(p.freq,1)} Hz`,32,h-25);
+  ctx.fillStyle='rgba(148,163,184,.96)';ctx.font='800 10px system-ui,sans-serif';ctx.fillText(`${p.formula}, L = ${fmt(p.L,2)} m, v = ${fmt(p.v,0)} m/s, λ = ${fmt(p.lambda,2)} m, f = ${fmt(p.freq,1)} Hz`,32,h-25);
   ctx.restore();
 }
 function row(){
@@ -452,7 +456,9 @@ function downloadCSV(){
 function savePNG(){const canvas=$('standingCanvas');if(!canvas)return;const a=document.createElement('a');a.href=canvas.toDataURL('image/png');a.download='melodylab_standing_wave_sound.png';a.click();}
 function tick(now){
   const dt=Math.min(.05,(now-state.last)/1000);state.last=now;
-  if(state.running) state.time += dt*params().timeSpeed*0.28;
+  const p=params();
+  const freqFactor=clamp(p.freq/85.75,0.35,2.25);
+  if(state.running) state.time += dt*p.timeSpeed*0.22*freqFactor;
   draw();requestAnimationFrame(tick);
 }
 ['standingBoundary','standingMode','standingLength','standingSpeed','standingAmp','standingTimeSpeed'].forEach(id=>{$(id)?.addEventListener('input',draw);$(id)?.addEventListener('change',draw);});
